@@ -1,0 +1,112 @@
+# ==========================================================
+# Codex CLI Configuration
+# Location: ~/.codex/config.toml
+# ==========================================================
+
+# Default model
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+
+# Authentication method
+preferred_auth_method = "chatgpt"
+
+# ----------------------------------------------------------
+# Agent behaviour
+# ----------------------------------------------------------
+
+[agent]
+
+# Require confirmation for risky actions
+require_confirmation_for_large_changes = true
+
+# Pause if more than X files are modified
+max_files_to_modify_without_confirmation = 5
+
+# Encourage planning before editing
+planning_mode = "step-by-step"
+
+# ----------------------------------------------------------
+# Code workflow rules
+# ----------------------------------------------------------
+
+[workflow]
+
+# Always suggest verification commands
+suggest_build_commands = true
+suggest_lint_commands = true
+
+# Avoid large refactors automatically
+limit_large_refactors = true
+
+# Prefer minimal diffs
+prefer_small_changes = true
+
+# ----------------------------------------------------------
+# Safety settings
+# ----------------------------------------------------------
+
+[safety]
+
+prevent_env_modification = true
+prevent_secret_exposure = true
+prevent_destructive_commands = true
+
+# ----------------------------------------------------------
+# Default commands Codex can suggest
+# ----------------------------------------------------------
+
+[verification]
+
+build_command = "npm run build"
+lint_command = "npm run lint"
+test_command = "npm test"
+
+# ----------------------------------------------------------
+# AI onboarding documents
+# ----------------------------------------------------------
+
+[context]
+
+load_files = [
+  "AI_ONBOARDING.md",
+  "AI_CONTEXT.md",
+  "PROJECT_MAP.md",
+  "AGENTS.md",
+  "AI_TASKS.md",
+  "AI_DEBUG.md",
+  "AI_DEPLOY.md",
+  "AI_REVIEW.md",
+  "AI_FEATURE_SPEC.md"
+]
+
+# ----------------------------------------------------------
+# Multi-agent roles (experimental)
+# ----------------------------------------------------------
+
+[agents.architect]
+role = "software-architect"
+description = "Designs architecture and implementation plans"
+
+[agents.developer]
+role = "software-engineer"
+description = "Implements features and fixes bugs"
+
+[agents.reviewer]
+role = "code-reviewer"
+description = "Reviews code changes and detects issues"
+
+# ----------------------------------------------------------
+# Example MCP servers (optional)
+# ----------------------------------------------------------
+
+[mcp_servers.filesystem]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-filesystem", "."]
+
+[mcp_servers.git]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-git"]
+
+[mcp_servers.shell]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-shell"]
