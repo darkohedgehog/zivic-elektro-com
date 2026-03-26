@@ -1,266 +1,347 @@
 "use client";
 
-import { useState } from "react";
+import type { ReactNode, RefObject } from "react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import {
   IconChevronDown as ChevronDown,
+  IconChevronRight as ChevronRight,
   IconMenu2 as Menu,
   IconX as X,
-  IconChevronRight as ChevronRight,
 } from "@tabler/icons-react";
-import { AnimatePresence, motion } from "motion/react";
-import Image from "next/image";
+import { cn } from "@/lib/utils";
 
-const products = [
-  { title: "Analytics", desc: "Monitor key metrics", href: "#" },
-  { title: "Automation", desc: "Build powerful flows", href: "#" },
-  { title: "Billing", desc: "Manage subscriptions", href: "#" },
-  { title: "Audiences", desc: "Segment your data", href: "#" },
-];
-const resources = [
-  { title: "Docs", desc: "Developer guides", href: "#" },
-  { title: "Tutorials", desc: "Step-by-step", href: "#" },
-  { title: "Templates", desc: "Jumpstart UI", href: "#" },
-  { title: "Community", desc: "Join discussions", href: "#" },
-];
-
-const tapProps = {
-  whileTap: { scale: 0.98 },
-  transition: {
-    type: "spring" as const,
-    stiffness: 500,
-    damping: 30,
-    mass: 0.6,
-  },
+type NavItem = {
+  title: string;
+  desc: string;
+  href: string;
 };
 
+const solutions: NavItem[] = [
+  {
+    title: "Proizvodi",
+    desc: "Pregled celokupne ponude i dostupnih artikala.",
+    href: "/proizvodi",
+  },
+  {
+    title: "Kategorije",
+    desc: "Jasno organizovane kategorije za brže snalaženje.",
+    href: "/kategorije",
+  },
+  {
+    title: "Usluge",
+    desc: "Podrška i profesionalna pomoć pri izboru rešenja.",
+    href: "/usluge",
+  },
+];
+
+const company: NavItem[] = [
+  {
+    title: "O nama",
+    desc: "Kako pristupamo saradnji i kvalitetu usluge.",
+    href: "/o-nama",
+  },
+  {
+    title: "Kontakt",
+    desc: "Brza komunikacija i jednostavan put do odgovora.",
+    href: "/kontakt",
+  },
+  {
+    title: "Početna",
+    desc: "Povratak na uvodnu stranu i ključne informacije.",
+    href: "/",
+  },
+];
+
 export function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [megaOpen, setMegaOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [desktopMenuOpen, setDesktopMenuOpen] = useState(false);
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
+  const desktopMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handlePointerDown = (event: MouseEvent) => {
+      if (!desktopMenuRef.current?.contains(event.target as Node)) {
+        setDesktopMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, []);
 
   return (
-    <header className="bg-card w-full rounded-xl border">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="flex h-16 items-center justify-between gap-4">
-          <div className="flex w-full items-center justify-between gap-3 md:w-auto">
-            <span className="font-semibold">
-              <Image
-                src="/logo.png"
-                alt="Živić elektro logo"
-                width={100}
-                height={100}
-                priority
-                className="w-auto h-auto"
-              />
+    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+      <div className="site-shell">
+        <div className="surface-panel rounded-[1.75rem] px-4 sm:px-6">
+          <div className="flex h-18 items-center justify-between gap-4">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="surface-panel-muted rounded-2xl p-2">
+                <Image
+                  src="/logo.png"
+                  alt="Zivic elektro logo"
+                  width={54}
+                  height={54}
+                  priority
+                  className="h-auto w-auto"
+                />
+              </div>
+              <div className="hidden sm:block">
+                <p className="text-xs uppercase tracking-[0.22em] text-[#c9ada7]">
+                  Zivic Elektro
+                </p>
+                <p className="mt-1 text-sm text-[#f2e9e4]/72">
+                  Pouzdana poslovna podrška i pregledna ponuda
+                </p>
+              </div>
+            </Link>
 
-            </span>
-            <motion.button
-              aria-label="Toggle menu"
-              className="hover:bg-muted inline-flex size-10 items-center justify-center rounded-md border md:hidden"
-              onClick={() => setOpen((s) => !s)}
-              whileTap={{ scale: 0.92 }}
-            >
-              {open ? <X size={20} /> : <Menu size={20} />}
-            </motion.button>
+            <nav className="hidden items-center gap-1 md:flex">
+              <DesktopMegaMenu
+                menuRef={desktopMenuRef}
+                open={desktopMenuOpen}
+                onOpenChange={setDesktopMenuOpen}
+              />
+              <NavLink href="/usluge">Usluge</NavLink>
+              <NavLink href="/o-nama">O nama</NavLink>
+              <NavLink href="/kontakt">Kontakt</NavLink>
+            </nav>
+
+            <div className="flex items-center gap-3">
+              <div className="hidden md:flex">
+               <Link href="/kontakt" className="btn-secondary">
+               Zatražite ponudu
+              </Link>
+              </div>
+              <button
+                type="button"
+                aria-label="Toggle menu"
+                aria-expanded={mobileMenuOpen}
+                className="inline-flex size-11 items-center justify-center rounded-xl border border-[rgba(242,233,228,0.1)] bg-white/5 text-[#f2e9e4] transition duration-150 hover:bg-white/10 active:scale-95 md:hidden"
+                onClick={() =>
+                  setMobileMenuOpen((open) => {
+                    const nextOpen = !open;
+
+                    if (!nextOpen) {
+                      setMobileSolutionsOpen(false);
+                    }
+
+                    return nextOpen;
+                  })
+                }
+              >
+                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
           </div>
 
-          <nav className="hidden items-center gap-2 md:flex">
-            <div className="relative">
-              <motion.button
-                onMouseEnter={() => setMegaOpen(true)}
-                onMouseLeave={() => setMegaOpen(false)}
-                className="hover:bg-muted inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm"
-                whileTap={{ scale: 0.97 }}
-                whileHover={{ y: -1 }}
-              >
-                Products <ChevronDown size={16} />
-              </motion.button>
-              <AnimatePresence>
-                {megaOpen && (
-                  <motion.div
-                    onMouseEnter={() => setMegaOpen(true)}
-                    onMouseLeave={() => setMegaOpen(false)}
-                    initial={{ opacity: 0, y: -6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    className="bg-card absolute top-full left-0 z-20 mt-2 w-2xl rounded-xl p-4 ring shadow-sm shadow-black/10 ring-black/10 dark:shadow-white/10 dark:ring-white/10"
-                  >
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="rounded-lg p-3">
-                        <p className="text-muted-foreground px-1 pb-2 text-xs uppercase">
-                          Products
-                        </p>
-                        <ul className="grid gap-2">
-                          {products.map((p) => (
-                            <li key={p.title}>
-                              <motion.a
-                                href={p.href}
-                                className="hover:bg-muted block rounded-md px-2 py-2"
-                                whileHover={{ x: 2 }}
-                                whileTap={{ scale: 0.98 }}
-                              >
-                                <p className="text-sm font-medium">{p.title}</p>
-                                <p className="text-muted-foreground text-xs">
-                                  {p.desc}
-                                </p>
-                              </motion.a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="rounded-lg p-3">
-                        <p className="text-muted-foreground px-1 pb-2 text-xs uppercase">
-                          Resources
-                        </p>
-                        <ul className="grid gap-2">
-                          {resources.map((r) => (
-                            <li key={r.title}>
-                              <motion.a
-                                href={r.href}
-                                className="hover:bg-muted block rounded-md px-2 py-2"
-                                whileHover={{ x: 2 }}
-                                whileTap={{ scale: 0.98 }}
-                              >
-                                <p className="text-sm font-medium">{r.title}</p>
-                                <p className="text-muted-foreground text-xs">
-                                  {r.desc}
-                                </p>
-                              </motion.a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-            <motion.a
-              href="#"
-              className="hover:bg-muted rounded-md px-3 py-2 text-sm"
-              whileHover={{ y: -1 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              Pricing
-            </motion.a>
-            <motion.a
-              href="#"
-              className="hover:bg-muted rounded-md px-3 py-2 text-sm"
-              whileHover={{ y: -1 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              Company
-            </motion.a>
-          </nav>
+          <MobileMenu
+            mobileMenuOpen={mobileMenuOpen}
+            mobileSolutionsOpen={mobileSolutionsOpen}
+            onSolutionsToggle={() => setMobileSolutionsOpen((open) => !open)}
+          />
+        </div>
+      </div>
+    </header>
+  );
+}
 
-          <div className="hidden items-center gap-2 md:flex">
-            {/* Contact sales: rose theme */}
-            <motion.button
-              {...tapProps}
-              className="hidden rounded-full bg-black px-8 py-2 text-sm font-bold text-white shadow-[0px_-2px_0px_0px_rgba(255,255,255,0.4)_inset] md:block dark:bg-white dark:text-black"
-            >
-              Contact sales
-            </motion.button>
+function DesktopMegaMenu({
+  menuRef,
+  open,
+  onOpenChange,
+}: {
+  menuRef: RefObject<HTMLDivElement | null>;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
+  return (
+    <div
+      ref={menuRef}
+      className="relative"
+      onMouseEnter={() => onOpenChange(true)}
+      onMouseLeave={() => onOpenChange(false)}
+    >
+      <button
+        type="button"
+        aria-expanded={open}
+        className="nav-link"
+        onClick={() => onOpenChange(!open)}
+      >
+        Rešenja
+        <ChevronDown
+          size={16}
+          className={cn(
+            "ml-1 transition-transform duration-150",
+            open && "rotate-180",
+          )}
+        />
+      </button>
+
+      <div
+        className={cn(
+          "surface-panel absolute top-full left-0 z-20 mt-3 w-152 rounded-3xl p-5 transition-all duration-150",
+          open
+            ? "visible translate-y-0 opacity-100"
+            : "invisible -translate-y-1 opacity-0",
+        )}
+        aria-hidden={!open}
+      >
+        <div className="grid gap-4 lg:grid-cols-2">
+          <NavMenuSection title="Ponuda" items={solutions} />
+          <NavMenuSection title="Kompanija" items={company} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MobileMenu({
+  mobileMenuOpen,
+  mobileSolutionsOpen,
+  onSolutionsToggle,
+}: {
+  mobileMenuOpen: boolean;
+  mobileSolutionsOpen: boolean;
+  onSolutionsToggle: () => void;
+}) {
+  return (
+    <div
+      className={cn(
+        "overflow-hidden transition-all duration-200 md:hidden",
+        mobileMenuOpen
+          ? "max-h-192 border-t border-[rgba(242,233,228,0.08)] opacity-100"
+          : "max-h-0 border-t border-transparent opacity-0",
+      )}
+      aria-hidden={!mobileMenuOpen}
+    >
+      <div className="space-y-2 py-4">
+        <div className="surface-panel-muted rounded-2xl px-3 py-2">
+          <button
+            type="button"
+            aria-expanded={mobileSolutionsOpen}
+            className="flex w-full items-center justify-between rounded-xl py-2 text-sm text-[#f2e9e4]"
+            onClick={onSolutionsToggle}
+          >
+            <span>Rešenja</span>
+            <ChevronDown
+              size={16}
+              className={cn(
+                "transition-transform duration-150",
+                mobileSolutionsOpen && "rotate-180",
+              )}
+            />
+          </button>
+
+          <div
+            className={cn(
+              "overflow-hidden transition-all duration-200",
+              mobileSolutionsOpen ? "mt-2 max-h-144 opacity-100" : "max-h-0 opacity-0",
+            )}
+          >
+            <MobileMenuSection items={solutions} />
+            <div className="my-3 h-px bg-white/8" />
+            <MobileMenuSection items={company} />
           </div>
         </div>
 
-        <AnimatePresence initial={false}>
-          {open && (
-            <motion.div
-              initial={{ opacity: 0, y: -6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              className="border-t py-2 md:hidden"
-            >
-              <details className="px-3">
-                <summary className="hover:bg-muted flex cursor-pointer list-none items-center justify-between rounded-md px-0 py-2 text-sm">
-                  <span>Products</span>
-                  <ChevronDown size={16} />
-                </summary>
-                <div className="mt-2 rounded-lg border p-2">
-                  <p className="text-muted-foreground px-1 pb-2 text-xs uppercase">
-                    Products
-                  </p>
-                  <ul className="grid gap-1">
-                    {products.map((p) => (
-                      <li key={p.title}>
-                        <motion.a
-                          href={p.href}
-                          className="hover:bg-muted flex items-center justify-between rounded-md px-2 py-2 text-sm"
-                          whileHover={{ x: 2 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          <div className="min-w-0">
-                            <p className="font-medium">{p.title}</p>
-                            <p className="text-muted-foreground text-xs">
-                              {p.desc}
-                            </p>
-                          </div>
-                          <ChevronRight
-                            size={16}
-                            className="text-muted-foreground ml-3 shrink-0"
-                          />
-                        </motion.a>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-muted-foreground px-1 pt-3 pb-2 text-xs uppercase">
-                    Resources
-                  </p>
-                  <ul className="grid gap-1">
-                    {resources.map((r) => (
-                      <li key={r.title}>
-                        <motion.a
-                          href={r.href}
-                          className="hover:bg-muted flex items-center justify-between rounded-md px-2 py-2 text-sm"
-                          whileHover={{ x: 2 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          <div className="min-w-0">
-                            <p className="font-medium">{r.title}</p>
-                            <p className="text-muted-foreground text-xs">
-                              {r.desc}
-                            </p>
-                          </div>
-                          <ChevronRight
-                            size={16}
-                            className="text-muted-foreground ml-3 shrink-0"
-                          />
-                        </motion.a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </details>
-              <motion.a
-                href="#"
-                className="hover:bg-muted flex items-center justify-between rounded-md px-3 py-2 text-sm"
-                whileHover={{ x: 2 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span>Pricing</span>
-                <ChevronRight size={16} className="text-muted-foreground" />
-              </motion.a>
-              <motion.a
-                href="#"
-                className="hover:bg-muted flex items-center justify-between rounded-md px-3 py-2 text-sm"
-                whileHover={{ x: 2 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span>Company</span>
-                <ChevronRight size={16} className="text-muted-foreground" />
-              </motion.a>
-              <div className="flex items-center gap-2 px-3 pt-2">
-                <motion.button
-                  {...tapProps}
-                  className="ml-auto rounded-full bg-black px-4 py-2 text-sm font-bold text-white shadow-[0px_-2px_0px_0px_rgba(255,255,255,0.4)_inset] dark:bg-white dark:text-black"
-                >
-                  Contact sales
-                </motion.button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <MobileLink href="/usluge">Usluge</MobileLink>
+        <MobileLink href="/o-nama">O nama</MobileLink>
+        <MobileLink href="/kontakt">Kontakt</MobileLink>
+
+        <Link href="/kontakt" className="btn-primary w-full">
+          Zatražite ponudu
+        </Link>
       </div>
-    </header>
+    </div>
+  );
+}
+
+function NavMenuSection({
+  title,
+  items,
+}: {
+  title: string;
+  items: NavItem[];
+}) {
+  return (
+    <div className="surface-panel-muted rounded-[1.25rem] p-4">
+      <p className="section-eyebrow">{title}</p>
+      <ul className="mt-4 grid gap-2">
+        {items.map((item) => (
+          <li key={item.title}>
+            <Link
+              href={item.href}
+              className="block rounded-2xl px-3 py-3 transition duration-150 hover:bg-white/5"
+            >
+              <p className="text-sm font-medium text-[#f2e9e4]">{item.title}</p>
+              <p className="mt-1 text-sm leading-6 text-[#f2e9e4]/62">
+                {item.desc}
+              </p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function MobileMenuSection({
+  items,
+}: {
+  items: NavItem[];
+}) {
+  return (
+    <ul className="grid gap-2">
+      {items.map((item) => (
+        <li key={item.title}>
+          <Link
+            href={item.href}
+            className="flex items-center justify-between rounded-xl px-3 py-3 transition duration-150 hover:bg-white/5"
+          >
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-[#f2e9e4]">{item.title}</p>
+              <p className="mt-1 text-sm leading-6 text-[#f2e9e4]/62">
+                {item.desc}
+              </p>
+            </div>
+            <ChevronRight size={16} className="ml-3 shrink-0 text-[#9a8c98]" />
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function NavLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
+  return (
+    <Link href={href} className="nav-link">
+      {children}
+    </Link>
+  );
+}
+
+function MobileLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className="surface-panel-muted flex items-center justify-between rounded-2xl px-4 py-3 text-sm text-[#f2e9e4]"
+    >
+      <span>{children}</span>
+      <ChevronRight size={16} className="text-[#9a8c98]" />
+    </Link>
   );
 }
