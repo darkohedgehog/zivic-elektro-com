@@ -65,6 +65,16 @@ button {
   color: var(--foreground);
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 .site-shell {
   width: 100%;
   max-width: 80rem;
