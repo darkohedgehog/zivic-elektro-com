@@ -159,6 +159,16 @@ export type CategoryTreeNode = WooCategory & {
   children: WooCategory[];
 };
 
+export type PaginatedItems<T> = {
+  items: T[];
+  page: number;
+  pageSize: number;
+  totalItems: number;
+  totalPages: number;
+  startItem: number;
+  endItem: number;
+};
+
 export const getAllCategories = cache(async function getAllCategories(): Promise<
   WooCategory[]
 > {
@@ -177,6 +187,35 @@ export function getChildCategories(
   parentId: number,
 ): WooCategory[] {
   return categories.filter((category) => category.parent === parentId);
+}
+
+export function paginateItems<T>(
+  items: T[],
+  requestedPage: number,
+  pageSize: number,
+): PaginatedItems<T> {
+  const normalizedPageSize = Math.max(1, pageSize);
+  const totalItems = items.length;
+  const totalPages = Math.max(1, Math.ceil(totalItems / normalizedPageSize));
+  const page =
+    totalItems === 0
+      ? 1
+      : Math.min(Math.max(1, requestedPage), totalPages);
+  const startIndex = (page - 1) * normalizedPageSize;
+  const paginatedItems = items.slice(startIndex, startIndex + normalizedPageSize);
+  const startItem = totalItems === 0 ? 0 : startIndex + 1;
+  const endItem =
+    totalItems === 0 ? 0 : Math.min(startIndex + paginatedItems.length, totalItems);
+
+  return {
+    items: paginatedItems,
+    page,
+    pageSize: normalizedPageSize,
+    totalItems,
+    totalPages,
+    startItem,
+    endItem,
+  };
 }
 
 export function findCategoryBySlug(

@@ -21,17 +21,17 @@ type NavItem = {
 const solutions: NavItem[] = [
   {
     title: "Proizvodi",
-    desc: "Pregled celokupne ponude i dostupnih artikala.",
+    desc: "Pregled cjelokupne ponude i dostupnih artikala.",
     href: "/proizvodi",
   },
   {
     title: "Kategorije",
-    desc: "Jasno organizovane kategorije za brže snalaženje.",
+    desc: "Jasno organizirane kategorije za brže snalaženje.",
     href: "/kategorije",
   },
   {
     title: "Usluge",
-    desc: "Podrška i profesionalna pomoć pri izboru rešenja.",
+    desc: "Podrška i profesionalna pomoć pri izboru rješenja.",
     href: "/usluge",
   },
 ];
@@ -39,7 +39,7 @@ const solutions: NavItem[] = [
 const company: NavItem[] = [
   {
     title: "O nama",
-    desc: "Kako pristupamo saradnji i kvalitetu usluge.",
+    desc: "Kako pristupamo suradnji i kvalitetu usluge.",
     href: "/o-nama",
   },
   {
@@ -89,10 +89,10 @@ export function Navbar() {
               </div>
               <div className="hidden sm:block">
                 <p className="theme-label text-xs uppercase tracking-[0.22em]">
-                  Zivic Elektro
+                  Živić Elektro
                 </p>
                 <p className="theme-body-muted mt-1 text-sm">
-                  Pouzdana poslovna podrška i pregledna ponuda
+                  Pouzdana poslovna podrška
                 </p>
               </div>
             </Link>
@@ -169,7 +169,7 @@ function DesktopMegaMenu({
         className="nav-link"
         onClick={() => onOpenChange(!open)}
       >
-        Rešenja
+        Rješenja
         <ChevronDown
           size={16}
           className={cn(
@@ -211,7 +211,7 @@ function MobileMenu({
       className={cn(
         "overflow-hidden transition-all duration-200 md:hidden",
         mobileMenuOpen
-          ? "max-h-192 border-t border-[color:var(--border-soft)] opacity-100"
+          ? "max-h-192 border-t border-(--border-soft) opacity-100"
           : "max-h-0 border-t border-transparent opacity-0",
       )}
       aria-hidden={!mobileMenuOpen}
@@ -224,7 +224,7 @@ function MobileMenu({
             className="theme-heading flex w-full items-center justify-between rounded-xl py-2 text-sm"
             onClick={onSolutionsToggle}
           >
-            <span>Rešenja</span>
+            <span>Rješenja</span>
             <ChevronDown
               size={16}
               className={cn(

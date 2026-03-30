@@ -40,7 +40,7 @@ export function ProductGridSection({
         </div>
 
         {products.length > 0 ? (
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 2xl:grid-cols-3">
             {products.map((product) => (
               <ProductCard
                 key={product.id}
@@ -79,7 +79,7 @@ export function ProductCard({
   return (
     <Link
       href={`/proizvodi/${product.slug}`}
-      className="theme-card-surface theme-interactive-card group overflow-hidden rounded-3xl"
+      className="theme-card-surface theme-interactive-card group h-full overflow-hidden rounded-3xl"
     >
       <div className="theme-media-frame relative aspect-16/10 overflow-hidden">
         {image ? (
@@ -97,7 +97,7 @@ export function ProductCard({
         )}
       </div>
 
-      <div className="p-5">
+      <div className="flex h-full flex-col p-5">
         <div className="flex flex-wrap gap-2">
           <span className="theme-chip px-2.5 py-1 text-[11px] uppercase tracking-[0.14em]">
             {categoryLabel}
@@ -117,17 +117,17 @@ export function ProductCard({
         </p>
 
         <div className="theme-inline-panel mt-4 grid gap-2 rounded-2xl p-3">
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
             <span className="theme-label text-xs uppercase tracking-[0.16em]">
               Brand
             </span>
-            <span className="theme-heading text-right text-sm font-medium">
+            <span className="theme-heading min-w-0 text-sm font-medium sm:text-right">
               {brand}
             </span>
           </div>
         </div>
 
-        <div className="mt-4 flex items-center justify-between gap-3">
+        <div className="mt-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="theme-chip-muted rounded-2xl px-3 py-2 text-xs uppercase tracking-[0.16em] theme-label-muted">
             Read-only prikaz
           </div>

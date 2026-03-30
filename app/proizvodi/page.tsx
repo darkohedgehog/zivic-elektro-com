@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Boxes, Filter, FolderTree, PackageSearch } from "lucide-react";
+import { ArrowLeft, ArrowRight, Boxes, Filter, FolderTree, PackageSearch } from "lucide-react";
 import { CategoryBreadcrumbs } from "@/components/categories/CategoryBrowseContent";
 import { ProductCard } from "@/components/products/ProductBrowseContent";
 import {
@@ -9,18 +9,22 @@ import {
   getChildCategories,
   getProductBrand,
   getUniqueBrandsFromProducts,
+  paginateItems,
   resolveProductTaxonomy,
   type WooCategory,
   type WooProduct,
 } from "@/lib/woocommerce";
 
+type ProductsPageSearchParams = {
+  brand?: string;
+  category?: string;
+  subcategory?: string;
+  sort?: string;
+  page?: string;
+};
+
 type ProductsPageProps = {
-  searchParams: Promise<{
-    brand?: string;
-    category?: string;
-    subcategory?: string;
-    sort?: string;
-  }>;
+  searchParams: Promise<ProductsPageSearchParams>;
 };
 
 type SortOption = "newest" | "name-asc" | "name-desc" | "brand-asc";
@@ -29,6 +33,16 @@ type SelectOption = {
   value: string;
   label: string;
 };
+
+type ProductsQueryState = {
+  brand: string;
+  category: string;
+  subcategory: string;
+  sort: SortOption;
+  page: number;
+};
+
+const PRODUCTS_PER_PAGE = 24;
 
 const SORT_OPTIONS: Array<{ value: SortOption; label: string }> = [
   { value: "newest", label: "Najnovije prvo" },
@@ -46,7 +60,7 @@ export const metadata: Metadata = {
 export default async function ProductsPage({
   searchParams,
 }: ProductsPageProps) {
-  const [{ brand, category, subcategory, sort }, categories, products] =
+  const [{ brand, category, subcategory, sort, page }, categories, products] =
     await Promise.all([searchParams, getAllCategories(), getAllProducts()]);
 
   const topCategories = getChildCategories(categories, 0);
@@ -75,6 +89,7 @@ export default async function ProductsPage({
   const selectedSort = SORT_OPTIONS.some((item) => item.value === sort)
     ? (sort as SortOption)
     : "newest";
+  const requestedPage = parsePageParam(page);
 
   const filteredProducts = sortProducts(
     products.filter((product) => {
@@ -92,6 +107,19 @@ export default async function ProductsPage({
     selectedSort,
   );
 
+  const paginatedProducts = paginateItems(
+    filteredProducts,
+    requestedPage,
+    PRODUCTS_PER_PAGE,
+  );
+  const currentQueryState: ProductsQueryState = {
+    brand: selectedBrand,
+    category: selectedCategorySlug,
+    subcategory: selectedSubcategory,
+    sort: selectedSort,
+    page: paginatedProducts.page,
+  };
+
   const activeFilters = [
     selectedBrand ? `Brand: ${selectedBrand}` : null,
     selectedCategory ? `Kategorija: ${selectedCategory.name}` : null,
@@ -100,7 +128,7 @@ export default async function ProductsPage({
           subcategoryOptions.find((item) => item.value === selectedSubcategory)?.label
         }`
       : null,
-  ].filter(Boolean);
+  ].filter((item): item is string => Boolean(item));
 
   const selectedCategoryHasSubcategories = selectedCategory
     ? availableSubcategories.length > 0
@@ -170,8 +198,8 @@ export default async function ProductsPage({
 
         <section className="relative py-10 sm:py-12">
           <div className="surface-panel overflow-hidden rounded-4xl p-5 sm:p-6 lg:p-8">
-            <div className="mb-6 flex items-center gap-3">
-              <div className="theme-card-surface theme-heading flex h-10 w-10 items-center justify-center rounded-xl">
+            <div className="mb-6 flex items-start gap-3">
+              <div className="theme-card-surface theme-heading flex h-10 w-10 shrink-0 items-center justify-center rounded-xl">
                 <Filter className="h-5 w-5" />
               </div>
 
@@ -180,72 +208,106 @@ export default async function ProductsPage({
                   Filteri i sortiranje
                 </h2>
                 <p className="theme-body-muted mt-1 text-sm leading-7">
-                  Kombinujte brand, kategoriju i podkategoriju za uži pregled
-                  relevantnih proizvoda.
+                  Na mobilnim ekranima kontrole su složene vertikalno radi
+                  jasnijeg pregleda i jednostavnijeg korišćenja.
                 </p>
               </div>
             </div>
 
-            <form className="grid gap-4 lg:grid-cols-4" method="get">
-              <FilterField
-                label="Brand"
-                name="brand"
-                value={selectedBrand}
-                options={brandOptions}
-                placeholder="Svi brendovi"
-              />
+            <div className="theme-card-surface rounded-3xl p-4 sm:p-5">
+              <form className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4" method="get">
+                <FilterField
+                  label="Brand"
+                  name="brand"
+                  value={selectedBrand}
+                  options={brandOptions}
+                  placeholder="Svi brendovi"
+                />
 
-              <FilterField
-                label="Kategorija"
-                name="category"
-                value={selectedCategorySlug}
-                options={topCategories.map((item) => ({
-                  value: item.slug,
-                  label: item.name,
-                }))}
-                placeholder="Sve kategorije"
-              />
+                <FilterField
+                  label="Kategorija"
+                  name="category"
+                  value={selectedCategorySlug}
+                  options={topCategories.map((item) => ({
+                    value: item.slug,
+                    label: item.name,
+                  }))}
+                  placeholder="Sve kategorije"
+                />
 
-              <FilterField
-                label="Podkategorija"
-                name="subcategory"
-                value={selectedSubcategory}
-                options={subcategoryOptions}
-                placeholder={
-                  selectedCategory && !selectedCategoryHasSubcategories
-                    ? "Kategorija nema podkategorije"
-                    : "Sve podkategorije"
-                }
-                disabled={selectedCategory ? !selectedCategoryHasSubcategories : false}
-              />
+                <FilterField
+                  label="Podkategorija"
+                  name="subcategory"
+                  value={selectedSubcategory}
+                  options={subcategoryOptions}
+                  placeholder={
+                    selectedCategory && !selectedCategoryHasSubcategories
+                      ? "Kategorija nema podkategorije"
+                      : "Sve podkategorije"
+                  }
+                  disabled={selectedCategory ? !selectedCategoryHasSubcategories : false}
+                  helperText={
+                    selectedCategory && !selectedCategoryHasSubcategories
+                      ? "Za izabranu kategoriju trenutno nema užeg izbora."
+                      : undefined
+                  }
+                />
 
-              <FilterField
-                label="Sortiranje"
-                name="sort"
-                value={selectedSort}
-                options={SORT_OPTIONS}
-                placeholder="Sortiranje"
-              />
+                <FilterField
+                  label="Sortiranje"
+                  name="sort"
+                  value={selectedSort}
+                  options={SORT_OPTIONS}
+                  placeholder="Sortiranje"
+                />
 
-              <div className="flex flex-col gap-3 lg:col-span-4 lg:flex-row">
-                <button type="submit" className="btn-primary">
-                  Primenite filtere
-                </button>
+                <div className="grid gap-3 sm:col-span-2 xl:col-span-4 xl:grid-cols-[minmax(0,1fr)_auto]">
+                  <button type="submit" className="btn-primary w-full sm:w-auto">
+                    Primenite filtere
+                  </button>
 
-                <Link href="/proizvodi" className="btn-secondary">
-                  Resetujte pregled
-                </Link>
+                  <Link
+                    href="/proizvodi"
+                    className="btn-secondary w-full sm:w-auto xl:justify-self-start"
+                  >
+                    Resetujte pregled
+                  </Link>
+                </div>
+              </form>
+
+              <div className="mt-5 flex flex-col gap-3 border-t border-[color:var(--border-soft)] pt-5">
+                <div className="flex flex-wrap gap-2">
+                  {activeFilters.length > 0 ? (
+                    activeFilters.map((item) => (
+                      <span
+                        key={item}
+                        className="theme-chip-muted px-3 py-2 text-xs uppercase tracking-[0.14em]"
+                      >
+                        {item}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="theme-chip-muted px-3 py-2 text-xs uppercase tracking-[0.14em]">
+                      Trenutno nema aktivnih filtera
+                    </span>
+                  )}
+                </div>
+
+                <p className="theme-body-muted text-sm leading-7">
+                  Stranica se nakon promene filtera vraća na prvu paginaciju kako bi
+                  pregled ostao predvidljiv i lak za skeniranje.
+                </p>
               </div>
-            </form>
+            </div>
           </div>
         </section>
 
         <section id="product-results" className="relative py-2 sm:py-4">
-          <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div className="mb-6 grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
             <div>
               <p className="section-eyebrow">Rezultati</p>
               <h2 className="theme-heading mt-3 text-2xl font-semibold sm:text-3xl">
-                {filteredProducts.length} proizvoda u read-only prikazu
+                {paginatedProducts.totalItems} proizvoda u read-only prikazu
               </h2>
               <p className="theme-body-muted mt-3 max-w-3xl text-base leading-8">
                 Svaki proizvod vodi na detaljnu prezentacijsku stranicu sa
@@ -253,32 +315,40 @@ export default async function ProductsPage({
               </p>
             </div>
 
-            {activeFilters.length > 0 ? (
-              <div className="flex flex-wrap gap-2">
-                {activeFilters.map((item) => (
-                  <span
-                    key={item}
-                    className="theme-chip-muted px-3 py-1 text-xs uppercase tracking-[0.14em]"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            ) : null}
+            <div className="flex flex-wrap gap-2 lg:justify-end">
+              <span className="theme-chip-muted px-3 py-2 text-sm normal-case tracking-normal">
+                Prikazano {paginatedProducts.startItem}-{paginatedProducts.endItem} od{" "}
+                {paginatedProducts.totalItems}
+              </span>
+              <span className="theme-chip-muted px-3 py-2 text-sm normal-case tracking-normal">
+                Stranica {paginatedProducts.page} od {paginatedProducts.totalPages}
+              </span>
+            </div>
           </div>
 
-          {filteredProducts.length > 0 ? (
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {filteredProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  categories={categories}
-                />
-              ))}
-            </div>
+          {paginatedProducts.totalItems > 0 ? (
+            <>
+              <div className="grid gap-5 sm:grid-cols-2 2xl:grid-cols-3">
+                {paginatedProducts.items.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    categories={categories}
+                  />
+                ))}
+              </div>
+
+              <ProductsPagination
+                currentPage={paginatedProducts.page}
+                totalPages={paginatedProducts.totalPages}
+                totalItems={paginatedProducts.totalItems}
+                startItem={paginatedProducts.startItem}
+                endItem={paginatedProducts.endItem}
+                queryState={currentQueryState}
+              />
+            </>
           ) : (
-            <div className="theme-empty-state rounded-3xl p-6">
+            <div className="theme-empty-state rounded-3xl p-6 sm:p-8">
               <p className="theme-body-muted text-base leading-8">
                 Nijedan proizvod trenutno ne odgovara izabranim filterima.
                 Pokušajte sa širom kombinacijom brendova ili kategorija.
@@ -349,6 +419,80 @@ function sortProducts(
   });
 }
 
+function parsePageParam(value?: string): number {
+  const parsedPage = Number(value);
+
+  if (!Number.isInteger(parsedPage) || parsedPage < 1) {
+    return 1;
+  }
+
+  return parsedPage;
+}
+
+function buildProductsHref({
+  brand,
+  category,
+  subcategory,
+  sort,
+  page,
+}: ProductsQueryState): string {
+  const params = new URLSearchParams();
+
+  if (brand) {
+    params.set("brand", brand);
+  }
+
+  if (category) {
+    params.set("category", category);
+  }
+
+  if (subcategory) {
+    params.set("subcategory", subcategory);
+  }
+
+  if (sort !== "newest") {
+    params.set("sort", sort);
+  }
+
+  params.set("page", String(page));
+
+  return `/proizvodi?${params.toString()}`;
+}
+
+function getPaginationItems(
+  currentPage: number,
+  totalPages: number,
+): Array<number | "ellipsis"> {
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
+  }
+
+  if (currentPage <= 3) {
+    return [1, 2, 3, 4, "ellipsis", totalPages];
+  }
+
+  if (currentPage >= totalPages - 2) {
+    return [
+      1,
+      "ellipsis",
+      totalPages - 3,
+      totalPages - 2,
+      totalPages - 1,
+      totalPages,
+    ];
+  }
+
+  return [
+    1,
+    "ellipsis",
+    currentPage - 1,
+    currentPage,
+    currentPage + 1,
+    "ellipsis",
+    totalPages,
+  ];
+}
+
 function FilterField({
   label,
   name,
@@ -356,6 +500,7 @@ function FilterField({
   options,
   placeholder,
   disabled = false,
+  helperText,
 }: {
   label: string;
   name: string;
@@ -363,15 +508,16 @@ function FilterField({
   options: SelectOption[];
   placeholder: string;
   disabled?: boolean;
+  helperText?: string;
 }) {
   return (
-    <label className="grid gap-2">
+    <label className="grid min-w-0 gap-2">
       <span className="theme-heading text-sm font-medium">{label}</span>
       <select
         name={name}
         defaultValue={value}
         disabled={disabled}
-        className="theme-select rounded-2xl px-4 py-3 text-sm outline-none transition duration-200 disabled:cursor-not-allowed disabled:opacity-60"
+        className="theme-select min-h-12 w-full rounded-2xl px-4 py-3 text-sm outline-none transition duration-200 disabled:cursor-not-allowed disabled:opacity-60"
       >
         <option value="">{placeholder}</option>
         {options.map((option) => (
@@ -380,6 +526,9 @@ function FilterField({
           </option>
         ))}
       </select>
+      {helperText ? (
+        <span className="theme-body-muted text-xs leading-6">{helperText}</span>
+      ) : null}
     </label>
   );
 }
@@ -404,5 +553,106 @@ function OverviewStat({
       </p>
       <p className="theme-heading mt-2 text-2xl font-semibold">{value}</p>
     </div>
+  );
+}
+
+function ProductsPagination({
+  currentPage,
+  totalPages,
+  totalItems,
+  startItem,
+  endItem,
+  queryState,
+}: {
+  currentPage: number;
+  totalPages: number;
+  totalItems: number;
+  startItem: number;
+  endItem: number;
+  queryState: ProductsQueryState;
+}) {
+  if (totalPages <= 1) {
+    return null;
+  }
+
+  const paginationItems = getPaginationItems(currentPage, totalPages);
+
+  return (
+    <nav
+      aria-label="Paginacija proizvoda"
+      className="mt-8 rounded-4xl border border-[color:var(--border-soft)] bg-[rgba(13,19,33,0.32)] p-4 sm:p-5"
+    >
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <p className="theme-heading text-sm font-medium">
+            Prikazano {startItem}-{endItem} od {totalItems} proizvoda
+          </p>
+          <p className="theme-body-muted mt-1 text-sm">
+            Stranica {currentPage} od {totalPages}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-2">
+          {currentPage > 1 ? (
+            <Link
+              href={buildProductsHref({ ...queryState, page: currentPage - 1 })}
+              className="btn-secondary min-h-11 px-4"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Prethodna
+            </Link>
+          ) : (
+            <span className="btn-secondary min-h-11 cursor-default px-4 opacity-55">
+              <ArrowLeft className="h-4 w-4" />
+              Prethodna
+            </span>
+          )}
+
+          <div className="flex flex-wrap items-center gap-2">
+            {paginationItems.map((item, index) =>
+              item === "ellipsis" ? (
+                <span
+                  key={`ellipsis-${index}`}
+                  className="theme-body-muted inline-flex min-h-11 min-w-11 items-center justify-center px-1 text-sm"
+                >
+                  ...
+                </span>
+              ) : item === currentPage ? (
+                <span
+                  key={item}
+                  aria-current="page"
+                  className="btn-primary pointer-events-none min-h-11 min-w-11 px-4"
+                >
+                  {item}
+                </span>
+              ) : (
+                <Link
+                  key={item}
+                  href={buildProductsHref({ ...queryState, page: item })}
+                  className="theme-card-surface theme-heading inline-flex min-h-11 min-w-11 items-center justify-center rounded-2xl px-4 text-sm font-medium transition duration-200 hover:-translate-y-px hover:border-[color:var(--border-strong)]"
+                >
+                  {item}
+                </Link>
+              ),
+            )}
+          </div>
+
+          {currentPage < totalPages ? (
+            <Link
+              href={buildProductsHref({ ...queryState, page: currentPage + 1 })}
+              className="btn-secondary min-h-11 px-4"
+            >
+              Sledeća
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          ) : (
+            <span className="btn-secondary min-h-11 cursor-default px-4 opacity-55">
+              Sledeća
+              <ArrowRight className="h-4 w-4" />
+            </span>
+          )}
+        </div>
+      </div>
+    </nav>
   );
 }
