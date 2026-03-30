@@ -61,10 +61,10 @@ export function ProductImageGallery({
   if (images.length === 0 || !activeImage) {
     return (
       <div className="surface-panel overflow-hidden rounded-4xl p-4 sm:p-5">
-        <div className="flex aspect-[4/3] items-center justify-center rounded-[1.75rem] border border-white/10 bg-[#2b2d4a] text-[#f2e9e4]/45">
+        <div className="theme-media-frame flex aspect-[4/3] items-center justify-center rounded-[1.75rem]">
           <div className="text-center">
             <PackageSearch className="mx-auto h-12 w-12" />
-            <p className="mt-4 text-sm uppercase tracking-[0.18em] text-[#9a8c98]">
+            <p className="theme-label mt-4 text-sm uppercase tracking-[0.18em]">
               Slika nije dostupna
             </p>
           </div>
@@ -76,13 +76,13 @@ export function ProductImageGallery({
   return (
     <>
       <div className="surface-panel overflow-hidden rounded-4xl p-4 sm:p-5">
-        <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#2b2d4a]">
+        <div className="theme-media-shell relative overflow-hidden rounded-[1.75rem]">
           <div className="absolute left-4 top-4 z-10 flex items-center gap-2">
-            <div className="rounded-full border border-white/10 bg-[#22223b]/72 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-[#c9ada7] backdrop-blur-md">
+            <div className="theme-chip-overlay theme-label px-3 py-1 text-[11px] uppercase tracking-[0.18em]">
               Vizuelni pregled
             </div>
 
-            <div className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-[#f2e9e4]/78 backdrop-blur-md">
+            <div className="theme-chip-overlay-muted theme-body px-3 py-1 text-[11px] uppercase tracking-[0.18em]">
               {activeIndex + 1} / {images.length}
             </div>
           </div>
@@ -93,7 +93,7 @@ export function ProductImageGallery({
                 type="button"
                 aria-label="Prikažite prethodnu sliku"
                 onClick={goToPreviousImage}
-                className="absolute left-3 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-[#22223b]/72 text-[#f2e9e4] backdrop-blur-md transition duration-200 hover:bg-[#2b2d4a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9ada7] sm:left-4"
+                className="theme-action-icon absolute left-3 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full sm:left-4"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
@@ -102,7 +102,7 @@ export function ProductImageGallery({
                 type="button"
                 aria-label="Prikažite sledeću sliku"
                 onClick={goToNextImage}
-                className="absolute right-3 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-[#22223b]/72 text-[#f2e9e4] backdrop-blur-md transition duration-200 hover:bg-[#2b2d4a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9ada7] sm:right-4"
+                className="theme-action-icon absolute right-3 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full sm:right-4"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -113,7 +113,7 @@ export function ProductImageGallery({
             type="button"
             onClick={() => openLightbox(activeIndex)}
             aria-label={`Otvorite galeriju za proizvod ${productName}`}
-            className="group relative block aspect-[4/3] w-full cursor-zoom-in overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#c9ada7]"
+            className="group relative block aspect-[4/3] w-full cursor-zoom-in overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#748CAB]"
           >
             {!loadedImageSources.has(activeImage.src) ? (
               <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(255,255,255,0.04),rgba(255,255,255,0.12),rgba(255,255,255,0.04))] bg-[length:200%_100%] animate-[shimmer_1.6s_linear_infinite]" />
@@ -142,17 +142,17 @@ export function ProductImageGallery({
               </motion.div>
             </AnimatePresence>
 
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-linear-to-t from-[#111322]/82 via-[#111322]/34 to-transparent p-4 sm:p-5">
+            <div className="theme-image-bottom-fade pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-4 sm:p-5">
               <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-[#9a8c98]">
+                <p className="theme-label text-xs uppercase tracking-[0.18em]">
                   Fullscreen viewer
                 </p>
-                <p className="mt-2 text-sm font-medium text-[#f2e9e4] sm:text-base">
+                <p className="theme-heading mt-2 text-sm font-medium sm:text-base">
                   Kliknite za detaljniji pregled slike
                 </p>
               </div>
 
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/10 text-[#f2e9e4] backdrop-blur-md">
+              <div className="theme-chip-overlay-muted inline-flex h-12 w-12 items-center justify-center rounded-full theme-heading">
                 <Expand className="h-5 w-5" />
               </div>
             </div>
@@ -162,12 +162,12 @@ export function ProductImageGallery({
         {images.length > 1 ? (
           <div className="mt-4">
             <div className="mb-3 flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 text-[#f2e9e4] ring-1 ring-white/10">
+              <div className="theme-card-surface theme-heading flex h-9 w-9 items-center justify-center rounded-xl">
                 <Images className="h-4 w-4" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-[#f2e9e4]">Galerija slika</p>
-                <p className="text-sm text-[#f2e9e4]/60">
+                <p className="theme-heading text-sm font-semibold">Galerija slika</p>
+                <p className="theme-body-muted text-sm">
                   Horizontalni pregled svih dostupnih vizuala proizvoda.
                 </p>
               </div>
@@ -184,10 +184,10 @@ export function ProductImageGallery({
                     aria-label={`Odaberite sliku ${index + 1}`}
                     aria-pressed={isActive}
                     onClick={() => selectImage(index)}
-                    className={`relative h-22 w-22 shrink-0 overflow-hidden rounded-3xl border transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9ada7] sm:h-24 sm:w-24 ${
+                    className={`relative h-22 w-22 shrink-0 overflow-hidden rounded-3xl border transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#748CAB] sm:h-24 sm:w-24 ${
                       isActive
-                        ? "border-[#c9ada7] ring-2 ring-[#c9ada7]/40"
-                        : "border-white/10 opacity-80 hover:opacity-100"
+                        ? "border-[#748CAB] ring-2 ring-[#748CAB]/35"
+                        : "border-[color:var(--border-soft)] opacity-80 hover:opacity-100"
                     }`}
                   >
                     {!loadedImageSources.has(image.src) ? (
@@ -250,13 +250,13 @@ function preloadImage(
 function createShimmerDataUrl() {
   const svg = `
     <svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="1200" height="900" fill="#22223b"/>
+      <rect width="1200" height="900" fill="#0D1321"/>
       <rect width="1200" height="900" fill="url(#paint0_linear_0_1)"/>
       <defs>
         <linearGradient id="paint0_linear_0_1" x1="-120" y1="0" x2="1320" y2="0" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#22223b"/>
-          <stop offset="0.5" stop-color="#4a4e69"/>
-          <stop offset="1" stop-color="#22223b"/>
+          <stop stop-color="#0D1321"/>
+          <stop offset="0.5" stop-color="#3E5C76"/>
+          <stop offset="1" stop-color="#0D1321"/>
         </linearGradient>
       </defs>
     </svg>

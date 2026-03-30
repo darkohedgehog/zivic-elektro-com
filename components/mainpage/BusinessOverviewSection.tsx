@@ -16,27 +16,27 @@ export function BusinessOverviewSection() {
             <div>
               <p className="section-eyebrow">Corporate overview</p>
 
-              <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-[#f2e9e4] sm:text-4xl">
+              <h2 className="theme-heading mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
                 Rešenja prilagođena vašem poslovanju
               </h2>
 
-              <p className="mt-5 max-w-2xl text-base leading-8 text-[#f2e9e4]/68 sm:text-lg">
+              <p className="theme-body mt-5 max-w-2xl text-base leading-8 sm:text-lg">
                 Objedinjavamo kvalitetnu ponudu elektromaterijala, stručnu
                 podršku i savremena digitalna rešenja kako bismo klijentima
                 omogućili efikasniji, pregledniji i sigurniji rad.
               </p>
 
-              <div className="mt-8 rounded-3xl border border-white/10 bg-[#22223b]/70 p-5">
+              <div className="theme-feature-box mt-8 rounded-3xl p-5">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#4a4e69] text-[#f2e9e4]">
+                  <div className="theme-icon-badge flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl">
                     <ShieldCheck className="h-6 w-6" />
                   </div>
 
                   <div>
-                    <h3 className="text-base font-semibold text-[#f2e9e4]">
+                    <h3 className="theme-heading text-base font-semibold">
                       Vaš partner za sigurnu i profesionalnu saradnju
                     </h3>
-                    <p className="mt-2 text-sm leading-7 text-[#f2e9e4]/65 sm:text-base">
+                    <p className="theme-body-muted mt-2 text-sm leading-7 sm:text-base">
                       Fokusirani smo na pouzdanost, preglednu ponudu i kvalitetnu
                       poslovnu komunikaciju kroz svaki korak saradnje.
                     </p>
@@ -119,23 +119,23 @@ function OverviewCard({
   return (
     <Link
       href={href}
-      className="group rounded-3xl border border-white/10 bg-white/5 p-5 transition duration-200 hover:-translate-y-0.5 hover:bg-white/7"
+      className="theme-card-surface theme-interactive-card group rounded-3xl p-5"
     >
-      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#c9ada7]/18 text-[#f2e9e4]">
+      <div className="theme-icon-badge-soft flex h-11 w-11 items-center justify-center rounded-2xl">
         {icon}
       </div>
 
-      <p className="mt-5 text-xs uppercase tracking-[0.18em] text-[#9a8c98]">
+      <p className="theme-label mt-5 text-xs uppercase tracking-[0.18em]">
         {eyebrow}
       </p>
 
-      <h3 className="mt-2 text-xl font-semibold text-[#f2e9e4]">{title}</h3>
+      <h3 className="theme-heading mt-2 text-xl font-semibold">{title}</h3>
 
-      <p className="mt-3 text-sm leading-7 text-[#f2e9e4]/65 sm:text-base">
+      <p className="theme-body-muted mt-3 text-sm leading-7 sm:text-base">
         {description}
       </p>
 
-      <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#c9ada7] transition duration-200 group-hover:translate-x-1">
+      <div className="theme-card-link mt-5 inline-flex items-center gap-2 text-sm font-medium group-hover:translate-x-1">
         Saznajte više
         <ArrowRight className="h-4 w-4" />
       </div>

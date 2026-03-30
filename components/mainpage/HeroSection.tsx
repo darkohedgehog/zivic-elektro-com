@@ -33,7 +33,7 @@ function BackgroundDecor() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, #22223b 0%, #2b2d4a 45%, #22223b 100%)",
+            "linear-gradient(180deg, #0D1321 0%, #15253A 45%, #0D1321 100%)",
         }}
       />
 
@@ -41,7 +41,7 @@ function BackgroundDecor() {
         className="absolute inset-0 opacity-30"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 20%, rgba(242,233,228,0.12) 0, transparent 25%), radial-gradient(circle at 80% 30%, rgba(201,173,167,0.14) 0, transparent 24%), radial-gradient(circle at 70% 80%, rgba(154,140,152,0.12) 0, transparent 28%)",
+            "radial-gradient(circle at 20% 20%, rgba(240,235,216,0.08) 0, transparent 24%), radial-gradient(circle at 80% 30%, rgba(116,140,171,0.16) 0, transparent 24%), radial-gradient(circle at 70% 80%, rgba(62,92,118,0.16) 0, transparent 28%)",
         }}
       />
 
@@ -49,13 +49,13 @@ function BackgroundDecor() {
         className="absolute inset-0 opacity-[0.08]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(242,233,228,0.22) 1px, transparent 1px), linear-gradient(90deg, rgba(242,233,228,0.22) 1px, transparent 1px)",
+            "linear-gradient(rgba(240,235,216,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(240,235,216,0.18) 1px, transparent 1px)",
           backgroundSize: "42px 42px",
         }}
       />
 
-      <div className="absolute top-20 -left-30 h-72 w-72 rounded-full bg-[#c9ada7]/20 blur-3xl" />
-      <div className="absolute -right-25 bottom-10 h-80 w-80 rounded-full bg-[#9a8c98]/20 blur-3xl" />
+      <div className="absolute top-20 -left-30 h-72 w-72 rounded-full bg-[#748CAB]/16 blur-3xl" />
+      <div className="absolute -right-25 bottom-10 h-80 w-80 rounded-full bg-[#3E5C76]/22 blur-3xl" />
     </div>
   );
 }
@@ -68,15 +68,15 @@ function HeroContent() {
       transition={{ duration: 0.7, ease: "easeOut" }}
       className="relative z-10"
     >
-      <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-[#f2e9e4]/90 backdrop-blur-md">
+      <div className="theme-pill text-sm">
         Profesionalna podrška • Kvalitetna ponuda • Pouzdana saradnja
       </div>
 
-      <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-[#f2e9e4] sm:text-5xl lg:text-6xl">
+      <h1 className="theme-heading mt-6 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
         Pouzdana rešenja za elektromaterijal i poslovnu podršku
       </h1>
 
-      <p className="mt-6 max-w-2xl text-base leading-8 text-[#f2e9e4]/72 sm:text-lg">
+      <p className="theme-body mt-6 max-w-2xl text-base leading-8 sm:text-lg">
         Kroz pažljivo odabrane proizvode, jasnu ponudu i profesionalan pristup,
         pomažemo klijentima da brže i sigurnije dođu do pravog rešenja za svoj
         projekat.
@@ -85,7 +85,7 @@ function HeroContent() {
       <div className="mt-8 flex flex-col gap-4 sm:flex-row">
         <Link
           href="/proizvodi"
-          className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#c9ada7] px-6 py-3 text-sm font-semibold text-[#22223b] transition duration-200 hover:-translate-y-px hover:bg-white"
+          className="btn-primary px-6 py-3"
         >
           Pregled proizvoda
           <ArrowRight className="h-4 w-4" />
@@ -93,7 +93,7 @@ function HeroContent() {
 
         <Link
           href="/kontakt"
-          className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#f2e9e4]/18 bg-white/5 px-6 py-3 text-sm font-semibold text-[#f2e9e4] backdrop-blur-sm transition duration-200 hover:-translate-y-px hover:bg-white/10"
+          className="btn-secondary px-6 py-3"
         >
           Kontaktirajte nas
           <PhoneCall className="h-4 w-4" />
@@ -131,14 +131,14 @@ function InfoPill({
   text: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
+    <div className="theme-card-surface rounded-2xl p-4 backdrop-blur-md">
       <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#c9ada7]/18 text-[#f2e9e4]">
+        <div className="theme-icon-badge-soft flex h-10 w-10 items-center justify-center rounded-xl">
           {icon}
         </div>
         <div>
-          <h3 className="text-sm font-semibold text-[#f2e9e4]">{title}</h3>
-          <p className="mt-1 text-sm leading-6 text-[#f2e9e4]/65">{text}</p>
+          <h3 className="theme-heading text-sm font-semibold">{title}</h3>
+          <p className="theme-body-muted mt-1 text-sm leading-6">{text}</p>
         </div>
       </div>
     </div>
@@ -153,10 +153,10 @@ function HeroVisualCard() {
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
       className="relative"
     >
-      <div className="absolute -inset-6 rounded-4xl bg-[radial-gradient(circle_at_top_right,rgba(242,233,228,0.16),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(201,173,167,0.18),transparent_35%)] blur-2xl" />
+      <div className="absolute -inset-6 rounded-4xl bg-[radial-gradient(circle_at_top_right,rgba(240,235,216,0.12),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(116,140,171,0.18),transparent_35%)] blur-2xl" />
 
-      <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/8 p-3 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-4">
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#2b2d4a]/95">
+      <div className="theme-media-shell relative overflow-hidden rounded-[28px] p-3 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-4">
+        <div className="theme-media-frame relative overflow-hidden rounded-3xl">
           <div className="relative aspect-4/3 w-full">
             <Image
               src="https://res.cloudinary.com/dhkmlqg4o/image/upload/v1774549229/HeroBanner_d7fdiz.png"
@@ -168,25 +168,25 @@ function HeroVisualCard() {
             />
           </div>
 
-          <div className="absolute inset-x-0 top-0 h-28 bg-linear-to-b from-[#22223b]/70 via-[#22223b]/25 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-[#22223b]/90 via-[#22223b]/45 to-transparent" />
+          <div className="theme-image-top-fade absolute inset-x-0 top-0 h-28" />
+          <div className="theme-image-bottom-fade absolute inset-x-0 bottom-0 h-32" />
 
           <div className="absolute top-4 left-4 right-4 flex items-start justify-between gap-3">
-            <div className="rounded-full border border-white/10 bg-[#22223b]/70 px-3 py-1 text-xs tracking-[0.18em] text-[#f2e9e4]/80 uppercase backdrop-blur-md">
+            <div className="theme-chip-overlay theme-body px-3 py-1 text-xs uppercase tracking-[0.18em]">
               Corporate visual
             </div>
 
-            <div className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs text-[#f2e9e4]/75 backdrop-blur-md">
+            <div className="theme-chip-overlay-muted theme-body-muted px-3 py-1 text-xs">
               Elektromaterijal • Web • BI
             </div>
           </div>
 
           <div className="absolute right-4 bottom-4 left-4">
-            <div className="max-w-md rounded-2xl border border-white/10 bg-[#22223b]/72 p-4 backdrop-blur-md">
-              <p className="text-sm font-semibold text-[#f2e9e4]">
+            <div className="theme-chip-overlay max-w-md rounded-2xl p-4">
+              <p className="theme-heading text-sm font-semibold">
                 Integrisana podrška za savremeno poslovanje
               </p>
-              <p className="mt-2 text-sm leading-6 text-[#f2e9e4]/68">
+              <p className="theme-body mt-2 text-sm leading-6">
                 Distribucija elektromaterijala, izrada web aplikacija i poslovni
                 vizuali prilagođeni potrebama vašeg projekta.
               </p>

@@ -82,11 +82,11 @@ export default async function ProductDetailPage({
             <div>
               <p className="section-eyebrow">Proizvod</p>
 
-              <h1 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-[#f2e9e4] sm:text-4xl lg:text-5xl">
+              <h1 className="theme-heading mt-4 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
                 {product.name}
               </h1>
 
-              <p className="mt-5 max-w-2xl text-base leading-8 text-[#f2e9e4]/68 sm:text-lg">
+              <p className="theme-body mt-5 max-w-2xl text-base leading-8 sm:text-lg">
                 Detaljan read-only prikaz proizvoda sa slikama, opisom, pripadnom
                 kategorijom i brendom, bez cena i kupovine.
               </p>
@@ -96,7 +96,7 @@ export default async function ProductDetailPage({
                   <Link
                     key={`${name}-${taxonomy.categorySlugs[index]}`}
                     href={`/kategorije/${taxonomy.categorySlugs[index]}`}
-                    className="rounded-full border border-white/10 bg-[#22223b]/70 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[#c9ada7]"
+                    className="theme-chip px-3 py-1 text-xs uppercase tracking-[0.14em]"
                   >
                     {name}
                   </Link>
@@ -106,7 +106,7 @@ export default async function ProductDetailPage({
                   <Link
                     key={`${name}-${taxonomy.subcategorySlugs[index]}`}
                     href={`/kategorije/${taxonomy.subcategorySlugs[index]}`}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[#f2e9e4]/75"
+                    className="theme-chip-muted px-3 py-1 text-xs uppercase tracking-[0.14em]"
                   >
                     {name}
                   </Link>
@@ -158,7 +158,7 @@ export default async function ProductDetailPage({
 
             <div className="grid gap-6">
               <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-7">
-                <h2 className="text-xl font-semibold text-[#f2e9e4] sm:text-2xl">
+                <h2 className="theme-heading text-xl font-semibold sm:text-2xl">
                   Osnovne informacije
                 </h2>
 
@@ -179,21 +179,21 @@ export default async function ProductDetailPage({
                   />
                 </div>
 
-                <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-xs uppercase tracking-[0.16em] text-[#9a8c98]">
+                <div className="theme-card-surface mt-6 rounded-3xl p-4">
+                  <p className="theme-label text-xs uppercase tracking-[0.16em]">
                     Način prikaza
                   </p>
-                  <p className="mt-2 text-sm leading-7 text-[#f2e9e4]/68">
+                  <p className="theme-body mt-2 text-sm leading-7">
                     Prezentacijski prikaz bez cena, košarice, zaliha i kupovine.
                   </p>
                 </div>
               </div>
 
               <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-7">
-                <h2 className="text-xl font-semibold text-[#f2e9e4] sm:text-2xl">
+                <h2 className="theme-heading text-xl font-semibold sm:text-2xl">
                   Kratak pregled
                 </h2>
-                <p className="mt-4 text-sm leading-8 text-[#f2e9e4]/68 sm:text-base">
+                <p className="theme-body mt-4 text-sm leading-8 sm:text-base">
                   {getProductDescription(product)}
                 </p>
               </div>
@@ -203,11 +203,11 @@ export default async function ProductDetailPage({
 
         <section className="relative py-2 sm:py-4">
           <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-8">
-            <h2 className="text-2xl font-semibold text-[#f2e9e4] sm:text-3xl">
+            <h2 className="theme-heading text-2xl font-semibold sm:text-3xl">
               Opis proizvoda
             </h2>
             <div
-              className="mt-6 text-sm leading-8 text-[#f2e9e4]/72 sm:text-base [&_a]:text-[#c9ada7] [&_li]:ml-5 [&_li]:list-disc [&_li]:marker:text-[#c9ada7] [&_p]:mt-4 [&_strong]:text-[#f2e9e4] [&_ul]:mt-4"
+              className="theme-body mt-6 text-sm leading-8 sm:text-base [&_a]:text-[#748CAB] [&_li]:ml-5 [&_li]:list-disc [&_li]:marker:text-[#748CAB] [&_p]:mt-4 [&_strong]:text-[#F0EBD8] [&_ul]:mt-4"
               dangerouslySetInnerHTML={{ __html: description }}
             />
           </div>
@@ -227,15 +227,15 @@ function DetailStat({
   value: string;
 }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
-      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#4a4e69] text-[#f2e9e4]">
+    <div className="theme-stat-card rounded-3xl p-5">
+      <div className="theme-icon-badge flex h-11 w-11 items-center justify-center rounded-2xl">
         {icon}
       </div>
 
-      <p className="mt-5 text-xs uppercase tracking-[0.18em] text-[#9a8c98]">
+      <p className="theme-label mt-5 text-xs uppercase tracking-[0.18em]">
         {label}
       </p>
-      <p className="mt-2 text-2xl font-semibold text-[#f2e9e4]">{value}</p>
+      <p className="theme-heading mt-2 text-2xl font-semibold">{value}</p>
     </div>
   );
 }
@@ -248,11 +248,11 @@ function InfoRow({
   value: string;
 }) {
   return (
-    <div className="flex items-start justify-between gap-4 rounded-2xl border border-white/10 bg-[#22223b]/55 px-4 py-3">
-      <span className="text-xs uppercase tracking-[0.16em] text-[#9a8c98]">
+    <div className="theme-inline-panel flex items-start justify-between gap-4 rounded-2xl px-4 py-3">
+      <span className="theme-label text-xs uppercase tracking-[0.16em]">
         {label}
       </span>
-      <span className="text-right text-sm font-medium text-[#f2e9e4]">
+      <span className="theme-heading text-right text-sm font-medium">
         {value}
       </span>
     </div>

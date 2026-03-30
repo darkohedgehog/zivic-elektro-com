@@ -88,10 +88,10 @@ export function Navbar() {
                 />
               </div>
               <div className="hidden sm:block">
-                <p className="text-xs uppercase tracking-[0.22em] text-[#c9ada7]">
+                <p className="theme-label text-xs uppercase tracking-[0.22em]">
                   Zivic Elektro
                 </p>
-                <p className="mt-1 text-sm text-[#f2e9e4]/72">
+                <p className="theme-body-muted mt-1 text-sm">
                   Pouzdana poslovna podrška i pregledna ponuda
                 </p>
               </div>
@@ -118,7 +118,7 @@ export function Navbar() {
                 type="button"
                 aria-label="Toggle menu"
                 aria-expanded={mobileMenuOpen}
-                className="inline-flex size-11 items-center justify-center rounded-xl border border-[rgba(242,233,228,0.1)] bg-white/5 text-[#f2e9e4] transition duration-150 hover:bg-white/10 active:scale-95 md:hidden"
+                className="theme-action-icon inline-flex size-11 items-center justify-center rounded-xl active:scale-95 md:hidden"
                 onClick={() =>
                   setMobileMenuOpen((open) => {
                     const nextOpen = !open;
@@ -211,7 +211,7 @@ function MobileMenu({
       className={cn(
         "overflow-hidden transition-all duration-200 md:hidden",
         mobileMenuOpen
-          ? "max-h-192 border-t border-[rgba(242,233,228,0.08)] opacity-100"
+          ? "max-h-192 border-t border-[color:var(--border-soft)] opacity-100"
           : "max-h-0 border-t border-transparent opacity-0",
       )}
       aria-hidden={!mobileMenuOpen}
@@ -221,7 +221,7 @@ function MobileMenu({
           <button
             type="button"
             aria-expanded={mobileSolutionsOpen}
-            className="flex w-full items-center justify-between rounded-xl py-2 text-sm text-[#f2e9e4]"
+            className="theme-heading flex w-full items-center justify-between rounded-xl py-2 text-sm"
             onClick={onSolutionsToggle}
           >
             <span>Rešenja</span>
@@ -239,9 +239,9 @@ function MobileMenu({
               "overflow-hidden transition-all duration-200",
               mobileSolutionsOpen ? "mt-2 max-h-144 opacity-100" : "max-h-0 opacity-0",
             )}
-          >
-            <MobileMenuSection items={solutions} />
-            <div className="my-3 h-px bg-white/8" />
+            >
+              <MobileMenuSection items={solutions} />
+            <div className="theme-divider my-3 h-px" />
             <MobileMenuSection items={company} />
           </div>
         </div>
@@ -273,10 +273,10 @@ function NavMenuSection({
           <li key={item.title}>
             <Link
               href={item.href}
-              className="block rounded-2xl px-3 py-3 transition duration-150 hover:bg-white/5"
+              className="theme-hover-surface block rounded-2xl px-3 py-3"
             >
-              <p className="text-sm font-medium text-[#f2e9e4]">{item.title}</p>
-              <p className="mt-1 text-sm leading-6 text-[#f2e9e4]/62">
+              <p className="theme-heading text-sm font-medium">{item.title}</p>
+              <p className="theme-body-muted mt-1 text-sm leading-6">
                 {item.desc}
               </p>
             </Link>
@@ -298,15 +298,15 @@ function MobileMenuSection({
         <li key={item.title}>
           <Link
             href={item.href}
-            className="flex items-center justify-between rounded-xl px-3 py-3 transition duration-150 hover:bg-white/5"
+            className="theme-hover-surface flex items-center justify-between rounded-xl px-3 py-3"
           >
             <div className="min-w-0">
-              <p className="text-sm font-medium text-[#f2e9e4]">{item.title}</p>
-              <p className="mt-1 text-sm leading-6 text-[#f2e9e4]/62">
+              <p className="theme-heading text-sm font-medium">{item.title}</p>
+              <p className="theme-body-muted mt-1 text-sm leading-6">
                 {item.desc}
               </p>
             </div>
-            <ChevronRight size={16} className="ml-3 shrink-0 text-[#9a8c98]" />
+            <ChevronRight size={16} className="theme-label ml-3 shrink-0" />
           </Link>
         </li>
       ))}
@@ -338,10 +338,10 @@ function MobileLink({
   return (
     <Link
       href={href}
-      className="surface-panel-muted flex items-center justify-between rounded-2xl px-4 py-3 text-sm text-[#f2e9e4]"
+      className="surface-panel-muted theme-heading flex items-center justify-between rounded-2xl px-4 py-3 text-sm"
     >
       <span>{children}</span>
-      <ChevronRight size={16} className="text-[#9a8c98]" />
+      <ChevronRight size={16} className="theme-label" />
     </Link>
   );
 }

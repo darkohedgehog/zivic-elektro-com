@@ -43,11 +43,11 @@ export async function FeaturedCategoriesSection() {
           <div className="max-w-3xl">
             <p className="section-eyebrow">Izdvojene kategorije</p>
 
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[#f2e9e4] sm:text-4xl">
+            <h2 className="theme-heading mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
               Pregled ponude kroz glavne kategorije i podkategorije
             </h2>
 
-            <p className="mt-5 text-base leading-8 text-[#f2e9e4]/68 sm:text-lg">
+            <p className="theme-body mt-5 text-base leading-8 sm:text-lg">
               Na prezentacijskoj stranici prikazujemo izdvojene kategorije i deo
               proizvoda iz naše ponude, kako biste brže stekli uvid u asortiman i
               lakše pronašli oblast koja vas zanima.
@@ -88,27 +88,27 @@ function CategoryShowcaseCard({
     <div className="surface-panel overflow-hidden rounded-4xl p-5 sm:p-6 lg:p-8">
       <div className="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:items-start">
         <div>
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#4a4e69] text-[#f2e9e4]">
+          <div className="theme-icon-badge flex h-12 w-12 items-center justify-center rounded-2xl">
             <FolderTree className="h-6 w-6" />
           </div>
 
-          <h3 className="mt-5 text-2xl font-semibold text-[#f2e9e4]">
+          <h3 className="theme-heading mt-5 text-2xl font-semibold">
             {category.name}
           </h3>
 
-          <p className="mt-3 text-sm leading-7 text-[#f2e9e4]/66 sm:text-base">
+          <p className="theme-body-muted mt-3 text-sm leading-7 sm:text-base">
             Organizovana kategorija sa jasnim pregledom proizvoda i pripadajućih
             podkategorija, namenjena lakšem snalaženju kroz ponudu.
           </p>
 
-          <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-4">
+          <div className="theme-card-surface mt-6 rounded-3xl p-4">
             <div className="flex items-start gap-3">
-              <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#c9ada7]/18 text-[#f2e9e4]">
+              <div className="theme-icon-badge-soft mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl">
                 <Boxes className="h-5 w-5" />
               </div>
 
               <div>
-                <p className="text-sm font-semibold text-[#f2e9e4]">
+                <p className="theme-heading text-sm font-semibold">
                   Podkategorije
                 </p>
 
@@ -117,14 +117,14 @@ function CategoryShowcaseCard({
                     {category.children.slice(0, 8).map((child) => (
                       <span
                         key={child.id}
-                        className="rounded-full border border-white/10 bg-[#22223b]/70 px-3 py-1 text-xs text-[#f2e9e4]/75"
+                        className="theme-chip-muted px-3 py-1 text-xs"
                       >
                         {child.name}
                       </span>
                     ))}
                   </div>
                 ) : (
-                  <p className="mt-2 text-sm text-[#f2e9e4]/60">
+                  <p className="theme-body-muted mt-2 text-sm">
                     Ova kategorija trenutno nema izdvojene podkategorije.
                   </p>
                 )}
@@ -134,7 +134,7 @@ function CategoryShowcaseCard({
 
           <Link
             href={`/kategorije/${category.slug}`}
-            className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#c9ada7] transition duration-200 hover:translate-x-1"
+            className="theme-card-link mt-6 inline-flex items-center gap-2 text-sm font-medium hover:translate-x-1"
           >
             Otvorite kategoriju
             <ArrowRight className="h-4 w-4" />
@@ -143,15 +143,15 @@ function CategoryShowcaseCard({
 
         <div>
           <div className="mb-4 flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-[#f2e9e4] ring-1 ring-white/10">
+            <div className="theme-card-surface flex h-10 w-10 items-center justify-center rounded-xl theme-heading">
               <PackageSearch className="h-5 w-5" />
             </div>
 
             <div>
-              <p className="text-sm font-semibold text-[#f2e9e4]">
+              <p className="theme-heading text-sm font-semibold">
                 Izdvojeni proizvodi iz kategorije
               </p>
-              <p className="text-sm text-[#f2e9e4]/60">
+              <p className="theme-body-muted text-sm">
                 Bez cena i košarice, fokus na pregledu ponude.
               </p>
             </div>
@@ -169,8 +169,8 @@ function CategoryShowcaseCard({
               ))}
             </div>
           ) : (
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
-              <p className="text-sm text-[#f2e9e4]/65">
+            <div className="theme-empty-state rounded-3xl p-5">
+              <p className="theme-body-muted text-sm">
                 Trenutno nema izdvojenih proizvoda za ovu kategoriju.
               </p>
             </div>
@@ -205,9 +205,9 @@ function ProductPreviewCard({
   return (
     <Link
       href={`/proizvodi/${product.slug}`}
-      className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition duration-200 hover:-translate-y-0.5 hover:bg-white/7"
+      className="theme-card-surface theme-interactive-card group overflow-hidden rounded-3xl"
     >
-      <div className="relative aspect-16/10 w-full overflow-hidden bg-[#2b2d4a]">
+      <div className="theme-media-frame relative aspect-16/10 w-full overflow-hidden">
         {image ? (
           <Image
             src={image.src}
@@ -217,7 +217,7 @@ function ProductPreviewCard({
             className="object-cover transition duration-300 group-hover:scale-[1.03]"
           />
         ) : (
-          <div className="flex h-full items-center justify-center text-[#f2e9e4]/45">
+          <div className="theme-body-muted flex h-full items-center justify-center">
             <PackageSearch className="h-10 w-10" />
           </div>
         )}
@@ -225,33 +225,33 @@ function ProductPreviewCard({
 
       <div className="p-5">
         <div className="flex flex-wrap gap-2">
-          <span className="rounded-full border border-white/10 bg-[#22223b]/70 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-[#c9ada7]">
+          <span className="theme-chip px-2.5 py-1 text-[11px] uppercase tracking-[0.14em]">
             {productCategory}
           </span>
 
-          <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-[#f2e9e4]/70">
+          <span className="theme-chip-muted px-2.5 py-1 text-[11px] uppercase tracking-[0.14em]">
             {productSubcategory}
           </span>
         </div>
 
-        <h4 className="mt-4 line-clamp-2 text-lg font-semibold text-[#f2e9e4]">
+        <h4 className="theme-heading mt-4 line-clamp-2 text-lg font-semibold">
           {product.name}
         </h4>
 
-        <p className="mt-3 line-clamp-3 text-sm leading-7 text-[#f2e9e4]/65">
+        <p className="theme-body-muted mt-3 line-clamp-3 text-sm leading-7">
           {description}
         </p>
 
-        <div className="mt-4 grid gap-2 rounded-2xl border border-white/10 bg-[#22223b]/55 p-3">
+        <div className="theme-inline-panel mt-4 grid gap-2 rounded-2xl p-3">
           <div className="flex items-center justify-between gap-3">
-            <span className="text-xs uppercase tracking-[0.16em] text-[#9a8c98]">
+            <span className="theme-label text-xs uppercase tracking-[0.16em]">
               Brand
             </span>
-            <span className="text-sm font-medium text-[#f2e9e4]">{brand}</span>
+            <span className="theme-heading text-sm font-medium">{brand}</span>
           </div>
         </div>
 
-        <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#c9ada7] transition duration-200 group-hover:translate-x-1">
+        <div className="theme-card-link mt-4 inline-flex items-center gap-2 text-sm font-medium group-hover:translate-x-1">
           Detaljnije
           <ArrowRight className="h-4 w-4" />
         </div>

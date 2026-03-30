@@ -25,15 +25,15 @@ export function ProductGridSection({
     <section className="relative py-10 sm:py-12">
       <div className="surface-panel overflow-hidden rounded-4xl p-5 sm:p-6 lg:p-8">
         <div className="mb-6 flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-[#f2e9e4] ring-1 ring-white/10">
+          <div className="theme-card-surface theme-heading flex h-10 w-10 items-center justify-center rounded-xl">
             <PackageSearch className="h-5 w-5" />
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-[#f2e9e4] sm:text-2xl">
+            <h2 className="theme-heading text-xl font-semibold sm:text-2xl">
               {title}
             </h2>
-            <p className="mt-1 text-sm leading-7 text-[#f2e9e4]/60">
+            <p className="theme-body-muted mt-1 text-sm leading-7">
               {description}
             </p>
           </div>
@@ -50,8 +50,8 @@ export function ProductGridSection({
             ))}
           </div>
         ) : (
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
-            <p className="text-sm leading-7 text-[#f2e9e4]/65">
+          <div className="theme-empty-state rounded-3xl p-5">
+            <p className="theme-body-muted text-sm leading-7">
               Trenutno nema izdvojenih proizvoda za ovaj pregled.
             </p>
           </div>
@@ -79,9 +79,9 @@ export function ProductCard({
   return (
     <Link
       href={`/proizvodi/${product.slug}`}
-      className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition duration-200 hover:-translate-y-0.5 hover:bg-white/7"
+      className="theme-card-surface theme-interactive-card group overflow-hidden rounded-3xl"
     >
-      <div className="relative aspect-16/10 overflow-hidden bg-[#2b2d4a]">
+      <div className="theme-media-frame relative aspect-16/10 overflow-hidden">
         {image ? (
           <Image
             src={image.src}
@@ -91,7 +91,7 @@ export function ProductCard({
             className="object-cover transition duration-300 group-hover:scale-[1.03]"
           />
         ) : (
-          <div className="flex h-full items-center justify-center text-[#f2e9e4]/45">
+          <div className="theme-body-muted flex h-full items-center justify-center">
             <PackageSearch className="h-10 w-10" />
           </div>
         )}
@@ -99,40 +99,40 @@ export function ProductCard({
 
       <div className="p-5">
         <div className="flex flex-wrap gap-2">
-          <span className="rounded-full border border-white/10 bg-[#22223b]/70 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-[#c9ada7]">
+          <span className="theme-chip px-2.5 py-1 text-[11px] uppercase tracking-[0.14em]">
             {categoryLabel}
           </span>
 
-          <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-[#f2e9e4]/70">
+          <span className="theme-chip-muted px-2.5 py-1 text-[11px] uppercase tracking-[0.14em]">
             {subcategoryLabel}
           </span>
         </div>
 
-        <h3 className="mt-4 line-clamp-2 text-lg font-semibold text-[#f2e9e4]">
+        <h3 className="theme-heading mt-4 line-clamp-2 text-lg font-semibold">
           {product.name}
         </h3>
 
-        <p className="mt-3 line-clamp-3 text-sm leading-7 text-[#f2e9e4]/65">
+        <p className="theme-body-muted mt-3 line-clamp-3 text-sm leading-7">
           {description}
         </p>
 
-        <div className="mt-4 grid gap-2 rounded-2xl border border-white/10 bg-[#22223b]/55 p-3">
+        <div className="theme-inline-panel mt-4 grid gap-2 rounded-2xl p-3">
           <div className="flex items-center justify-between gap-3">
-            <span className="text-xs uppercase tracking-[0.16em] text-[#9a8c98]">
+            <span className="theme-label text-xs uppercase tracking-[0.16em]">
               Brand
             </span>
-            <span className="text-right text-sm font-medium text-[#f2e9e4]">
+            <span className="theme-heading text-right text-sm font-medium">
               {brand}
             </span>
           </div>
         </div>
 
         <div className="mt-4 flex items-center justify-between gap-3">
-          <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs uppercase tracking-[0.16em] text-[#9a8c98]">
+          <div className="theme-chip-muted rounded-2xl px-3 py-2 text-xs uppercase tracking-[0.16em] theme-label-muted">
             Read-only prikaz
           </div>
 
-          <div className="inline-flex items-center gap-2 text-sm font-medium text-[#c9ada7] transition duration-200 group-hover:translate-x-1">
+          <div className="theme-card-link inline-flex items-center gap-2 text-sm font-medium group-hover:translate-x-1">
             Otvorite detalje
             <ArrowRight className="h-4 w-4" />
           </div>

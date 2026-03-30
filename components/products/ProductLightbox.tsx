@@ -163,7 +163,7 @@ export function ProductLightbox({
     <AnimatePresence>
       {isOpen ? (
         <motion.div
-          className="fixed inset-0 z-[90] bg-[#0f1121]/94 backdrop-blur-xl"
+          className="theme-modal-backdrop fixed inset-0 z-[90]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -176,25 +176,25 @@ export function ProductLightbox({
               role="dialog"
               aria-modal="true"
               aria-label={`Galerija proizvoda ${productName}`}
-              className="relative flex h-[min(92vh,960px)] w-full max-w-7xl flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(34,34,59,0.96),rgba(21,23,40,0.98))] shadow-[0_32px_120px_rgba(0,0,0,0.55)]"
+              className="theme-modal-surface relative flex h-[min(92vh,960px)] w-full max-w-7xl flex-col overflow-hidden rounded-[2rem]"
               initial={{ opacity: 0, scale: 0.985, y: 16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.985, y: 16 }}
               transition={{ duration: 0.24, ease: "easeOut" }}
               onClick={(event) => event.stopPropagation()}
             >
-              <div className="flex items-center justify-between gap-4 border-b border-white/10 px-4 py-4 sm:px-6">
+              <div className="flex items-center justify-between gap-4 border-b border-[color:var(--border-soft)] px-4 py-4 sm:px-6">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.18em] text-[#9a8c98]">
+                  <p className="theme-label text-xs uppercase tracking-[0.18em]">
                     Pregled slika
                   </p>
-                  <p className="mt-1 text-sm font-medium text-[#f2e9e4] sm:text-base">
+                  <p className="theme-heading mt-1 text-sm font-medium sm:text-base">
                     {productName}
                   </p>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.18em] text-[#f2e9e4]/72">
+                  <div className="theme-chip-muted px-3 py-1 text-xs uppercase tracking-[0.18em]">
                     {activeIndex + 1} / {images.length}
                   </div>
 
@@ -203,7 +203,7 @@ export function ProductLightbox({
                     type="button"
                     aria-label="Zatvorite galeriju"
                     onClick={onClose}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#f2e9e4] transition duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9ada7]"
+                    className="theme-action-icon inline-flex h-11 w-11 items-center justify-center rounded-full"
                   >
                     <X className="h-5 w-5" />
                   </button>
@@ -217,7 +217,7 @@ export function ProductLightbox({
                       type="button"
                       aria-label="Prikažite prethodnu sliku"
                       onClick={onPrevious}
-                      className="absolute left-3 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-[#22223b]/72 text-[#f2e9e4] backdrop-blur-md transition duration-200 hover:bg-[#2b2d4a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9ada7] sm:left-5"
+                      className="theme-action-icon absolute left-3 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full sm:left-5"
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </button>
@@ -226,7 +226,7 @@ export function ProductLightbox({
                       type="button"
                       aria-label="Prikažite sledeću sliku"
                       onClick={onNext}
-                      className="absolute right-3 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-[#22223b]/72 text-[#f2e9e4] backdrop-blur-md transition duration-200 hover:bg-[#2b2d4a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9ada7] sm:right-5"
+                      className="theme-action-icon absolute right-3 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full sm:right-5"
                     >
                       <ChevronRight className="h-5 w-5" />
                     </button>
@@ -268,7 +268,7 @@ export function ProductLightbox({
                 </div>
 
                 {images.length > 1 ? (
-                  <div className="border-t border-white/10 px-4 py-4 sm:px-6">
+                  <div className="border-t border-[color:var(--border-soft)] px-4 py-4 sm:px-6">
                     <div className="flex gap-3 overflow-x-auto pb-1">
                       {images.map((image, index) => {
                         const isActive = index === activeIndex;
@@ -280,10 +280,10 @@ export function ProductLightbox({
                             aria-label={`Prikažite sliku ${index + 1}`}
                             aria-pressed={isActive}
                             onClick={() => onSelect(index)}
-                            className={`relative h-18 w-18 shrink-0 overflow-hidden rounded-2xl border transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9ada7] sm:h-20 sm:w-20 ${
+                            className={`relative h-18 w-18 shrink-0 overflow-hidden rounded-2xl border transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#748CAB] sm:h-20 sm:w-20 ${
                               isActive
-                                ? "border-[#c9ada7] ring-2 ring-[#c9ada7]/40"
-                                : "border-white/10 opacity-70 hover:opacity-100"
+                                ? "border-[#748CAB] ring-2 ring-[#748CAB]/35"
+                                : "border-[color:var(--border-soft)] opacity-70 hover:opacity-100"
                             }`}
                           >
                             <Image
@@ -314,13 +314,13 @@ export function ProductLightbox({
 function createShimmerDataUrl() {
   const svg = `
     <svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="1200" height="900" fill="#22223b"/>
+      <rect width="1200" height="900" fill="#0D1321"/>
       <rect width="1200" height="900" fill="url(#paint0_linear_0_1)"/>
       <defs>
         <linearGradient id="paint0_linear_0_1" x1="-120" y1="0" x2="1320" y2="0" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#22223b"/>
-          <stop offset="0.5" stop-color="#4a4e69"/>
-          <stop offset="1" stop-color="#22223b"/>
+          <stop stop-color="#0D1321"/>
+          <stop offset="0.5" stop-color="#3E5C76"/>
+          <stop offset="1" stop-color="#0D1321"/>
         </linearGradient>
       </defs>
     </svg>

@@ -83,11 +83,11 @@ export default async function CategoryDetailPage({
                 {category.parent === 0 ? "Glavna kategorija" : "Potkategorija"}
               </p>
 
-              <h1 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-[#f2e9e4] sm:text-4xl lg:text-5xl">
+              <h1 className="theme-heading mt-4 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
                 {category.name}
               </h1>
 
-              <p className="mt-5 max-w-2xl text-base leading-8 text-[#f2e9e4]/68 sm:text-lg">
+              <p className="theme-body mt-5 max-w-2xl text-base leading-8 sm:text-lg">
                 {intro}
               </p>
 
@@ -136,10 +136,10 @@ export default async function CategoryDetailPage({
             <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="section-eyebrow">Podkategorije</p>
-                <h2 className="mt-3 text-2xl font-semibold text-[#f2e9e4] sm:text-3xl">
+                <h2 className="theme-heading mt-3 text-2xl font-semibold sm:text-3xl">
                   Izaberite užu oblast iz kategorije {category.name}
                 </h2>
-                <p className="mt-3 max-w-3xl text-base leading-8 text-[#f2e9e4]/66">
+                <p className="theme-body-muted mt-3 max-w-3xl text-base leading-8">
                   Stranica prvo vodi kroz podkategorije kako bi pregled asortimana
                   bio jasniji i lakši za skeniranje.
                 </p>
@@ -191,15 +191,15 @@ function StatCard({
   value: string;
 }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
-      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#4a4e69] text-[#f2e9e4]">
+    <div className="theme-stat-card rounded-3xl p-5">
+      <div className="theme-icon-badge flex h-11 w-11 items-center justify-center rounded-2xl">
         {icon}
       </div>
 
-      <p className="mt-5 text-xs uppercase tracking-[0.18em] text-[#9a8c98]">
+      <p className="theme-label mt-5 text-xs uppercase tracking-[0.18em]">
         {label}
       </p>
-      <p className="mt-2 text-2xl font-semibold text-[#f2e9e4]">{value}</p>
+      <p className="theme-heading mt-2 text-2xl font-semibold">{value}</p>
     </div>
   );
 }

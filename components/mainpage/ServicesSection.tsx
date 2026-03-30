@@ -15,27 +15,27 @@ export function ServicesSection() {
           <div className="lg:sticky lg:top-28 lg:self-start">
             <p className="section-eyebrow">Usluge</p>
 
-            <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-tight text-[#f2e9e4] sm:text-4xl">
+            <h2 className="theme-heading mt-4 max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">
               Usluge koje podržavaju vaše poslovanje
             </h2>
 
-            <p className="mt-5 max-w-xl text-base leading-8 text-[#f2e9e4]/68 sm:text-lg">
+            <p className="theme-body mt-5 max-w-xl text-base leading-8 sm:text-lg">
               Od prodaje elektromaterijala do digitalnih rešenja i poslovnih
               vizuala, fokusirani smo na usluge koje donose veću preglednost,
               efikasnost i sigurnost u radu.
             </p>
 
-            <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-5">
+            <div className="theme-card-surface mt-8 rounded-3xl p-5">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#4a4e69] text-[#f2e9e4]">
+                <div className="theme-icon-badge flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl">
                   <ShieldCheck className="h-6 w-6" />
                 </div>
 
                 <div>
-                  <h3 className="text-base font-semibold text-[#f2e9e4]">
+                  <h3 className="theme-heading text-base font-semibold">
                     Praktična rešenja sa jasnim poslovnim fokusom
                   </h3>
-                  <p className="mt-2 text-sm leading-7 text-[#f2e9e4]/65 sm:text-base">
+                  <p className="theme-body-muted mt-2 text-sm leading-7 sm:text-base">
                     Naš pristup se zasniva na pouzdanoj ponudi, funkcionalnim
                     digitalnim alatima i podršci koja klijentima olakšava izbor
                     i donošenje odluka.
@@ -73,7 +73,7 @@ export function ServicesSection() {
                 "Podrška pri pronalaženju odgovarajućih artikala",
               ]}
               href="/proizvodi"
-              accent="from-[#c9ada7]/18 to-transparent"
+              accent="from-[#748CAB]/18 to-transparent"
             />
 
             <ServiceCard
@@ -86,7 +86,7 @@ export function ServicesSection() {
                 "Moderni i responzivni interfejsi",
               ]}
               href="/usluge"
-              accent="from-[#9a8c98]/18 to-transparent"
+              accent="from-[#3E5C76]/20 to-transparent"
             />
 
             <ServiceCard
@@ -99,7 +99,7 @@ export function ServicesSection() {
                 "Podrška poslovnom odlučivanju",
               ]}
               href="/kontakt"
-              accent="from-[#f2e9e4]/12 to-transparent"
+              accent="from-[#F0EBD8]/10 to-transparent"
             />
           </div>
         </div>
@@ -124,33 +124,33 @@ function ServiceCard({
   accent: string;
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 p-6 transition duration-200 hover:-translate-y-0.5 hover:bg-white/7 sm:p-7">
+    <div className="theme-card-surface theme-interactive-card group relative overflow-hidden rounded-[1.75rem] p-6 sm:p-7">
       <div
         className={`pointer-events-none absolute inset-0 bg-linear-to-br ${accent} opacity-100`}
       />
 
       <div className="relative z-10">
         <div className="flex items-start justify-between gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#22223b] text-[#f2e9e4] ring-1 ring-white/10">
+          <div className="theme-icon-badge flex h-12 w-12 items-center justify-center rounded-2xl">
             {icon}
           </div>
 
-          <div className="rounded-full border border-white/10 bg-[#22223b]/70 px-3 py-1 text-xs uppercase tracking-[0.18em] text-[#c9ada7]">
+          <div className="theme-chip px-3 py-1 text-xs uppercase tracking-[0.18em]">
             Corporate service
           </div>
         </div>
 
-        <h3 className="mt-6 text-2xl font-semibold text-[#f2e9e4]">{title}</h3>
+        <h3 className="theme-heading mt-6 text-2xl font-semibold">{title}</h3>
 
-        <p className="mt-4 max-w-2xl text-sm leading-7 text-[#f2e9e4]/65 sm:text-base">
+        <p className="theme-body-muted mt-4 max-w-2xl text-sm leading-7 sm:text-base">
           {description}
         </p>
 
         <ul className="mt-6 grid gap-3">
           {bullets.map((bullet) => (
             <li key={bullet} className="flex items-start gap-3">
-              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#c9ada7]" />
-              <span className="text-sm leading-7 text-[#f2e9e4]/72 sm:text-base">
+              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#748CAB]" />
+              <span className="theme-body text-sm leading-7 sm:text-base">
                 {bullet}
               </span>
             </li>
@@ -159,7 +159,7 @@ function ServiceCard({
 
         <Link
           href={href}
-          className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-[#c9ada7] transition duration-200 group-hover:translate-x-1"
+          className="theme-card-link mt-7 inline-flex items-center gap-2 text-sm font-medium group-hover:translate-x-1"
         >
           Saznajte više
           <ArrowRight className="h-4 w-4" />

@@ -35,40 +35,40 @@ export default async function CategoriesPage() {
             <div>
               <p className="section-eyebrow">Kategorije</p>
 
-              <h1 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-[#f2e9e4] sm:text-4xl lg:text-5xl">
+              <h1 className="theme-heading mt-4 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
                 Pregled glavnih kategorija kroz jasno i read-only corporate iskustvo
               </h1>
 
-              <p className="mt-5 max-w-2xl text-base leading-8 text-[#f2e9e4]/68 sm:text-lg">
+              <p className="theme-body mt-5 max-w-2xl text-base leading-8 sm:text-lg">
                 Sve glavne WooCommerce kategorije prikazane su u prezentacijskom
                 formatu, sa fokusom na preglednost, podkategorije i lakše kretanje
                 kroz ponudu bez cena, korpe i kupovine.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
-                  <p className="text-xs uppercase tracking-[0.18em] text-[#9a8c98]">
+                <div className="theme-stat-card rounded-2xl px-5 py-4">
+                  <p className="theme-label text-xs uppercase tracking-[0.18em]">
                     Glavne kategorije
                   </p>
-                  <p className="mt-2 text-2xl font-semibold text-[#f2e9e4]">
+                  <p className="theme-heading mt-2 text-2xl font-semibold">
                     {topCategories.length}
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
-                  <p className="text-xs uppercase tracking-[0.18em] text-[#9a8c98]">
+                <div className="theme-stat-card rounded-2xl px-5 py-4">
+                  <p className="theme-label text-xs uppercase tracking-[0.18em]">
                     Podkategorije
                   </p>
-                  <p className="mt-2 text-2xl font-semibold text-[#f2e9e4]">
+                  <p className="theme-heading mt-2 text-2xl font-semibold">
                     {subcategoryCount}
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
-                  <p className="text-xs uppercase tracking-[0.18em] text-[#9a8c98]">
+                <div className="theme-stat-card rounded-2xl px-5 py-4">
+                  <p className="theme-label text-xs uppercase tracking-[0.18em]">
                     Režim prikaza
                   </p>
-                  <p className="mt-2 text-2xl font-semibold text-[#f2e9e4]">
+                  <p className="theme-heading mt-2 text-2xl font-semibold">
                     Read-only
                   </p>
                 </div>
@@ -98,14 +98,14 @@ export default async function CategoriesPage() {
         <div className="mt-10 flex items-center justify-between gap-4">
           <div>
             <p className="section-eyebrow">Sve glavne kategorije</p>
-            <h2 className="mt-3 text-2xl font-semibold text-[#f2e9e4] sm:text-3xl">
+            <h2 className="theme-heading mt-3 text-2xl font-semibold sm:text-3xl">
               Organizovan ulaz u kompletan katalog
             </h2>
           </div>
 
-          <div className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-[#f2e9e4]/68 md:inline-flex">
+          <div className="theme-chip-muted hidden gap-2 px-4 py-2 text-sm md:inline-flex">
             Otvorite kategoriju
-            <ArrowRight className="h-4 w-4 text-[#c9ada7]" />
+            <ArrowRight className="theme-label h-4 w-4" />
           </div>
         </div>
 
@@ -134,13 +134,13 @@ function InfoCard({
   description: string;
 }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
-      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#4a4e69] text-[#f2e9e4]">
+    <div className="theme-stat-card rounded-3xl p-5">
+      <div className="theme-icon-badge flex h-11 w-11 items-center justify-center rounded-2xl">
         {icon}
       </div>
 
-      <h2 className="mt-5 text-lg font-semibold text-[#f2e9e4]">{title}</h2>
-      <p className="mt-3 text-sm leading-7 text-[#f2e9e4]/65">{description}</p>
+      <h2 className="theme-heading mt-5 text-lg font-semibold">{title}</h2>
+      <p className="theme-body-muted mt-3 text-sm leading-7">{description}</p>
     </div>
   );
 }

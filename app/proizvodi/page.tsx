@@ -121,11 +121,11 @@ export default async function ProductsPage({
             <div>
               <p className="section-eyebrow">Proizvodi</p>
 
-              <h1 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-[#f2e9e4] sm:text-4xl lg:text-5xl">
+              <h1 className="theme-heading mt-4 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
                 Read-only pregled celokupne ponude sa jasnim filterima
               </h1>
 
-              <p className="mt-5 max-w-2xl text-base leading-8 text-[#f2e9e4]/68 sm:text-lg">
+              <p className="theme-body mt-5 max-w-2xl text-base leading-8 sm:text-lg">
                 Stranica proizvoda omogućava mirno i pregledno istraživanje
                 kompletnog asortimana kroz brendove, kategorije i podkategorije,
                 bez cena, korpe i kupovine.
@@ -171,15 +171,15 @@ export default async function ProductsPage({
         <section className="relative py-10 sm:py-12">
           <div className="surface-panel overflow-hidden rounded-4xl p-5 sm:p-6 lg:p-8">
             <div className="mb-6 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-[#f2e9e4] ring-1 ring-white/10">
+              <div className="theme-card-surface theme-heading flex h-10 w-10 items-center justify-center rounded-xl">
                 <Filter className="h-5 w-5" />
               </div>
 
               <div>
-                <h2 className="text-xl font-semibold text-[#f2e9e4] sm:text-2xl">
+                <h2 className="theme-heading text-xl font-semibold sm:text-2xl">
                   Filteri i sortiranje
                 </h2>
-                <p className="mt-1 text-sm leading-7 text-[#f2e9e4]/60">
+                <p className="theme-body-muted mt-1 text-sm leading-7">
                   Kombinujte brand, kategoriju i podkategoriju za uži pregled
                   relevantnih proizvoda.
                 </p>
@@ -244,10 +244,10 @@ export default async function ProductsPage({
           <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="section-eyebrow">Rezultati</p>
-              <h2 className="mt-3 text-2xl font-semibold text-[#f2e9e4] sm:text-3xl">
+              <h2 className="theme-heading mt-3 text-2xl font-semibold sm:text-3xl">
                 {filteredProducts.length} proizvoda u read-only prikazu
               </h2>
-              <p className="mt-3 max-w-3xl text-base leading-8 text-[#f2e9e4]/66">
+              <p className="theme-body-muted mt-3 max-w-3xl text-base leading-8">
                 Svaki proizvod vodi na detaljnu prezentacijsku stranicu sa
                 slikama, opisom, kategorijom i brendom.
               </p>
@@ -258,7 +258,7 @@ export default async function ProductsPage({
                 {activeFilters.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[#f2e9e4]/75"
+                    className="theme-chip-muted px-3 py-1 text-xs uppercase tracking-[0.14em]"
                   >
                     {item}
                   </span>
@@ -278,8 +278,8 @@ export default async function ProductsPage({
               ))}
             </div>
           ) : (
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <p className="text-base leading-8 text-[#f2e9e4]/66">
+            <div className="theme-empty-state rounded-3xl p-6">
+              <p className="theme-body-muted text-base leading-8">
                 Nijedan proizvod trenutno ne odgovara izabranim filterima.
                 Pokušajte sa širom kombinacijom brendova ili kategorija.
               </p>
@@ -366,12 +366,12 @@ function FilterField({
 }) {
   return (
     <label className="grid gap-2">
-      <span className="text-sm font-medium text-[#f2e9e4]">{label}</span>
+      <span className="theme-heading text-sm font-medium">{label}</span>
       <select
         name={name}
         defaultValue={value}
         disabled={disabled}
-        className="rounded-2xl border border-white/10 bg-[#22223b]/70 px-4 py-3 text-sm text-[#f2e9e4] outline-none transition duration-200 focus:border-[#c9ada7] disabled:cursor-not-allowed disabled:opacity-60"
+        className="theme-select rounded-2xl px-4 py-3 text-sm outline-none transition duration-200 disabled:cursor-not-allowed disabled:opacity-60"
       >
         <option value="">{placeholder}</option>
         {options.map((option) => (
@@ -394,15 +394,15 @@ function OverviewStat({
   value: string;
 }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
-      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#4a4e69] text-[#f2e9e4]">
+    <div className="theme-stat-card rounded-3xl p-5">
+      <div className="theme-icon-badge flex h-11 w-11 items-center justify-center rounded-2xl">
         {icon}
       </div>
 
-      <p className="mt-5 text-xs uppercase tracking-[0.18em] text-[#9a8c98]">
+      <p className="theme-label mt-5 text-xs uppercase tracking-[0.18em]">
         {label}
       </p>
-      <p className="mt-2 text-2xl font-semibold text-[#f2e9e4]">{value}</p>
+      <p className="theme-heading mt-2 text-2xl font-semibold">{value}</p>
     </div>
   );
 }
