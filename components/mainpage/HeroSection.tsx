@@ -29,33 +29,9 @@ export function HeroSection() {
 function BackgroundDecor() {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10">
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, #0D1321 0%, #15253A 45%, #0D1321 100%)",
-        }}
-      />
-
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 20% 20%, rgba(240,235,216,0.08) 0, transparent 24%), radial-gradient(circle at 80% 30%, rgba(116,140,171,0.16) 0, transparent 24%), radial-gradient(circle at 70% 80%, rgba(62,92,118,0.16) 0, transparent 28%)",
-        }}
-      />
-
-      <div
-        className="absolute inset-0 opacity-[0.08]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(240,235,216,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(240,235,216,0.18) 1px, transparent 1px)",
-          backgroundSize: "42px 42px",
-        }}
-      />
-
-      <div className="absolute top-20 -left-30 h-72 w-72 rounded-full bg-[#748CAB]/16 blur-3xl" />
-      <div className="absolute -right-25 bottom-10 h-80 w-80 rounded-full bg-[#3E5C76]/22 blur-3xl" />
+      <div className="absolute inset-x-0 top-[-8rem] h-[30rem] bg-[radial-gradient(circle_at_16%_12%,rgba(240,235,216,0.07),transparent_20%),radial-gradient(circle_at_80%_18%,rgba(116,140,171,0.1),transparent_24%),radial-gradient(circle_at_60%_84%,rgba(62,92,118,0.1),transparent_28%)] opacity-90" />
+      <div className="absolute top-18 -left-24 h-64 w-64 rounded-full bg-[#748CAB]/10 blur-3xl" />
+      <div className="absolute right-[-5.5rem] bottom-8 h-72 w-72 rounded-full bg-[#3E5C76]/12 blur-3xl" />
     </div>
   );
 }

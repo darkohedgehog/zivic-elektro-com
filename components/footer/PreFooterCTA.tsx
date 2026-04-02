@@ -14,19 +14,13 @@ export function PreFooterCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
-          className="relative overflow-hidden rounded-4xl border border-white/10 bg-[#0D1321] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.24)] sm:p-8 lg:p-12"
+          className="surface-panel relative overflow-hidden rounded-4xl p-6 shadow-[0_20px_80px_rgba(0,0,0,0.24)] sm:p-8 lg:p-12"
         >
-          {/* background glow */}
           <div className="pointer-events-none absolute inset-0">
-            <motion.div
-              animate={{ opacity: [0.7, 1, 0.75] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(240,235,216,0.10),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(116,140,171,0.18),transparent_34%)]"
-            />
-            <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(rgba(240,235,216,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(240,235,216,0.16)_1px,transparent_1px)] bg-size-[36px_36px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(240,235,216,0.08),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(116,140,171,0.14),transparent_34%)]" />
+            <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(rgba(240,235,216,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(240,235,216,0.16)_1px,transparent_1px)] bg-size-[36px_36px]" />
           </div>
 
-          {/* subtle inner border */}
           <div className="pointer-events-none absolute inset-0 rounded-4xl shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]" />
 
           <div className="relative z-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-12">
