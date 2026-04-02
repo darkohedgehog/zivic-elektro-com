@@ -2,7 +2,7 @@ import { companyDetailGroups } from "@/components/about/aboutData";
 
 export function AboutCompanyDetails() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24">
+    <section className="flow-section py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="surface-panel rounded-4xl p-6 sm:p-8 lg:p-10">
           <div className="max-w-3xl">

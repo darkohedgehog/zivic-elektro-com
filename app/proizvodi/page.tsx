@@ -135,7 +135,7 @@ export default async function ProductsPage({
     : true;
 
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24">
+    <section className="flow-section relative py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-8 lg:p-10">
           <CategoryBreadcrumbs
@@ -196,7 +196,7 @@ export default async function ProductsPage({
           </div>
         </div>
 
-        <section className="relative py-10 sm:py-12">
+        <section className="flow-subsection relative py-10 sm:py-12">
           <div className="surface-panel overflow-hidden rounded-4xl p-5 sm:p-6 lg:p-8">
             <div className="mb-6 flex items-start gap-3">
               <div className="theme-card-surface theme-heading flex h-10 w-10 shrink-0 items-center justify-center rounded-xl">
@@ -302,7 +302,10 @@ export default async function ProductsPage({
           </div>
         </section>
 
-        <section id="product-results" className="relative py-2 sm:py-4">
+        <section
+          id="product-results"
+          className="flow-subsection relative py-2 sm:py-4"
+        >
           <div className="mb-6 grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
             <div>
               <p className="section-eyebrow">Rezultati</p>

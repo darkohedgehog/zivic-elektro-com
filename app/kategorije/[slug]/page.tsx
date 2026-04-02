@@ -72,7 +72,7 @@ export default async function CategoryDetailPage({
   ];
 
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24">
+    <section className="flow-section relative py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-8 lg:p-10">
           <CategoryBreadcrumbs items={breadcrumbItems} />
@@ -132,7 +132,7 @@ export default async function CategoryDetailPage({
         </div>
 
         {hasChildren ? (
-          <section className="relative py-10 sm:py-12">
+          <section className="flow-subsection relative py-10 sm:py-12">
             <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="section-eyebrow">Podkategorije</p>

@@ -2,7 +2,7 @@ import { maintenanceItems } from "@/components/services/servicesData";
 
 export function ServicesMaintenance() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="flow-section py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="surface-panel rounded-4xl p-6 sm:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">

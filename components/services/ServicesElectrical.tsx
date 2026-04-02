@@ -4,7 +4,7 @@ import { zivicShopUrl } from "@/components/services/servicesData";
 
 export function ServicesElectrical() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="flow-section py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="surface-panel relative overflow-hidden rounded-4xl p-6 sm:p-8 lg:p-10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(240,235,216,0.08),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(116,140,171,0.16),transparent_35%)]" />

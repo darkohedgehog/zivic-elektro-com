@@ -7,7 +7,7 @@ import { RiSparklingLine } from "react-icons/ri";
 
 export function PreFooterCTA() {
   return (
-    <section className="relative mt-24">
+    <section className="flow-section prefooter-cta relative mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 18 }}

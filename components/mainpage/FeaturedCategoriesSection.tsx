@@ -37,7 +37,7 @@ export async function FeaturedCategoriesSection() {
   const categoryBlocks = await getFeaturedCategoryBlocks();
 
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24">
+    <section className="flow-section relative py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">

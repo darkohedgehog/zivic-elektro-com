@@ -21,7 +21,7 @@ export default async function CategoriesPage() {
   const subcategoryCount = categories.length - topCategories.length;
 
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24">
+    <section className="flow-section relative py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-8 lg:p-10">
           <CategoryBreadcrumbs
@@ -95,7 +95,7 @@ export default async function CategoriesPage() {
           </div>
         </div>
 
-        <div className="mt-10 flex items-center justify-between gap-4">
+        <div className="flow-subsection mt-10 flex items-center justify-between gap-4">
           <div>
             <p className="section-eyebrow">Sve glavne kategorije</p>
             <h2 className="theme-heading mt-3 text-2xl font-semibold sm:text-3xl">
@@ -109,7 +109,7 @@ export default async function CategoriesPage() {
           </div>
         </div>
 
-        <div className="mt-8 grid gap-6 xl:grid-cols-2">
+        <div className="flow-subsection mt-8 grid gap-6 xl:grid-cols-2">
           {topCategories.map((category) => (
             <CategoryCard
               key={category.id}

@@ -73,7 +73,7 @@ export default async function ProductDetailPage({
   ];
 
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24">
+    <section className="flow-section relative py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-8 lg:p-10">
           <CategoryBreadcrumbs items={breadcrumbItems} />
@@ -152,7 +152,7 @@ export default async function ProductDetailPage({
           </div>
         </div>
 
-        <section className="relative py-10 sm:py-12">
+        <section className="flow-subsection relative py-10 sm:py-12">
           <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
             <ProductImageGallery images={product.images} productName={product.name} />
 
@@ -201,7 +201,7 @@ export default async function ProductDetailPage({
           </div>
         </section>
 
-        <section className="relative py-2 sm:py-4">
+        <section className="flow-subsection relative py-2 sm:py-4">
           <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-8">
             <h2 className="theme-heading text-2xl font-semibold sm:text-3xl">
               Opis proizvoda

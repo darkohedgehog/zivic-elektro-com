@@ -17,7 +17,7 @@ export function CorporatePage({
   items: CorporatePageItem[];
 }) {
   return (
-    <section className="page-section">
+    <section className="flow-section page-section">
       <div className="site-shell">
         <div className="surface-panel rounded-4xl p-5 sm:p-6 lg:p-8">
           <div className="page-layout gap-8 lg:gap-12">

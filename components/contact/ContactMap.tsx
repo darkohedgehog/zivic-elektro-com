@@ -8,7 +8,7 @@ import {
 
 export function ContactMap() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="flow-section py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-8">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">

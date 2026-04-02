@@ -33,7 +33,7 @@ export default function RootLayout({
       <body className="min-h-full">
         <div className="flex min-h-full flex-col">
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="page-flow flex-1">{children}</main>
           <PreFooterCTA />
           <Footer />
         </div>

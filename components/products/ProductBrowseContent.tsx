@@ -22,7 +22,7 @@ export function ProductGridSection({
   categories: WooCategory[];
 }) {
   return (
-    <section className="relative py-10 sm:py-12">
+    <section className="flow-subsection relative py-10 sm:py-12">
       <div className="surface-panel overflow-hidden rounded-4xl p-5 sm:p-6 lg:p-8">
         <div className="mb-6 flex items-center gap-3">
           <div className="theme-card-surface theme-heading flex h-10 w-10 items-center justify-center rounded-xl">
