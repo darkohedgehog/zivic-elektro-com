@@ -1,6 +1,6 @@
 "use client";
 
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { DotLottieCanvas } from "@/components/shared/DotLottieCanvas";
 
 export function AboutLottie() {
   return (
@@ -8,14 +8,9 @@ export function AboutLottie() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(240,235,216,0.08),transparent_24%),radial-gradient(circle_at_80%_30%,rgba(116,140,171,0.16),transparent_26%),radial-gradient(circle_at_70%_80%,rgba(62,92,118,0.16),transparent_28%)]" />
 
       <div className="absolute inset-0 p-4 sm:p-6">
-        <DotLottieReact
+        <DotLottieCanvas
           src="/assets/Logistics.lottie"
-          animationId="cc119310-552c-498c-b614-b3d9e27f93a2"
-          autoplay
-          loop
-          className="h-full w-full"
-          renderConfig={{ autoResize: true }}
-          aria-label="Ilustracija poslovne dostave i korporativne podrške"
+          ariaLabel="Ilustracija poslovne dostave i korporativne podrške"
         />
       </div>
     </div>
