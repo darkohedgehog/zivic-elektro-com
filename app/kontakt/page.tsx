@@ -1,35 +1,24 @@
-import { CorporatePage } from "@/components/shared/CorporatePage";
+import type { Metadata } from "next";
+import { ContactHero } from "@/components/contact/ContactHero";
+import { ContactLocations } from "@/components/contact/ContactLocations";
+import { ContactMap } from "@/components/contact/ContactMap";
+import { ContactShopCTA } from "@/components/contact/ContactShopCTA";
+import { ContactSupport } from "@/components/contact/ContactSupport";
 
-const items = [
-  {
-    title: "Jasan kontakt put",
-    description:
-      "Kontakt stranica koristi isti vizuelni sistem kako bi poziv na akciju ostao pregledan i nenametljiv.",
-  },
-  {
-    title: "Poverenje kroz dizajn",
-    description:
-      "Mekši borderi, smiren kontrast i ozbiljna paleta podržavaju osećaj stabilnosti i kredibiliteta.",
-  },
-  {
-    title: "Priprema za forme",
-    description:
-      "Raspored je spreman za kasnije dodavanje forme, kontakt kartica i radnog vremena bez refaktora.",
-  },
-  {
-    title: "Responsive struktura",
-    description:
-      "Sekcije su postavljene tako da zadrže preglednost i na manjim ekranima i u produkcijskom okruženju.",
-  },
-];
+export const metadata: Metadata = {
+  title: "Kontakt i poslovne informacije",
+  description:
+    "Kontakt stranica tvrtke Živić-elektro j.d.o.o. sa veleprodajnim i maloprodajnim informacijama, mapom lokacije i pristupom online shopu.",
+};
 
-export default function ContactUsPage() {
+export default function ContactPage() {
   return (
-    <CorporatePage
-      eyebrow="Kontakt"
-      title="Kontakt stranica u skladu sa pouzdanim i smirenim corporate identitetom"
-      description="Komunikacioni deo sajta sada deli isti ritam, iste površine i isti ton kao ostatak frontend sistema, što korisniku daje osećaj doslednosti i sigurnosti."
-      items={items}
-    />
+    <>
+      <ContactHero />
+      <ContactLocations />
+      <ContactSupport />
+      <ContactMap />
+      <ContactShopCTA />
+    </>
   );
 }
