@@ -10,7 +10,7 @@ export function ContactMap() {
   return (
     <section className="py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="surface-panel overflow-hidden rounded-[2rem] p-6 sm:p-8">
+        <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-8">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-3xl">
               <p className="section-eyebrow">Lokacija</p>
@@ -34,13 +34,13 @@ export function ContactMap() {
           </div>
 
           <div className="theme-media-shell mt-8 overflow-hidden rounded-[1.75rem] p-3 sm:p-4">
-            <div className="theme-media-frame overflow-hidden rounded-[1.5rem]">
+            <div className="theme-media-frame overflow-hidden rounded-3xl">
               <iframe
                 title="Google mapa za Lokvanjski sokak 6, Vukovar"
                 src={retailMapEmbedUrl}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="h-80 w-full border-0 sm:h-96 lg:h-[28rem]"
+                className="h-80 w-full border-0 sm:h-96 lg:h-112"
               />
             </div>
           </div>

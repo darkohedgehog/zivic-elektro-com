@@ -9,7 +9,7 @@ export function ContactShopCTA() {
   return (
     <section className="py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="surface-panel relative overflow-hidden rounded-[2rem] p-6 sm:p-8 lg:p-10">
+        <div className="surface-panel relative overflow-hidden rounded-4xl p-6 sm:p-8 lg:p-10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(240,235,216,0.08),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(116,140,171,0.16),transparent_35%)]" />
 
           <div className="relative grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
