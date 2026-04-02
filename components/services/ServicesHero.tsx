@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, PhoneCall } from "lucide-react";
-import { AboutLottie } from "@/components/about/AboutLottie";
 import { hedgehogWebDevUrl } from "@/components/services/servicesData";
+import { ServicesLottie } from "./ServicesLottie";
 
 export function ServicesHero() {
   return (
@@ -48,7 +48,7 @@ export function ServicesHero() {
 
               <div className="theme-media-shell relative overflow-hidden rounded-4xl p-3 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-4">
                 <div className="theme-media-frame relative overflow-hidden rounded-[1.6rem]">
-                  <AboutLottie />
+                  <ServicesLottie />
 
                   <div className="theme-image-top-fade absolute inset-x-0 top-0 h-28" />
                   <div className="theme-image-bottom-fade absolute inset-x-0 bottom-0 h-32" />

@@ -10,6 +10,7 @@ import {
   BriefcaseBusiness,
   Boxes,
 } from "lucide-react";
+import { HeroLottie } from "./HeroLottie";
 
 export function HeroSection() {
   return (
@@ -29,9 +30,9 @@ export function HeroSection() {
 function BackgroundDecor() {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10">
-      <div className="absolute inset-x-0 top-[-8rem] h-[30rem] bg-[radial-gradient(circle_at_16%_12%,rgba(240,235,216,0.07),transparent_20%),radial-gradient(circle_at_80%_18%,rgba(116,140,171,0.1),transparent_24%),radial-gradient(circle_at_60%_84%,rgba(62,92,118,0.1),transparent_28%)] opacity-90" />
+      <div className="absolute inset-x-0 -top-32 h-120 bg-[radial-gradient(circle_at_16%_12%,rgba(240,235,216,0.07),transparent_20%),radial-gradient(circle_at_80%_18%,rgba(116,140,171,0.1),transparent_24%),radial-gradient(circle_at_60%_84%,rgba(62,92,118,0.1),transparent_28%)] opacity-90" />
       <div className="absolute top-18 -left-24 h-64 w-64 rounded-full bg-[#748CAB]/10 blur-3xl" />
-      <div className="absolute right-[-5.5rem] bottom-8 h-72 w-72 rounded-full bg-[#3E5C76]/12 blur-3xl" />
+      <div className="absolute -right-22 bottom-8 h-72 w-72 rounded-full bg-[#3E5C76]/12 blur-3xl" />
     </div>
   );
 }
@@ -134,14 +135,7 @@ function HeroVisualCard() {
       <div className="theme-media-shell relative overflow-hidden rounded-[28px] p-3 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-4">
         <div className="theme-media-frame relative overflow-hidden rounded-3xl">
           <div className="relative aspect-4/3 w-full">
-            <Image
-              src="https://res.cloudinary.com/dhkmlqg4o/image/upload/v1774549229/HeroBanner_d7fdiz.png"
-              alt="Vizual koji prikazuje distribuciju elektromaterijala, razvoj web aplikacija i poslovnu analitiku"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover"
-            />
+            <HeroLottie />
           </div>
 
           <div className="theme-image-top-fade absolute inset-x-0 top-0 h-28" />
@@ -160,11 +154,7 @@ function HeroVisualCard() {
           <div className="absolute right-4 bottom-4 left-4">
             <div className="theme-chip-overlay max-w-md rounded-2xl p-4">
               <p className="theme-heading text-sm font-semibold">
-                Integrisana podrška za savremeno poslovanje
-              </p>
-              <p className="theme-body mt-2 text-sm leading-6">
-                Distribucija elektromaterijala, izrada web aplikacija i poslovni
-                vizuali prilagođeni potrebama vašeg projekta.
+                Integrisana podrška za suvremeno poslovanje
               </p>
             </div>
           </div>
