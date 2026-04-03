@@ -6,6 +6,7 @@ import {
   Boxes,
   FolderTree,
   GalleryVerticalEnd,
+  ShoppingCart,
 } from "lucide-react";
 import { CategoryBreadcrumbs } from "@/components/categories/CategoryBrowseContent";
 import { ProductImageGallery } from "@/components/products/ProductImageGallery";
@@ -17,6 +18,7 @@ import {
   getProductDetailDescription,
   resolveProductTaxonomy,
 } from "@/lib/woocommerce";
+import { getWebshopProductUrl } from "@/app/utils/webshopLinks";
 
 type ProductPageProps = {
   params: Promise<{
@@ -58,6 +60,7 @@ export default async function ProductDetailPage({
   const taxonomy = resolveProductTaxonomy(product, categories);
   const brand = getProductBrand(product);
   const description = getProductDetailDescription(product);
+  const webshopUrl = getWebshopProductUrl(product.slug);
   const breadcrumbItems = [
     { label: "Početna", href: "/" },
     { label: "Proizvodi", href: "/proizvodi" },
@@ -196,6 +199,36 @@ export default async function ProductDetailPage({
                 <p className="theme-body mt-4 text-sm leading-8 sm:text-base">
                   {getProductDescription(product)}
                 </p>
+              </div>
+
+              <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-7">
+                <div className="flex flex-wrap gap-2">
+                  <span className="theme-chip px-3 py-1 text-[11px] uppercase tracking-[0.16em]">
+                    Dostupno za kupovinu u Živić-Elektro webshopu
+                  </span>
+                </div>
+
+                <h2 className="theme-heading mt-5 text-xl font-semibold sm:text-2xl">
+                  Kupovina
+                </h2>
+                <p className="theme-body mt-4 text-sm leading-8 sm:text-base">
+                  Ovaj proizvod možete kupiti u našem online shopu.
+                </p>
+                <p className="theme-body-muted mt-3 text-sm leading-7">
+                  Za kompletnu dostupnost i online kupovinu posetite webshop.
+                </p>
+
+                <div className="mt-6 flex flex-col gap-3">
+                  <Link
+                    href={webshopUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-primary w-full justify-center sm:w-auto"
+                  >
+                    Kupi u online shopu
+                    <ShoppingCart className="h-4 w-4" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

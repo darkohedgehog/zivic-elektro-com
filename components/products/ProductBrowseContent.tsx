@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, PackageSearch } from "lucide-react";
+import { ArrowRight, PackageSearch, ShoppingCart } from "lucide-react";
 import {
   getProductBrand,
   getProductDescription,
@@ -9,6 +9,7 @@ import {
   type WooCategory,
   type WooProduct,
 } from "@/lib/woocommerce";
+import { getWebshopProductUrl } from "@/app/utils/webshopLinks";
 
 export function ProductGridSection({
   title,
@@ -72,30 +73,30 @@ export function ProductCard({
   const taxonomy = resolveProductTaxonomy(product, categories);
   const brand = getProductBrand(product);
   const description = getProductDescription(product);
+  const webshopUrl = getWebshopProductUrl(product.slug);
   const categoryLabel = taxonomy.categoryNames.join(", ") || "Nije izdvojena";
   const subcategoryLabel =
     taxonomy.subcategoryNames.join(", ") || "Osnovna kategorija";
 
   return (
-    <Link
-      href={`/proizvodi/${product.slug}`}
-      className="theme-card-surface theme-interactive-card group h-full overflow-hidden rounded-3xl"
-    >
-      <div className="theme-media-frame relative aspect-16/10 overflow-hidden">
-        {image ? (
-          <Image
-            src={image.src}
-            alt={image.alt || product.name}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            className="object-cover transition duration-300 group-hover:scale-[1.03]"
-          />
-        ) : (
-          <div className="theme-body-muted flex h-full items-center justify-center">
-            <PackageSearch className="h-10 w-10" />
-          </div>
-        )}
-      </div>
+    <article className="theme-card-surface theme-interactive-card group h-full overflow-hidden rounded-3xl">
+      <Link href={`/proizvodi/${product.slug}`} className="block">
+        <div className="theme-media-frame relative aspect-16/10 overflow-hidden">
+          {image ? (
+            <Image
+              src={image.src}
+              alt={image.alt || product.name}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+              className="object-cover transition duration-300 group-hover:scale-[1.03]"
+            />
+          ) : (
+            <div className="theme-body-muted flex h-full items-center justify-center">
+              <PackageSearch className="h-10 w-10" />
+            </div>
+          )}
+        </div>
+      </Link>
 
       <div className="flex h-full flex-col p-5">
         <div className="flex flex-wrap gap-2">
@@ -108,9 +109,11 @@ export function ProductCard({
           </span>
         </div>
 
-        <h3 className="theme-heading mt-4 line-clamp-2 text-lg font-semibold">
-          {product.name}
-        </h3>
+        <Link href={`/proizvodi/${product.slug}`} className="block">
+          <h3 className="theme-heading mt-4 line-clamp-2 text-lg font-semibold transition duration-200 group-hover:text-white">
+            {product.name}
+          </h3>
+        </Link>
 
         <p className="theme-body-muted mt-3 line-clamp-3 text-sm leading-7">
           {description}
@@ -127,17 +130,32 @@ export function ProductCard({
           </div>
         </div>
 
-        <div className="mt-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-4 flex flex-col items-start gap-3">
           <div className="theme-chip-muted rounded-2xl px-3 py-2 text-xs uppercase tracking-[0.16em] theme-label-muted">
             Read-only prikaz
           </div>
 
-          <div className="theme-card-link inline-flex items-center gap-2 text-sm font-medium group-hover:translate-x-1">
-            Otvorite detalje
-            <ArrowRight className="h-4 w-4" />
+          <div className="grid w-full gap-3 sm:grid-cols-2">
+            <Link
+              href={`/proizvodi/${product.slug}`}
+              className="btn-secondary min-h-12 w-full justify-center"
+            >
+              Detalji
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+
+            <Link
+              href={webshopUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary min-h-12 w-full justify-center"
+            >
+              Kupi u shopu
+              <ShoppingCart className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </div>
-    </Link>
+    </article>
   );
 }

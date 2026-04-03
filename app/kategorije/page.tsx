@@ -8,6 +8,8 @@ import {
   getAllCategories,
   getChildCategories,
 } from "@/lib/woocommerce";
+import { WebshopCtaPanel } from "@/components/catalog/WebshopCtaPanel";
+import { WEBSHOP_BASE_URL } from "@/app/utils/webshopLinks";
 
 export const metadata: Metadata = {
   title: "Kategorije",
@@ -94,6 +96,15 @@ export default async function CategoriesPage() {
             </div>
           </div>
         </div>
+
+        <WebshopCtaPanel
+          eyebrow="Online kupovina"
+          title="Online kupovina"
+          description="Kompletan katalog proizvoda dostupan je u našem webshopu."
+          href={WEBSHOP_BASE_URL}
+          ctaLabel="Otvori webshop"
+          caption="Korporativna stranica služi kao pregled i predstavljanje asortimana, dok se kupovina odvija u webshopu."
+        />
 
         <div className="flow-subsection mt-10 flex items-center justify-between gap-4">
           <div>

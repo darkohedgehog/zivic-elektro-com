@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, Boxes, Filter, FolderTree, PackageSearch } from "lucide-react";
 import { CategoryBreadcrumbs } from "@/components/categories/CategoryBrowseContent";
 import { ProductCard } from "@/components/products/ProductBrowseContent";
+import { WebshopCtaPanel } from "@/components/catalog/WebshopCtaPanel";
 import {
   getAllCategories,
   getAllProducts,
@@ -14,6 +15,7 @@ import {
   type WooCategory,
   type WooProduct,
 } from "@/lib/woocommerce";
+import { WEBSHOP_BASE_URL } from "@/app/utils/webshopLinks";
 
 type ProductsPageSearchParams = {
   brand?: string;
@@ -196,6 +198,15 @@ export default async function ProductsPage({
           </div>
         </div>
 
+        <WebshopCtaPanel
+          eyebrow="Online kupovina"
+          title="Online kupovina"
+          description="Kompletan katalog proizvoda dostupan je u našem webshopu."
+          href={WEBSHOP_BASE_URL}
+          ctaLabel="Otvori webshop"
+          caption="Koristite ovu stranicu za pregled, filtriranje i usporedbu proizvoda, a webshop za potpunu dostupnost i kupnju."
+        />
+
         <section className="flow-subsection relative py-10 sm:py-12">
           <div className="surface-panel overflow-hidden rounded-4xl p-5 sm:p-6 lg:p-8">
             <div className="mb-6 flex items-start gap-3">
@@ -275,7 +286,7 @@ export default async function ProductsPage({
                 </div>
               </form>
 
-              <div className="mt-5 flex flex-col gap-3 border-t border-[color:var(--border-soft)] pt-5">
+              <div className="mt-5 flex flex-col gap-3 border-t border-(--border-soft) pt-5">
                 <div className="flex flex-wrap gap-2">
                   {activeFilters.length > 0 ? (
                     activeFilters.map((item) => (
@@ -314,7 +325,8 @@ export default async function ProductsPage({
               </h2>
               <p className="theme-body-muted mt-3 max-w-3xl text-base leading-8">
                 Svaki proizvod vodi na detaljnu prezentacijsku stranicu sa
-                slikama, opisom, kategorijom i brendom.
+                slikama, opisom, kategorijom i brendom, uz jasan put prema
+                webshop kupovini.
               </p>
             </div>
 
@@ -583,7 +595,7 @@ function ProductsPagination({
   return (
     <nav
       aria-label="Paginacija proizvoda"
-      className="mt-8 rounded-4xl border border-[color:var(--border-soft)] bg-[rgba(13,19,33,0.32)] p-4 sm:p-5"
+      className="mt-8 rounded-4xl border border-(--border-soft) bg-[rgba(13,19,33,0.32)] p-4 sm:p-5"
     >
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
@@ -632,7 +644,7 @@ function ProductsPagination({
                 <Link
                   key={item}
                   href={buildProductsHref({ ...queryState, page: item })}
-                  className="theme-card-surface theme-heading inline-flex min-h-11 min-w-11 items-center justify-center rounded-2xl px-4 text-sm font-medium transition duration-200 hover:-translate-y-px hover:border-[color:var(--border-strong)]"
+                  className="theme-card-surface theme-heading inline-flex min-h-11 min-w-11 items-center justify-center rounded-2xl px-4 text-sm font-medium transition duration-200 hover:-translate-y-px hover:border-(--border-strong)"
                 >
                   {item}
                 </Link>

@@ -15,6 +15,8 @@ import {
   getChildCategories,
   getProductsByCategoryId,
 } from "@/lib/woocommerce";
+import { WebshopCtaPanel } from "@/components/catalog/WebshopCtaPanel";
+import { getWebshopCategoryUrl } from "@/app/utils/webshopLinks";
 
 type CategoryPageProps = {
   params: Promise<{
@@ -60,6 +62,7 @@ export default async function CategoryDetailPage({
     ? await getProductsByCategoryId(category.id, 6)
     : [];
   const intro = getCategoryDescription(category);
+  const webshopCategoryUrl = getWebshopCategoryUrl(category, categories);
 
   const breadcrumbItems = [
     { label: "Početna", href: "/" },
@@ -131,6 +134,15 @@ export default async function CategoryDetailPage({
           </div>
         </div>
 
+        <WebshopCtaPanel
+          eyebrow="Online kupovina"
+          title="Kupite proizvode online"
+          description="Kompletan asortiman proizvoda iz ove kategorije dostupan je u našem webshopu."
+          href={webshopCategoryUrl}
+          ctaLabel="Pogledajte proizvode u shopu"
+          caption={`Kupovina za kategoriju ${category.name} odvija se u webshopu, uz punu transakcijsku dostupnost i pregled ponude.`}
+        />
+
         {hasChildren ? (
           <section className="flow-subsection relative py-10 sm:py-12">
             <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -162,7 +174,7 @@ export default async function CategoryDetailPage({
         {hasChildren && parentPreviewProducts.length > 0 ? (
           <ProductGridSection
             title={`Izdvojeni proizvodi iz kategorije ${category.name}`}
-            description="Prikazani su direktno dodeljeni proizvodi iz ove kategorije, bez cena, kupovine i prodajnog interfejsa."
+            description="Prikazani su direktno dodeljeni proizvodi iz ove kategorije, uz detaljan korporativni pregled i jasan prelaz prema webshop kupovini."
             products={parentPreviewProducts}
             categories={categories}
           />
@@ -171,7 +183,7 @@ export default async function CategoryDetailPage({
         {!hasChildren ? (
           <ProductGridSection
             title={`Proizvodi u kategoriji ${category.name}`}
-            description="Proizvodi su prikazani u read-only grid rasporedu sa slikom, kratkim opisom, kategorijom, potkategorijom i brendom."
+            description="Proizvodi su prikazani u read-only grid rasporedu sa slikom, kratkim opisom, kategorijom, potkategorijom i direktnim prelazom na webshop."
             products={products}
             categories={categories}
           />

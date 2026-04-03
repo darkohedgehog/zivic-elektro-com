@@ -1,9 +1,5 @@
+import { redirect } from "next/navigation";
 
-
-const TermsPage = () => {
-  return (
-    <div>TermsPage</div>
-  )
+export default function TermsPage() {
+  redirect("/pravila-privatnosti#uvjeti-koristenja");
 }
-
-export default TermsPage;
