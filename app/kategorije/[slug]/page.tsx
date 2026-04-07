@@ -17,6 +17,7 @@ import {
 } from "@/lib/woocommerce";
 import { WebshopCtaPanel } from "@/components/catalog/WebshopCtaPanel";
 import { getWebshopCategoryUrl } from "@/app/utils/webshopLinks";
+import { createPageMetadata, NOINDEX_ROBOTS } from "@/lib/seo";
 
 type CategoryPageProps = {
   params: Promise<{
@@ -34,13 +35,16 @@ export async function generateMetadata({
   if (!category) {
     return {
       title: "Kategorija nije pronađena",
+      robots: NOINDEX_ROBOTS,
     };
   }
 
-  return {
+  return createPageMetadata({
     title: category.name,
     description: getCategoryDescription(category),
-  };
+    path: `/kategorije/${category.slug}`,
+    ogImage: category.image?.src ?? null,
+  });
 }
 
 export default async function CategoryDetailPage({

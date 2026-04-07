@@ -19,6 +19,7 @@ import {
   resolveProductTaxonomy,
 } from "@/lib/woocommerce";
 import { getWebshopProductUrl } from "@/app/utils/webshopLinks";
+import { createPageMetadata, NOINDEX_ROBOTS } from "@/lib/seo";
 
 type ProductPageProps = {
   params: Promise<{
@@ -35,13 +36,16 @@ export async function generateMetadata({
   if (!product) {
     return {
       title: "Proizvod nije pronađen",
+      robots: NOINDEX_ROBOTS,
     };
   }
 
-  return {
+  return createPageMetadata({
     title: product.name,
     description: getProductDescription(product),
-  };
+    path: `/proizvodi/${product.slug}`,
+    ogImage: product.images[0]?.src ?? null,
+  });
 }
 
 export default async function ProductDetailPage({

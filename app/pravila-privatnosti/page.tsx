@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Pravila privatnosti i uvjeti korištenja | Živić-elektro",
+export const metadata: Metadata = createPageMetadata({
+  title: "Pravila privatnosti i uvjeti korištenja",
   description:
     "Informacije o obradi osobnih podataka, korištenju kolačića i uvjetima korištenja web stranice www.zivic-elektro.com.",
-};
+  path: "/pravila-privatnosti",
+});
 
 type LegalSection = {
   id: string;

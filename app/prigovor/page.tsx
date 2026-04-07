@@ -10,12 +10,14 @@ import {
   PhoneCall,
   RotateCcw,
 } from "lucide-react";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Povrat robe i reklamacije | Živić-elektro",
+export const metadata: Metadata = createPageMetadata({
+  title: "Povrat robe i reklamacije",
   description:
     "Informacije o postupku povrata robe, pisanom prigovoru i kontaktu za podršku.",
-};
+  path: "/prigovor",
+});
 
 const processSteps = [
   {

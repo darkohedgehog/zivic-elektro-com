@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.zivic-elektro.com
+
+# Sitemaps
+Sitemap: https://www.zivic-elektro.com/sitemap.xml

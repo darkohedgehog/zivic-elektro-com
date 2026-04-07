@@ -16,6 +16,7 @@ import {
   type WooProduct,
 } from "@/lib/woocommerce";
 import { WEBSHOP_BASE_URL } from "@/app/utils/webshopLinks";
+import { createPageMetadata } from "@/lib/seo";
 
 type ProductsPageSearchParams = {
   brand?: string;
@@ -53,11 +54,12 @@ const SORT_OPTIONS: Array<{ value: SortOption; label: string }> = [
   { value: "brand-asc", label: "Brand A-Z" },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Proizvodi",
   description:
     "Read-only pregled svih WooCommerce proizvoda sa filterima po brandu, kategoriji i podkategoriji, bez cena i kupovine.",
-};
+  path: "/proizvodi",
+});
 
 export default async function ProductsPage({
   searchParams,

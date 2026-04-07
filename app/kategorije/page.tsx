@@ -10,12 +10,14 @@ import {
 } from "@/lib/woocommerce";
 import { WebshopCtaPanel } from "@/components/catalog/WebshopCtaPanel";
 import { WEBSHOP_BASE_URL } from "@/app/utils/webshopLinks";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Kategorije",
+export const metadata: Metadata = createPageMetadata({
+  title: "Kategorije proizvoda",
   description:
     "Pregled svih glavnih WooCommerce kategorija u read-only prezentacijskom formatu, bez cena i kupovine.",
-};
+  path: "/kategorije",
+});
 
 export default async function CategoriesPage() {
   const categories = await getAllCategories();

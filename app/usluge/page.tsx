@@ -6,12 +6,14 @@ import { ServicesHero } from "@/components/services/ServicesHero";
 import { ServicesMaintenance } from "@/components/services/ServicesMaintenance";
 import { ServicesOverview } from "@/components/services/ServicesOverview";
 import { ServicesWebDevelopment } from "@/components/services/ServicesWebDevelopment";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Usluge",
   description:
     "Pregled digitalnih usluga, BI rješenja i distribucije elektro materijala tvrtke Živić-elektro.",
-};
+  path: "/usluge",
+});
 
 export default function ServicesPage() {
   return (
