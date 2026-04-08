@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import { Navbar } from "@/components/navbar/Navbar";
 import { PreFooterCTA } from "@/components/footer/PreFooterCTA";
 import { BackgroundSystem } from "@/components/layout/BackgroundSystem";
+import { ServiceWorkerRegistration } from "@/components/pwa/ServiceWorkerRegistration";
 import {
   createPageMetadata,
   DEFAULT_SITE_DESCRIPTION,
   SITE_NAME,
+  SITE_THEME_COLOR,
   SITE_URL,
 } from "@/lib/seo";
 
@@ -26,6 +28,11 @@ const homeMetadata = createPageMetadata({
   description: DEFAULT_SITE_DESCRIPTION,
   path: "/",
 });
+
+export const viewport: Viewport = {
+  colorScheme: "dark",
+  themeColor: SITE_THEME_COLOR,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -53,6 +60,7 @@ export default function RootLayout({
     >
       <body className="min-h-full">
         <BackgroundSystem />
+        <ServiceWorkerRegistration />
         <div className="app-shell flex min-h-full flex-col">
           <Navbar />
           <main className="page-flow flex-1">{children}</main>

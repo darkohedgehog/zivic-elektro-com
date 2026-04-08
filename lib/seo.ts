@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 
-export const SITE_NAME = "Živić-elektro";
+export const SITE_NAME = "Živić-Elektro";
 export const SITE_URL = "https://www.zivic-elektro.com";
+export const SITE_THEME_COLOR = "#0d1321";
+export const SITE_BACKGROUND_COLOR = "#0b111d";
 export const DEFAULT_SITE_DESCRIPTION =
-  "Živić-elektro nudi elektromaterijal, pregled proizvoda, poslovne usluge i pristup webshopu za veleprodaju i maloprodaju.";
+  "Živić-Elektro nudi elektromaterijal, pregled proizvoda, poslovne usluge i pristup webshopu za veleprodaju i maloprodaju.";
 
-const DEFAULT_SOCIAL_IMAGE_PATH = "/icons/android-chrome-512x512.png";
+const DEFAULT_SOCIAL_IMAGE_PATH = "/og/home.jpg";
 
 export const DEFAULT_ROBOTS: Metadata["robots"] = {
   index: true,
@@ -102,7 +104,7 @@ export function createPageMetadata({
       ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: metadataTitle,
       description,
       images: [socialImageUrl],

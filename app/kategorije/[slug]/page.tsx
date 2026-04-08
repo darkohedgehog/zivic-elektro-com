@@ -43,7 +43,7 @@ export async function generateMetadata({
     title: category.name,
     description: getCategoryDescription(category),
     path: `/kategorije/${category.slug}`,
-    ogImage: category.image?.src ?? null,
+    ogImage: `/kategorije/${category.slug}/opengraph-image`,
   });
 }
 

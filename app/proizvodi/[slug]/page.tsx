@@ -44,7 +44,7 @@ export async function generateMetadata({
     title: product.name,
     description: getProductDescription(product),
     path: `/proizvodi/${product.slug}`,
-    ogImage: product.images[0]?.src ?? null,
+    ogImage: `/proizvodi/${product.slug}/opengraph-image`,
   });
 }
 
