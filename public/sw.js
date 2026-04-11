@@ -1,12 +1,16 @@
-const STATIC_CACHE = "zivic-elektro-static-v1";
-const RUNTIME_CACHE = "zivic-elektro-runtime-v1";
+const STATIC_CACHE = "zivic-elektro-static-v3";
+const RUNTIME_CACHE = "zivic-elektro-runtime-v3";
+
 const OFFLINE_FALLBACK_URL = "/";
+
 const PRECACHE_URLS = [
   OFFLINE_FALLBACK_URL,
   "/manifest.webmanifest",
-  "/favicon.ico",
-  "/icon.png",
-  "/apple-icon.png",
+  "/icons/favicon-16x16.png",
+  "/icons/favicon-32x32.png",
+  "/icons/apple-touch-icon.png",
+  "/icons/android-chrome-192x192.png",
+  "/icons/android-chrome-512x512.png",
 ];
 
 self.addEventListener("install", (event) => {
@@ -14,7 +18,9 @@ self.addEventListener("install", (event) => {
     caches
       .open(STATIC_CACHE)
       .then((cache) => cache.addAll(PRECACHE_URLS))
-      .catch(() => undefined),
+      .catch((error) => {
+        console.error("Precache failed:", error);
+      }),
   );
 
   self.skipWaiting();
@@ -69,7 +75,7 @@ async function handleNavigationRequest(request) {
     const networkResponse = await fetch(request);
 
     if (networkResponse && networkResponse.ok) {
-      runtimeCache.put(request, networkResponse.clone());
+      await runtimeCache.put(request, networkResponse.clone());
     }
 
     return networkResponse;
@@ -95,12 +101,12 @@ async function handleRuntimeRequest(request) {
     const networkResponse = await fetch(request);
 
     if (networkResponse && shouldCacheResponse(networkResponse)) {
-      runtimeCache.put(request, networkResponse.clone());
+      await runtimeCache.put(request, networkResponse.clone());
     }
 
     return networkResponse;
   } catch {
-    return caches.match(request).then((response) => response || Response.error());
+    return (await caches.match(request)) || Response.error();
   }
 }
 

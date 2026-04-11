@@ -16,21 +16,25 @@ export default function manifest(): MetadataRoute.Manifest {
     scope: "/",
     start_url: "/",
     display: "standalone",
+    orientation: "portrait",
     prefer_related_applications: false,
     background_color: SITE_BACKGROUND_COLOR,
     theme_color: SITE_THEME_COLOR,
     icons: [
       {
-        src: "/icons/favicon.ico",
-        sizes: "any",
-        type: "image/x-icon",
-        purpose: "any",
+        src: "/icons/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        src: "/icons/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
       },
       {
         src: "/icons/apple-touch-icon.png",
         sizes: "180x180",
         type: "image/png",
-        purpose: "any",
       },
       {
         src: "/icons/android-chrome-192x192.png",

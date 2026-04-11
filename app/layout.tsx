@@ -4,7 +4,9 @@ import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import { Navbar } from "@/components/navbar/Navbar";
 import { PreFooterCTA } from "@/components/footer/PreFooterCTA";
+import CookiesToastClient from "@/components/cookies/CookiesToastClient";
 import { BackgroundSystem } from "@/components/layout/BackgroundSystem";
+import { PwaInstallPrompt } from "@/components/pwa/PwaInstallPrompt";
 import { ServiceWorkerRegistration } from "@/components/pwa/ServiceWorkerRegistration";
 import {
   createPageMetadata,
@@ -61,10 +63,12 @@ export default function RootLayout({
       <body className="min-h-full">
         <BackgroundSystem />
         <ServiceWorkerRegistration />
+        <PwaInstallPrompt />
         <div className="app-shell flex min-h-full flex-col">
           <Navbar />
           <main className="page-flow flex-1">{children}</main>
           <PreFooterCTA />
+          <CookiesToastClient />
           <Footer />
         </div>
       </body>
