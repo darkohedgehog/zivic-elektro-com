@@ -42,9 +42,8 @@ export function AboutDigitalSolutions() {
                 </div>
 
                 <p className="theme-body-muted mt-6 text-sm leading-7 sm:text-base">
-                  Ovaj dio poslovanja predstavljen je kao logičan nastavak
-                  suvremenog poslovnog pristupa: funkcionalna rješenja, pregledna
-                  iskustva i kvalitetnija digitalna prezentacija brenda.
+                  Suvremen poslovni pristup: funkcionalna rješenja, poboljšana korisnička
+                  iskustva i kvalitetnija digitalna prezentacija.
                 </p>
 
                 <div className="mt-8">

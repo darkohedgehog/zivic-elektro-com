@@ -11,9 +11,7 @@ export function AboutCompanyDetails() {
               Podaci o tvrtki
             </h2>
             <p className="theme-body mt-5 text-base leading-8 sm:text-lg">
-              Poslovni i pravni podaci grupirani su u pregledne kartice kako bi
-              ključne informacije o društvu ostale formalne, čitljive i lako
-              dostupne.
+              Poslovni i pravni podaci o tvrtki uključuju osnovne informacije, koji su javno dostupni i transparentni za naše klijente i partnere.
             </p>
           </div>
 
