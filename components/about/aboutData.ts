@@ -32,10 +32,10 @@ export type CompanyDetailGroup = {
 };
 
 export const aboutIntro =
-  "Živić elektro je tvrtka za trgovinu i usluge u privatnom vlasništvu osnovana 1998. godine u Hrvatskoj. Kroz dugogodišnje prisustvo na tržištu gradimo pouzdanu poslovnu saradnju i nudimo kvalitetna rješenja za potrebe maloprodaje i veleprodaje.";
+  "Živić elektro je tvrtka za trgovinu i usluge u privatnom vlasništvu osnovana 1998. godine u Hrvatskoj. Kroz dugogodišnju prisutnost na tržištu gradimo pouzdanu poslovnu suradnju i nudimo kvalitetna rješenja za potrebe maloprodaje i veleprodaje.";
 
 export const aboutStoryText =
-  "Na tržištu Republike Hrvatske nastupamo kao generalni distributeri i uvoznici proizvoda Metalke Majur, lidera u proizvodnji elektro galanterije u ovom dijelu Europe. Fokusirani smo na pouzdanost, kvalitet ponude i profesionalan odnos prema kupcima i partnerima.";
+  "Na tržištu Republike Hrvatske nastupamo kao generalni distributeri i uvoznici proizvoda Metalke Majur, lidera u proizvodnji elektro galanterije u ovom dijelu Europe. Fokusirani smo na pouzdanost, kvalitetu ponude i profesionalan odnos prema kupcima i partnerima.";
 
 export const aboutStoryStats: AboutStat[] = [
   {
@@ -55,7 +55,7 @@ export const aboutStoryStats: AboutStat[] = [
   },
   {
     label: "Tržište",
-    value: "Prisustvo u Hrvatskoj",
+    value: "Prisutnost u Hrvatskoj",
     icon: Globe2,
   },
 ];
@@ -85,18 +85,18 @@ export const businessModelItems: BusinessModelItem[] = [
   {
     title: "Veleprodaja",
     description:
-      "Podrška poslovnim partnerima, organizirana ponuda i saradnja prilagođena profesionalnim i većim narudžbama.",
+      "Podrška poslovnim partnerima, organizirana ponuda i suradnja prilagođena profesionalnim i većim narudžbama.",
     icon: BriefcaseBusiness,
   },
 ];
 
 export const digitalSolutionsText =
-  "Pored osnovne djelatnosti, bavimo se i razvojem modernih web aplikacija, poslovnih digitalnih rješenja i savremenih online prezentacija. Fokus nam je na funkcionalnosti, preglednosti i rješenjima koja klijentima pomažu da kvalitetnije predstave svoje poslovanje i unaprijede digitalno prisustvo.";
+  "Pored osnovne djelatnosti, bavimo se i razvojem modernih web aplikacija, poslovnih digitalnih rješenja i suvremenih internetskih prezentacija. Fokus nam je na funkcionalnosti, preglednosti i rješenjima koja klijentima pomažu da kvalitetnije predstave svoje poslovanje i unaprijede digitalnu prisutnost.";
 
 export const digitalSolutionsHighlights = [
   "Web aplikacije",
   "Digitalna rješenja",
-  "Savremeni poslovni pristup",
+  "Suvremeni poslovni pristup",
 ] as const;
 
 export const hedgehogWebDevUrl = "https://www.hedgehogwebdev.com";
@@ -151,7 +151,7 @@ export const companyDetailGroups: CompanyDetailGroup[] = [
     items: [
       {
         label: "Pravno ustrojbeni oblik",
-        value: "jednostavno društvo sa ograničenom odgovornošću",
+        value: "jednostavno društvo s ograničenom odgovornošću",
       },
       { label: "Brojčana oznaka", value: "49" },
     ],

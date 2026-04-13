@@ -17,8 +17,7 @@ export function ServicesHero() {
               </h1>
 
               <p className="theme-body mt-6 max-w-2xl text-base leading-8 sm:text-lg">
-                Kombinujemo dugogodišnje iskustvo u distribuciji elektro
-                materijala sa razvojem modernih web aplikacija i poslovnih BI
+                Objedinjujemo dugogodišnje iskustvo u distribuciji elektromaterijala s razvojem modernih web aplikacija i poslovnih BI
                 rješenja.
               </p>
 
@@ -59,7 +58,7 @@ export function ServicesHero() {
                     </div>
 
                     <div className="theme-chip-overlay-muted theme-body-muted max-w-full px-3 py-1 text-xs">
-                      Enterprise pristup • Više poslovnih pravaca
+                      Sveobuhvatan pristup • Više poslovnih pravaca
                     </div>
                   </div>
 

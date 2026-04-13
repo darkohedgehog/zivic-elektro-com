@@ -14,16 +14,16 @@ export function BusinessOverviewSection() {
         <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-8 lg:p-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <div>
-              <p className="section-eyebrow">Corporate overview</p>
+              <p className="section-eyebrow">Vaš siguran partner</p>
 
               <h2 className="theme-heading mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-                Rešenja prilagođena vašem poslovanju
+                Rješenja prilagođena vašem poslovanju
               </h2>
 
               <p className="theme-body mt-5 max-w-2xl text-base leading-8 sm:text-lg">
                 Objedinjavamo kvalitetnu ponudu elektromaterijala, stručnu
-                podršku i savremena digitalna rešenja kako bismo klijentima
-                omogućili efikasniji, pregledniji i sigurniji rad.
+                podršku i suvremena digitalna rješenja kako bismo klijentima
+                omogućili učinkovitiji, pregledniji i sigurniji rad.
               </p>
 
               <div className="theme-feature-box mt-8 rounded-3xl p-5">
@@ -34,11 +34,11 @@ export function BusinessOverviewSection() {
 
                   <div>
                     <h3 className="theme-heading text-base font-semibold">
-                      Vaš partner za sigurnu i profesionalnu saradnju
+                      Vaš partner za sigurnu i profesionalnu suradnju
                     </h3>
                     <p className="theme-body-muted mt-2 text-sm leading-7 sm:text-base">
                       Fokusirani smo na pouzdanost, preglednu ponudu i kvalitetnu
-                      poslovnu komunikaciju kroz svaki korak saradnje.
+                      poslovnu komunikaciju kroz svaki korak suradnje.
                     </p>
                   </div>
                 </div>
@@ -68,7 +68,7 @@ export function BusinessOverviewSection() {
                 icon={<BriefcaseBusiness className="h-5 w-5" />}
                 eyebrow="Usluge"
                 title="Stručna podrška"
-                description="Jasna i efikasna pomoć pri izboru odgovarajućih rešenja za različite tipove projekata i poslovnih potreba."
+                description="Jasna i učinkovita pomoć pri izboru odgovarajućih rješenja za različite tipove projekata i poslovnih potreba."
                 href="/usluge"
               />
 
@@ -76,7 +76,7 @@ export function BusinessOverviewSection() {
                 icon={<Boxes className="h-5 w-5" />}
                 eyebrow="Kategorije"
                 title="Pregledna ponuda"
-                description="Lakše pronalaženje proizvoda kroz organizovane kategorije i logičnu strukturu sadržaja."
+                description="Lakše pronalaženje proizvoda kroz organizirane kategorije i logičnu strukturu sadržaja."
                 href="/kategorije"
               />
 
@@ -84,7 +84,7 @@ export function BusinessOverviewSection() {
                 icon={<ShieldCheck className="h-5 w-5" />}
                 eyebrow="Proizvodi"
                 title="Kvalitetan izbor"
-                description="Ponuda koja podržava različite zahteve, uz fokus na pouzdanost, funkcionalnost i dostupnost."
+                description="Ponuda koja podržava različite zahtjeve, uz fokus na pouzdanost, funkcionalnost i dostupnost."
                 href="/proizvodi"
               />
 
@@ -92,7 +92,7 @@ export function BusinessOverviewSection() {
                 icon={<PhoneCall className="h-5 w-5" />}
                 eyebrow="Kontakt"
                 title="Brza komunikacija"
-                description="Jednostavan način da nas kontaktirate, postavite upit i dobijete pravovremene informacije."
+                description="Jednostavan način da nas kontaktirate, postavite upit i dobijete pouzdane informacije."
                 href="/kontakt"
               />
             </div>

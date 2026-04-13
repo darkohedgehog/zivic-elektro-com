@@ -18,14 +18,14 @@ export function CategoryBreadcrumbs({
   items: BreadcrumbItem[];
 }) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-6">
+    <nav aria-label="Krušne mrvice" className="mb-6">
       <ol className="theme-body-muted flex flex-wrap items-center gap-2 text-sm">
         {items.map((item, index) => (
           <li key={`${item.label}-${index}`} className="inline-flex items-center gap-2">
             {item.href ? (
               <Link
                 href={item.href}
-                className="transition duration-200 hover:text-[color:var(--foreground)]"
+                className="transition duration-200 hover:text-foreground"
               >
                 {item.label}
               </Link>
@@ -78,7 +78,7 @@ export function CategoryCard({
 
         <div className="theme-image-top-fade absolute inset-x-0 top-0 h-24" />
         <div className="theme-chip-overlay absolute right-4 top-4 px-3 py-1 text-[11px] uppercase tracking-[0.18em] theme-label">
-          {category.parent === 0 ? "Glavna kategorija" : "Potkategorija"}
+          {category.parent === 0 ? "Glavna kategorija" : "Podkategorija"}
         </div>
       </div>
 

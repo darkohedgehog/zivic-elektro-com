@@ -13,7 +13,7 @@ export function AboutHero() {
               <p className="section-eyebrow">O nama</p>
 
               <h1 className="theme-heading mt-4 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-                Preporučujemo se u vašem budućem snabdjevanju!
+                Preporučujemo se za vašu buduću opskrbu.
               </h1>
 
               <p className="theme-body mt-6 max-w-2xl text-base leading-8 sm:text-lg">
@@ -58,7 +58,7 @@ export function AboutHero() {
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="theme-chip-overlay max-w-lg rounded-2xl p-4">
                       <p className="theme-heading text-sm font-semibold">
-                        Stabilna saradnja i pregledna poslovna komunikacija
+                        Stabilna suradnja i pregledna poslovna komunikacija
                       </p>
                     </div>
                   </div>

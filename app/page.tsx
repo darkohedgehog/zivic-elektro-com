@@ -6,9 +6,9 @@ import { ServicesSection } from "@/components/mainpage/ServicesSection";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Elektromaterijal, poslovne usluge i webshop",
+  title: "Elektromaterijal, poslovne usluge i internetska trgovina",
   description:
-    "Živić-elektro predstavlja elektromaterijal, kategorije proizvoda, poslovne usluge i pristup webshopu za javne i poslovne kupce.",
+    "Živić-elektro predstavlja elektromaterijal, kategorije proizvoda, poslovne usluge i pristup internetskoj trgovini za privatne i poslovne kupce.",
   path: "/",
 });
 

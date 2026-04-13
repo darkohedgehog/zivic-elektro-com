@@ -9,7 +9,7 @@ export function AboutStory() {
             <div>
               <p className="section-eyebrow">Iskustvo</p>
               <h2 className="theme-heading mt-4 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-                Pouzdan partner sa dugogodišnjim iskustvom
+                Pouzdan partner s dugogodišnjim iskustvom
               </h2>
               <p className="theme-body mt-5 text-base leading-8 sm:text-lg">
                 {aboutStoryText}

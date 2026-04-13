@@ -43,7 +43,7 @@ export function AboutDigitalSolutions() {
 
                 <p className="theme-body-muted mt-6 text-sm leading-7 sm:text-base">
                   Ovaj dio poslovanja predstavljen je kao logičan nastavak
-                  savremenog poslovnog pristupa: funkcionalna rješenja, pregledna
+                  suvremenog poslovnog pristupa: funkcionalna rješenja, pregledna
                   iskustva i kvalitetnija digitalna prezentacija brenda.
                 </p>
 
@@ -54,7 +54,7 @@ export function AboutDigitalSolutions() {
                     rel="noreferrer"
                     className="btn-primary w-full px-6 py-3 sm:w-auto"
                   >
-                    Posetite Hedgehog Web Dev
+                    Posjetite Hedgehog Web Dev
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>

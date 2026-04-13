@@ -15,7 +15,7 @@ export function ContactMap() {
             <div className="max-w-3xl">
               <p className="section-eyebrow">Lokacija</p>
               <h2 className="theme-heading mt-4 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-                Posetite našu maloprodajnu lokaciju
+                Posjetite našu maloprodajnu lokaciju
               </h2>
               <p className="theme-body mt-5 text-base leading-8 sm:text-lg">
                 {retailMapQuery}
@@ -56,8 +56,7 @@ export function ContactMap() {
             </div>
 
             <p className="theme-body-muted text-sm leading-7 sm:text-base">
-              Maloprodajna lokacija je prikazana kroz čitljivu map sekciju s
-              direktnim izlazom prema navigaciji.
+              Posjetite nas i uvjerite se u široku ponudu elektromaterijala, rezervnih dijelova za bijelu tehniku i rasvjetnih tijela.
             </p>
           </div>
         </div>

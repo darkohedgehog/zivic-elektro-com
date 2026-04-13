@@ -43,7 +43,7 @@ const navigation = {
   ],
   external: [
     {
-      label: "Online shop",
+      label: "Internetska trgovina",
       href: "https://www.zivic-elektro.shop",
     },
     {
@@ -100,9 +100,9 @@ export default function Footer() {
             </Link>
 
             <p className="mt-5 max-w-md text-sm leading-7 text-[#748CAB]">
-              Distribucija elektro materijala, razvoj web aplikacija i poslovna
+              Distribucija elektromaterijala, razvoj web aplikacija i poslovna
               analitika u jednom poslovnom okviru. Gradimo pouzdana rješenja za
-              moderne kompanije i svakodnevne potrebe kupaca.
+              moderne tvrtke i svakodnevne potrebe kupaca.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -112,7 +112,7 @@ export default function Footer() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-[#F0EBD8] transition duration-300 hover:-translate-y-px hover:bg-white/10"
               >
-                Online shop
+                Internetska trgovina
                 <HiOutlineArrowUpRight className="h-4 w-4" />
               </Link>
 
@@ -201,7 +201,7 @@ export default function Footer() {
             className="group inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/4 px-3 py-2 text-sm text-[#748CAB] transition-all duration-300 hover:-translate-y-px hover:border-[#748CAB]/40 hover:bg-white/8 hover:text-[#F0EBD8]"
           >
             <HiOutlineCodeBracket className="h-4 w-4 transition duration-300 group-hover:scale-105" />
-            <span>Developed by HedgehogWebDev</span>
+            <span>Izradio Hedgehog Web Dev</span>
             <HiOutlineArrowUpRight className="h-4 w-4 transition duration-300 group-hover:translate-x-px group-hover:-translate-y-px" />
           </Link>
         </div>

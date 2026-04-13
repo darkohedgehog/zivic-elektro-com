@@ -94,8 +94,8 @@ export default async function ProductDetailPage({
               </h1>
 
               <p className="theme-body mt-5 max-w-2xl text-base leading-8 sm:text-lg">
-                Detaljan read-only prikaz proizvoda sa slikama, opisom, pripadnom
-                kategorijom i brendom, bez cena i kupovine.
+                Detaljan prikaz proizvoda samo za pregled sa slikama, opisom,
+                pripadnom kategorijom i brendom, bez cijena i kupovine.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
@@ -171,7 +171,7 @@ export default async function ProductDetailPage({
 
                 <div className="mt-6 grid gap-4">
                   <InfoRow
-                    label="Brand"
+                    label="Brend"
                     value={brand}
                   />
                   <InfoRow
@@ -191,7 +191,7 @@ export default async function ProductDetailPage({
                     Način prikaza
                   </p>
                   <p className="theme-body mt-2 text-sm leading-7">
-                    Prezentacijski prikaz bez cena, košarice, zaliha i kupovine.
+                    Prezentacijski prikaz bez cijena, košarice, zaliha i kupovine.
                   </p>
                 </div>
               </div>
@@ -208,7 +208,7 @@ export default async function ProductDetailPage({
               <div className="surface-panel overflow-hidden rounded-4xl p-6 sm:p-7">
                 <div className="flex flex-wrap gap-2">
                   <span className="theme-chip px-3 py-1 text-[11px] uppercase tracking-[0.16em]">
-                    Dostupno za kupovinu u Živić-Elektro webshopu
+                    Dostupno za kupnju u internetskoj trgovini Živić-Elektro
                   </span>
                 </div>
 
@@ -216,22 +216,22 @@ export default async function ProductDetailPage({
                   Kupovina
                 </h2>
                 <p className="theme-body mt-4 text-sm leading-8 sm:text-base">
-                  Ovaj proizvod možete kupiti u našem online shopu.
+                  Ovaj proizvod možete kupiti u našoj internetskoj trgovini.
                 </p>
                 <p className="theme-body-muted mt-3 text-sm leading-7">
-                  Za kompletnu dostupnost i online kupovinu posetite webshop.
+                  Za kompletnu dostupnost i internetsku kupnju posjetite trgovinu.
                 </p>
 
                 <div className="mt-6 flex flex-col gap-3">
                   <Link
-                    href={webshopUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn-primary w-full justify-center sm:w-auto"
-                  >
-                    Kupi u online shopu
-                    <ShoppingCart className="h-4 w-4" />
-                  </Link>
+                  href={webshopUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-primary w-full justify-center sm:w-auto"
+                >
+                  Kupi u trgovini
+                  <ShoppingCart className="h-4 w-4" />
+                </Link>
                 </div>
               </div>
             </div>

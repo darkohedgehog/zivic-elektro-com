@@ -122,7 +122,7 @@ export function ProductCard({
         <div className="theme-inline-panel mt-4 grid gap-2 rounded-2xl p-3">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
             <span className="theme-label text-xs uppercase tracking-[0.16em]">
-              Brand
+              Brend
             </span>
             <span className="theme-heading min-w-0 text-sm font-medium sm:text-right">
               {brand}
@@ -132,7 +132,7 @@ export function ProductCard({
 
         <div className="mt-4 flex flex-col items-start gap-3">
           <div className="theme-chip-muted rounded-2xl px-3 py-2 text-xs uppercase tracking-[0.16em] theme-label-muted">
-            Read-only prikaz
+            Samo za pregled
           </div>
 
           <div className="grid w-full gap-3 sm:grid-cols-2">
@@ -150,7 +150,7 @@ export function ProductCard({
               rel="noreferrer"
               className="btn-primary min-h-12 w-full justify-center"
             >
-              Kupi u shopu
+              Kupi u trgovini
               <ShoppingCart className="h-4 w-4" />
             </Link>
           </div>

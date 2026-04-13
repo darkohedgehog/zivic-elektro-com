@@ -224,7 +224,7 @@ export function ProductLightbox({
 
                     <button
                       type="button"
-                      aria-label="Prikažite sledeću sliku"
+                      aria-label="Prikažite sljedeću sliku"
                       onClick={onNext}
                       className="theme-action-icon absolute right-3 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full sm:right-5"
                     >

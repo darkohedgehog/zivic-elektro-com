@@ -18,13 +18,13 @@ export function ContactShopCTA() {
                 <Store className="h-5 w-5" />
               </div>
 
-              <p className="section-eyebrow mt-6">Online shop</p>
+              <p className="section-eyebrow mt-6">Internetska trgovina</p>
               <h2 className="theme-heading mt-4 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-                Pregledajte naš online shop
+                Pregledajte našu internetsku trgovinu
               </h2>
               <p className="theme-body mt-5 text-base leading-8 sm:text-lg">
-                Za kompletan pregled proizvoda i kategorija posetite naš online
-                shop.
+                Za kompletan pregled proizvoda i kategorija posjetite našu
+                internetsku trgovinu.
               </p>
             </div>
 
@@ -35,7 +35,7 @@ export function ContactShopCTA() {
                 rel="noreferrer"
                 className="btn-primary w-full px-6 py-3 sm:w-auto"
               >
-                Pregledajte ponudu na shopu
+                Pregledajte ponudu u trgovini
                 <ArrowRight className="h-4 w-4" />
               </Link>
 

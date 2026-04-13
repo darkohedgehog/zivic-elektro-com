@@ -51,13 +51,13 @@ const SORT_OPTIONS: Array<{ value: SortOption; label: string }> = [
   { value: "newest", label: "Najnovije prvo" },
   { value: "name-asc", label: "Naziv A-Z" },
   { value: "name-desc", label: "Naziv Z-A" },
-  { value: "brand-asc", label: "Brand A-Z" },
+  { value: "brand-asc", label: "Brend A-Z" },
 ];
 
 export const metadata: Metadata = createPageMetadata({
   title: "Proizvodi",
   description:
-    "Read-only pregled svih WooCommerce proizvoda sa filterima po brandu, kategoriji i podkategoriji, bez cena i kupovine.",
+    "Pregled svih WooCommerce proizvoda s filtrima po brendu, kategoriji i podkategoriji, bez cijena i kupovine.",
   path: "/proizvodi",
 });
 
@@ -154,13 +154,13 @@ export default async function ProductsPage({
               <p className="section-eyebrow">Proizvodi</p>
 
               <h1 className="theme-heading mt-4 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-                Read-only pregled celokupne ponude sa jasnim filterima
+                Pregled cjelokupne ponude s jasnim filterima
               </h1>
 
               <p className="theme-body mt-5 max-w-2xl text-base leading-8 sm:text-lg">
                 Stranica proizvoda omogućava mirno i pregledno istraživanje
                 kompletnog asortimana kroz brendove, kategorije i podkategorije,
-                bez cena, korpe i kupovine.
+                bez cijena, košarice i kupovine.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -203,10 +203,10 @@ export default async function ProductsPage({
         <WebshopCtaPanel
           eyebrow="Online kupovina"
           title="Online kupovina"
-          description="Kompletan katalog proizvoda dostupan je u našem webshopu."
+          description="Kompletan katalog proizvoda dostupan je u našoj internetskoj trgovini."
           href={WEBSHOP_BASE_URL}
-          ctaLabel="Otvori webshop"
-          caption="Koristite ovu stranicu za pregled, filtriranje i usporedbu proizvoda, a webshop za potpunu dostupnost i kupnju."
+          ctaLabel="Otvori trgovinu"
+          caption="Koristite ovu stranicu za pregled, filtriranje i usporedbu proizvoda, a internetsku trgovinu za potpunu dostupnost i kupnju."
         />
 
         <section className="flow-subsection relative py-10 sm:py-12">
@@ -222,7 +222,7 @@ export default async function ProductsPage({
                 </h2>
                 <p className="theme-body-muted mt-1 text-sm leading-7">
                   Na mobilnim ekranima kontrole su složene vertikalno radi
-                  jasnijeg pregleda i jednostavnijeg korišćenja.
+                  jasnijeg pregleda i jednostavnijeg korištenja.
                 </p>
               </div>
             </div>
@@ -276,14 +276,14 @@ export default async function ProductsPage({
 
                 <div className="grid gap-3 sm:col-span-2 xl:col-span-4 xl:grid-cols-[minmax(0,1fr)_auto]">
                   <button type="submit" className="btn-primary w-full sm:w-auto">
-                    Primenite filtere
+                    Primjenite filtere
                   </button>
 
                   <Link
                     href="/proizvodi"
                     className="btn-secondary w-full sm:w-auto xl:justify-self-start"
                   >
-                    Resetujte pregled
+                    Resetiraj pregled
                   </Link>
                 </div>
               </form>
@@ -307,7 +307,7 @@ export default async function ProductsPage({
                 </div>
 
                 <p className="theme-body-muted text-sm leading-7">
-                  Stranica se nakon promene filtera vraća na prvu paginaciju kako bi
+                  Stranica se nakon promjene filtera vraća na prvu paginaciju kako bi
                   pregled ostao predvidljiv i lak za skeniranje.
                 </p>
               </div>
@@ -323,12 +323,12 @@ export default async function ProductsPage({
             <div>
               <p className="section-eyebrow">Rezultati</p>
               <h2 className="theme-heading mt-3 text-2xl font-semibold sm:text-3xl">
-                {paginatedProducts.totalItems} proizvoda u read-only prikazu
+                {paginatedProducts.totalItems} proizvoda u prikazu samo za pregled
               </h2>
               <p className="theme-body-muted mt-3 max-w-3xl text-base leading-8">
                 Svaki proizvod vodi na detaljnu prezentacijsku stranicu sa
                 slikama, opisom, kategorijom i brendom, uz jasan put prema
-                webshop kupovini.
+                kupnji u internetskoj trgovini.
               </p>
             </div>
 
@@ -383,7 +383,7 @@ function buildSubcategoryOptions(
   categories: WooCategory[],
   includeParentName: boolean,
 ): SelectOption[] {
-  const collator = new Intl.Collator("sr", { sensitivity: "base" });
+  const collator = new Intl.Collator("hr", { sensitivity: "base" });
 
   return subcategories
     .map((subcategory) => {
@@ -404,7 +404,7 @@ function sortProducts(
   products: WooProduct[],
   sort: SortOption,
 ): WooProduct[] {
-  const collator = new Intl.Collator("sr", { sensitivity: "base" });
+  const collator = new Intl.Collator("hr", { sensitivity: "base" });
 
   return [...products].sort((left, right) => {
     if (sort === "newest") {
@@ -659,12 +659,12 @@ function ProductsPagination({
               href={buildProductsHref({ ...queryState, page: currentPage + 1 })}
               className="btn-secondary min-h-11 px-4"
             >
-              Sledeća
+              Sljedeća
               <ArrowRight className="h-4 w-4" />
             </Link>
           ) : (
             <span className="btn-secondary min-h-11 cursor-default px-4 opacity-55">
-              Sledeća
+              Sljedeća
               <ArrowRight className="h-4 w-4" />
             </span>
           )}

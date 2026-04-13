@@ -13,13 +13,13 @@ export function ServicesBI() {
               </h2>
               <p className="theme-body mt-5 text-base leading-8 sm:text-lg">
                 Razvijamo i održavamo BI rješenja prilagođena poslovnim procesima,
-                sa fokusom na kvalitet podataka, preglednost i podršku odlučivanju.
+                s fokusom na kvalitetu podataka, preglednost i podršku odlučivanju.
               </p>
 
               <div className="theme-feature-box mt-8 rounded-[1.75rem] p-5 sm:p-6">
                 <p className="theme-body-muted text-sm leading-7 sm:text-base">
-                  Sekcija je strukturirana kao enterprise capability pregled:
-                  model podataka, DWH, DAX, KPI logika i saradnja sa poslovnim
+                 Pregled poslovnih mogućnosti:
+                  model podataka, DWH, DAX, KPI logika i suradnja s poslovnim
                   timovima objedinjeni su u jednom jasnom BI okviru.
                 </p>
               </div>

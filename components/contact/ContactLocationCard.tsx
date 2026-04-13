@@ -98,7 +98,7 @@ function InfoBlock({
   type?: "text" | "email";
 }) {
   return (
-    <div className="theme-inline-panel rounded-[1.5rem] px-5 py-4">
+    <div className="theme-inline-panel rounded-3xl px-5 py-4">
       <div className="flex items-start gap-3">
         <div className="theme-icon-badge-soft mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl">
           {icon}
@@ -113,7 +113,7 @@ function InfoBlock({
             href={href}
             target={external ? "_blank" : undefined}
             rel={external ? "noreferrer" : undefined}
-            className="theme-heading mt-2 inline-flex max-w-full items-start gap-2 text-base font-medium leading-7 transition duration-200 hover:text-[color:var(--accent)]"
+            className="theme-heading mt-2 inline-flex max-w-full items-start gap-2 text-base font-medium leading-7 transition duration-200 hover:text-(--accent)"
           >
             <span className={type === "email" ? "break-normal" : ""}>
               {type === "email" ? <EmailText email={value} /> : value}

@@ -48,6 +48,9 @@ export const metadata: Metadata = {
   robots: homeMetadata.robots,
   openGraph: homeMetadata.openGraph,
   twitter: homeMetadata.twitter,
+  other: {
+    google: "notranslate",
+  },
 };
 
 export default function RootLayout({
@@ -58,6 +61,7 @@ export default function RootLayout({
   return (
     <html
       lang="hr"
+      translate="no"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full">

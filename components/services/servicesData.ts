@@ -34,7 +34,7 @@ export const overviewItems: ServiceOverviewItem[] = [
   {
     title: "Web razvoj",
     description:
-      "Web aplikacije, moderne tehnologije i poslovni digitalni alati za savremeno online prisustvo.",
+      "Web aplikacije, moderne tehnologije i poslovni digitalni alati za suvremenu internetsku prisutnost.",
     bullets: [
       "Web aplikacije",
       "Moderne tehnologije",
@@ -45,7 +45,7 @@ export const overviewItems: ServiceOverviewItem[] = [
   {
     title: "Power BI & Data analitika",
     description:
-      "BI izvještaji, dashboardi i KPI analiza poslovanja prilagođeni operativnim i menadžerskim potrebama.",
+      "BI izvještaji, nadzorne ploče i KPI analiza poslovanja prilagođeni operativnim i menadžerskim potrebama.",
     bullets: [
       "BI izvještaji",
       "Dashboardi",
@@ -54,9 +54,9 @@ export const overviewItems: ServiceOverviewItem[] = [
     icon: BarChart3,
   },
   {
-    title: "Distribucija elektro materijala",
+    title: "Distribucija elektromaterijala",
     description:
-      "Veleprodaja, maloprodaja i stabilna, pouzdana ponuda elektro materijala za različite potrebe kupaca.",
+      "Veleprodaja, maloprodaja i stabilna, pouzdana ponuda elektromaterijala za različite potrebe kupaca.",
     bullets: [
       "Veleprodaja",
       "Maloprodaja",
@@ -76,7 +76,7 @@ export const webDevelopmentItems: ServiceFeature[] = [
   {
     title: "Landing stranice i prezentacije",
     description:
-      "Brze, SEO-orijentisane i konverzijski jasne stranice za kvalitetniji nastup na tržištu.",
+      "Brze, SEO-usmjerene i konverzijski jasne stranice za kvalitetniji nastup na tržištu.",
     icon: MonitorSmartphone,
   },
   {
@@ -86,13 +86,13 @@ export const webDevelopmentItems: ServiceFeature[] = [
     icon: BriefcaseBusiness,
   },
   {
-    title: "E-commerce",
+    title: "Internetska trgovina",
     description:
-      "Shop iskustva, checkout tokovi i poslovne integracije za pregledniju online prodaju.",
+      "Kupovna iskustva, tokovi naplate i poslovne integracije za pregledniju internetsku prodaju.",
     icon: ShoppingCart,
   },
   {
-    title: "Admin paneli i dashboardi",
+    title: "Administracijski paneli i nadzorne ploče",
     description:
       "Interni alati i operativni paneli za bolji pregled procesa, podataka i poslovnih aktivnosti.",
     icon: LayoutDashboard,
@@ -107,33 +107,33 @@ export const webDevelopmentItems: ServiceFeature[] = [
 
 export const maintenanceItems: ServiceFeature[] = [
   {
-    title: "Održavanje i redovni update-i",
+    title: "Održavanje i redovita ažuriranja",
     description:
-      "Next, Node, Strapi i WordPress sistemi održavani kroz stabilne i predvidive nadogradnje.",
+      "Next.js, Node, Strapi i WordPress sustavi održavani kroz stabilne i predvidive nadogradnje.",
     icon: Wrench,
   },
   {
-    title: "Performance audit",
+    title: "Analiza performansi",
     description:
       "Lighthouse, Core Web Vitals i optimizacija brzine za kvalitetnije korisničko iskustvo.",
     icon: Gauge,
   },
   {
-    title: "Deploy & DevOps",
+    title: "Implementacija i DevOps",
     description:
-      "VPS, Nginx, pm2 i SSL konfiguracije za pouzdan deployment i stabilan produkcijski rad.",
+      "VPS, Nginx, pm2 i SSL konfiguracije za pouzdanu implementaciju i stabilan produkcijski rad.",
     icon: Server,
   },
   {
-    title: "Bezbjednost i monitoring",
+    title: "Sigurnost i nadzor",
     description:
-      "Backup strategija, sigurnosne prakse i praćenje sistema radi manjeg operativnog rizika.",
+      "Backup strategija, sigurnosne prakse i praćenje sustava radi manjeg operativnog rizika.",
     icon: ShieldCheck,
   },
   {
-    title: "Tehničke konsultacije",
+    title: "Tehničke konzultacije",
     description:
-      "Planiranje feature-a, tehnički smjer razvoja i podrška u donošenju produktnih odluka.",
+      "Planiranje funkcionalnosti, tehnički smjer razvoja i podrška u donošenju produktnih odluka.",
     icon: BriefcaseBusiness,
   },
 ];
@@ -154,25 +154,25 @@ export const biItems: ServiceFeature[] = [
   {
     title: "Dimenzioni modeli",
     description:
-      "Dizajniranje i održavanje fact/dimension modela usklađenih sa poslovnim procesima.",
+      "Dizajniranje i održavanje fact/dimension modela usklađenih s poslovnim procesima.",
     icon: LayoutDashboard,
   },
   {
-    title: "DAX mere i tabular modeli",
+    title: "DAX mjere i tabularni modeli",
     description:
       "Razvoj i optimizacija DAX kalkulacija za preciznije i korisnije poslovno izvještavanje.",
     icon: Gauge,
   },
   {
-    title: "Power BI izvještaji i dashboard-i",
+    title: "Power BI izvještaji i nadzorne ploče",
     description:
-      "Operativni i menadžerski dashboard-i za preglednije praćenje rezultata i poslovnih tokova.",
+      "Operativne i menadžerske nadzorne ploče za preglednije praćenje rezultata i poslovnih tokova.",
     icon: MonitorSmartphone,
   },
   {
     title: "KPI i analitički zahtjevi",
     description:
-      "Suradnja sa poslovnim timovima na definisanju KPI-jeva i zahtjeva za kvalitetnu analitiku.",
+      "Suradnja s poslovnim timovima na definiranju KPI-jeva i zahtjeva za kvalitetnu analitiku.",
     icon: BriefcaseBusiness,
   },
 ];
@@ -183,5 +183,5 @@ export const biBadges = [
   "Financije",
   "Power BI",
   "Azure DWH",
-  "KPI i dashboardi",
+  "KPI i nadzorne ploče",
 ] as const;

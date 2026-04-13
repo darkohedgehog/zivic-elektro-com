@@ -15,7 +15,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = createPageMetadata({
   title: "Kategorije proizvoda",
   description:
-    "Pregled svih glavnih WooCommerce kategorija u read-only prezentacijskom formatu, bez cena i kupovine.",
+    "Pregled svih glavnih WooCommerce kategorija u prezentacijskom formatu samo za pregled, bez cijena i kupovine.",
   path: "/kategorije",
 });
 
@@ -40,13 +40,13 @@ export default async function CategoriesPage() {
               <p className="section-eyebrow">Kategorije</p>
 
               <h1 className="theme-heading mt-4 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-                Pregled glavnih kategorija kroz jasno i read-only corporate iskustvo
+                Pregled glavnih kategorija kroz jasno iskustvo samo za pregled
               </h1>
 
               <p className="theme-body mt-5 max-w-2xl text-base leading-8 sm:text-lg">
                 Sve glavne WooCommerce kategorije prikazane su u prezentacijskom
-                formatu, sa fokusom na preglednost, podkategorije i lakše kretanje
-                kroz ponudu bez cena, korpe i kupovine.
+                formatu, s fokusom na preglednost, podkategorije i lakše kretanje
+                kroz ponudu bez cijena, košarice i kupovine.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -73,7 +73,7 @@ export default async function CategoriesPage() {
                     Režim prikaza
                   </p>
                   <p className="theme-heading mt-2 text-2xl font-semibold">
-                    Read-only
+                    Samo pregled
                   </p>
                 </div>
               </div>
@@ -83,17 +83,17 @@ export default async function CategoriesPage() {
               <InfoCard
                 icon={<FolderTree className="h-5 w-5" />}
                 title="Jasna hijerarhija"
-                description="Svaka glavna kategorija vodi ka svojoj stranici, gde se prvo prikazuju podkategorije ako postoje."
+                description="Svaka glavna kategorija vodi prema svojoj stranici, gdje se prvo prikazuju podkategorije ako postoje."
               />
               <InfoCard
                 icon={<Boxes className="h-5 w-5" />}
                 title="Bez prodajnih elemenata"
-                description="Prikaz služi informisanju i pregledu asortimana, bez cena, korpe i checkout toka."
+                description="Prikaz služi informiranju i pregledu asortimana, bez cijena, košarice i naplate."
               />
               <InfoCard
                 icon={<PackageSearch className="h-5 w-5" />}
                 title="Lakše snalaženje"
-                description="Kartice i kratki opisi olakšavaju skeniranje ponude i prelazak ka užim grupama proizvoda."
+                description="Kartice i kratki opisi olakšavaju pregled ponude i prelazak prema užim grupama proizvoda."
               />
             </div>
           </div>
@@ -102,10 +102,10 @@ export default async function CategoriesPage() {
         <WebshopCtaPanel
           eyebrow="Online kupovina"
           title="Online kupovina"
-          description="Kompletan katalog proizvoda dostupan je u našem webshopu."
+          description="Kompletan katalog proizvoda dostupan je u našoj internetskoj trgovini."
           href={WEBSHOP_BASE_URL}
-          ctaLabel="Otvori webshop"
-          caption="Korporativna stranica služi kao pregled i predstavljanje asortimana, dok se kupovina odvija u webshopu."
+          ctaLabel="Otvori trgovinu"
+          caption="Korporativna stranica služi kao pregled i predstavljanje asortimana, dok se kupovina odvija u internetskoj trgovini."
         />
 
         <div className="flow-subsection mt-10 flex items-center justify-between gap-4">

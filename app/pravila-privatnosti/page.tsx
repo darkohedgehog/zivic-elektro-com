@@ -29,7 +29,7 @@ const legalSections: LegalSection[] = [
     tocLabel: "Registrirani korisnici",
     title: "Registrirani korisnici",
     paragraphs: [
-      "Registrirani korisnik webshopa ŽIVIĆ- ELEKTRO j.d.o.o. Vukovar može biti samo korisnik koji posjeduje korisničko ime i lozinku.",
+      "Registrirani korisnik internetske trgovine ŽIVIĆ- ELEKTRO j.d.o.o. Vukovar može biti samo korisnik koji posjeduje korisničko ime i lozinku.",
       "ŽIVIĆ- ELEKTRO j.d.o.o. Vukovar ne može se držati odgovornim za neovlašteno korištenje korisničkog računa, niti eventualnu štetu nastalu na taj način.",
       "ŽIVIĆ- ELEKTRO j.d.o.o. Vukovar zadržava pravo ukinuti ili uskratiti mogućnost korištenja korisničkog računa bez prethodne najave ili/i objašnjenja.",
       "ŽIVIĆ- ELEKTRO j.d.o.o. Vukovar ne snosi odgovornost za štetu nastalu ukidanjem korisničkog računa.",

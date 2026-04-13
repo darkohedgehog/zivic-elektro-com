@@ -48,7 +48,7 @@ export async function FeaturedCategoriesSection() {
             </h2>
 
             <p className="theme-body mt-5 text-base leading-8 sm:text-lg">
-              Na prezentacijskoj stranici prikazujemo izdvojene kategorije i deo
+              Na prezentacijskoj stranici prikazujemo izdvojene kategorije i dio
               proizvoda iz naše ponude, kako biste brže stekli uvid u asortiman i
               lakše pronašli oblast koja vas zanima.
             </p>
@@ -97,8 +97,8 @@ function CategoryShowcaseCard({
           </h3>
 
           <p className="theme-body-muted mt-3 text-sm leading-7 sm:text-base">
-            Organizovana kategorija sa jasnim pregledom proizvoda i pripadajućih
-            podkategorija, namenjena lakšem snalaženju kroz ponudu.
+            Organizirana kategorija s jasnim pregledom proizvoda i pripadajućih
+            podkategorija, namijenjena lakšem snalaženju kroz ponudu.
           </p>
 
           <div className="theme-card-surface mt-6 rounded-3xl p-4">
@@ -152,7 +152,7 @@ function CategoryShowcaseCard({
                 Izdvojeni proizvodi iz kategorije
               </p>
               <p className="theme-body-muted text-sm">
-                Bez cena i košarice, fokus na pregledu ponude.
+                Bez cijena i košarice, fokus na pregledu ponude.
               </p>
             </div>
           </div>

@@ -17,11 +17,10 @@ export function ServicesElectrical() {
 
               <p className="section-eyebrow mt-6">Elektro materijal</p>
               <h2 className="theme-heading mt-4 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-                Distribucija elektro materijala
+                Distribucija elektromaterijala
               </h2>
               <p className="theme-body mt-5 text-base leading-8 sm:text-lg">
-                Dugogodišnje iskustvo u veleprodaji i maloprodaji elektro
-                materijala omogućava nam stabilnu i pouzdanu ponudu proizvoda za
+                Dugogodišnje iskustvo u veleprodaji i maloprodaji elektromaterijala omogućava nam stabilnu i pouzdanu ponudu proizvoda za
                 instalacije i svakodnevne potrebe kupaca.
               </p>
             </div>
@@ -48,8 +47,8 @@ export function ServicesElectrical() {
               </div>
 
               <p className="theme-body-muted mt-6 text-sm leading-7 sm:text-base">
-                Za pregled asortimana, kategorija i proizvoda posetite naš online
-                shop.
+                Za pregled asortimana, kategorija i proizvoda posjetite našu
+                internetsku trgovinu.
               </p>
 
               <div className="mt-8">
@@ -59,7 +58,7 @@ export function ServicesElectrical() {
                   rel="noreferrer"
                   className="btn-primary w-full px-6 py-3 sm:w-auto"
                 >
-                  Pogledajte ponudu u shopu
+                  Pogledajte ponudu u trgovini
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

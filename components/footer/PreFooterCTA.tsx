@@ -43,7 +43,7 @@ export function PreFooterCTA() {
                 transition={{ delay: 0.14, duration: 0.5, ease: "easeOut" }}
                 className="mt-5 max-w-4xl text-3xl font-semibold tracking-tight text-[#F0EBD8] sm:text-4xl lg:text-5xl"
               >
-                Trebate pouzdanog partnera za elektro materijal, web aplikacije
+                Trebate pouzdanog partnera za elektromaterijal, web aplikacije
                 ili poslovnu analitiku?
               </motion.h2>
 
@@ -54,7 +54,7 @@ export function PreFooterCTA() {
                 transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
                 className="mt-5 max-w-2xl text-sm leading-7 text-[#8EA3B8] sm:text-base sm:leading-8"
               >
-                Pomažemo kroz distribuciju elektro materijala, razvoj modernih
+                Pomažemo kroz distribuciju elektromaterijala, razvoj modernih
                 digitalnih rješenja i Power BI izvještavanje prilagođeno
                 poslovnim procesima i svakodnevnom radu timova.
               </motion.p>
@@ -66,9 +66,9 @@ export function PreFooterCTA() {
                 transition={{ delay: 0.26, duration: 0.5, ease: "easeOut" }}
                 className="mt-6 flex flex-wrap gap-3"
               >
-                <Tag>Elektro materijal</Tag>
+                <Tag>Elektromaterijal</Tag>
                 <Tag>Web aplikacije</Tag>
-                <Tag>Power BI &amp; Data</Tag>
+                <Tag>Power BI i podaci</Tag>
               </motion.div>
             </div>
 
@@ -104,7 +104,7 @@ export function PreFooterCTA() {
                   rel="noreferrer"
                   className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3.5 text-sm font-semibold text-[#F0EBD8] backdrop-blur-md transition-all duration-300 hover:border-[#748CAB]/50 hover:bg-white/9"
                 >
-                  <span>Pregledajte online shop</span>
+                  <span>Pregledajte internetsku trgovinu</span>
                   <HiOutlineArrowRight className="h-4 w-4 transition duration-300 group-hover:translate-x-0.5" />
                 </Link>
               </motion.div>

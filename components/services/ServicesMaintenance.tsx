@@ -13,14 +13,14 @@ export function ServicesMaintenance() {
               </h2>
               <p className="theme-body mt-5 text-base leading-8 sm:text-lg">
                 Pored razvoja, pružamo i dugoročnu tehničku podršku, optimizaciju
-                i savjetovanje za stabilan rad digitalnih sistema.
+                i savjetovanje za stabilan rad digitalnih sustava.
               </p>
 
               <div className="theme-feature-box mt-8 rounded-[1.75rem] p-5 sm:p-6">
                 <p className="theme-body-muted text-sm leading-7 sm:text-base">
-                  Ova oblast naglašava operativnu zrelost: kontinuirano održavanje,
-                  sigurnost, deployment praksa i tehničke konsultacije za
-                  dugoročno pouzdane sisteme.
+                 Kontinuirano održavanje,
+                  sigurnost, DevOps praksa i tehničke konzultacije za
+                  dugoročno pouzdane sustave.
                 </p>
               </div>
             </div>

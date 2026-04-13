@@ -9,7 +9,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = createPageMetadata({
   title: "Kontakt i poslovne informacije",
   description:
-    "Kontakt stranica tvrtke Živić-elektro j.d.o.o. sa veleprodajnim i maloprodajnim informacijama, mapom lokacije i pristupom online shopu.",
+    "Kontakt stranica tvrtke Živić-elektro j.d.o.o. s veleprodajnim i maloprodajnim informacijama, mapom lokacije i pristupom internetskoj trgovini.",
   path: "/kontakt",
 });
 

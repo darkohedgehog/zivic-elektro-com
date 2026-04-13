@@ -20,7 +20,7 @@ export function ServicesSection() {
             </h2>
 
             <p className="theme-body mt-5 max-w-xl text-base leading-8 sm:text-lg">
-              Od prodaje elektromaterijala do digitalnih rešenja i poslovnih
+              Od prodaje elektromaterijala do digitalnih rješenja i poslovnih
               vizuala, fokusirani smo na usluge koje donose veću preglednost,
               efikasnost i sigurnost u radu.
             </p>
@@ -33,10 +33,10 @@ export function ServicesSection() {
 
                 <div>
                   <h3 className="theme-heading text-base font-semibold">
-                    Praktična rešenja sa jasnim poslovnim fokusom
+                    Praktična rješenja s jasnim poslovnim fokusom
                   </h3>
                   <p className="theme-body-muted mt-2 text-sm leading-7 sm:text-base">
-                    Naš pristup se zasniva na pouzdanoj ponudi, funkcionalnim
+                    Naš pristup temelji se na pouzdanoj ponudi, funkcionalnim
                     digitalnim alatima i podršci koja klijentima olakšava izbor
                     i donošenje odluka.
                   </p>
@@ -66,9 +66,9 @@ export function ServicesSection() {
             <ServiceCard
               icon={<Boxes className="h-6 w-6" />}
               title="Distribucija elektromaterijala"
-              description="Pregledna i pouzdana ponuda proizvoda namenjenih različitim tipovima projekata, uz fokus na dostupnost, kvalitet i jednostavniji izbor."
+              description="Pregledna i pouzdana ponuda proizvoda namijenjenih različitim tipovima projekata, uz fokus na dostupnost, kvalitetu i jednostavniji izbor."
               bullets={[
-                "Organizovana ponuda proizvoda i kategorija",
+                "Organizirana ponuda proizvoda i kategorija",
                 "Jasnije snalaženje kroz asortiman",
                 "Podrška pri pronalaženju odgovarajućih artikala",
               ]}
@@ -79,9 +79,9 @@ export function ServicesSection() {
             <ServiceCard
               icon={<MonitorSmartphone className="h-6 w-6" />}
               title="Izrada web aplikacija"
-              description="Savremena web rešenja prilagođena poslovnim potrebama, sa naglaskom na preglednost, funkcionalnost i kvalitetno korisničko iskustvo."
+              description="Suvremena web rješenja prilagođena poslovnim potrebama, s naglaskom na preglednost, funkcionalnost i kvalitetno korisničko iskustvo."
               bullets={[
-                "Poslovne i prezentacione web aplikacije",
+                "Poslovne i prezentacijske web aplikacije",
                 "Pregledna struktura sadržaja i ponude",
                 "Moderni i responzivni interfejsi",
               ]}
@@ -91,10 +91,10 @@ export function ServicesSection() {
 
             <ServiceCard
               icon={<BarChart3 className="h-6 w-6" />}
-              title="Poslovni vizuali i izveštavanje"
-              description="Vizuelni prikaz ključnih podataka kroz dashboard rešenja i poslovne izveštaje koji pomažu boljem praćenju rezultata i donošenju odluka."
+              title="Poslovni vizuali i izvještavanje"
+              description="Vizualni prikaz ključnih podataka kroz nadzorne ploče i poslovne izvještaje koji pomažu boljem praćenju rezultata i donošenju odluka."
               bullets={[
-                "Dashboard prikazi za bolju preglednost",
+                "Nadzorne ploče za bolju preglednost",
                 "Vizualizacija podataka i trendova",
                 "Podrška poslovnom odlučivanju",
               ]}
@@ -136,7 +136,7 @@ function ServiceCard({
           </div>
 
           <div className="theme-chip px-3 py-1 text-xs uppercase tracking-[0.18em]">
-            Corporate service
+            Poslovna usluga
           </div>
         </div>
 

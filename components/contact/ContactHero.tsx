@@ -23,8 +23,8 @@ export function ContactHero() {
 
               <p className="theme-body mt-6 max-w-2xl text-base leading-8 sm:text-lg">
                 Za informacije o proizvodima, poslovnoj suradnji i ponudi
-                elektromaterijala kontaktirajte naš tim ili pregledajte naš
-                online shop.
+                elektromaterijala kontaktirajte naš tim ili pregledajte našu
+                internetsku trgovinu.
               </p>
 
               <p className="theme-body-muted mt-4 max-w-2xl text-sm leading-7 sm:text-base">
@@ -47,7 +47,7 @@ export function ContactHero() {
                   rel="noreferrer"
                   className="btn-secondary inline-flex min-w-0 w-full items-center justify-center gap-2 px-4 py-3 text-center sm:px-5"
                 >
-                  <span className="truncate">Pregledajte online shop</span>
+                  <span className="truncate">Online trgovina</span>
                   <ArrowRight className="h-4 w-4 shrink-0" />
                 </Link>
               </div>
@@ -61,7 +61,7 @@ export function ContactHero() {
                       </div>
                       <div className="min-w-0">
                         <p className="theme-label text-xs uppercase tracking-[0.16em]">
-                          Kompanija
+                          Tvrtka
                         </p>
                         <p className="theme-heading mt-2 text-sm font-semibold leading-7 sm:text-base">
                           {companyName}

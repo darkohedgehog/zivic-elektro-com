@@ -31,7 +31,7 @@ export function ServicesFinalCTA() {
                 rel="noreferrer"
                 className="btn-secondary w-full px-6 py-3 sm:w-auto"
               >
-                Pregledajte online shop
+                Online trgovina
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

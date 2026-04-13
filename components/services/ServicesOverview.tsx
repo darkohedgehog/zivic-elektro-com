@@ -11,9 +11,7 @@ export function ServicesOverview() {
               Naše ključne oblasti
             </h2>
             <p className="theme-body mt-5 text-base leading-8 sm:text-lg">
-              Stranica jasno razdvaja digitalne usluge, analitiku i distribuciju
-              elektro materijala kako bi posjetilac odmah razumio gdje se nalazi
-              odgovarajuća vrijednost za njegov poslovni kontekst.
+              Razvoj, analitika i distribucija
             </p>
           </div>
 

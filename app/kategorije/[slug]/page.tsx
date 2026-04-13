@@ -87,7 +87,7 @@ export default async function CategoryDetailPage({
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
               <p className="section-eyebrow">
-                {category.parent === 0 ? "Glavna kategorija" : "Potkategorija"}
+                {category.parent === 0 ? "Glavna kategorija" : "Podkategorija"}
               </p>
 
               <h1 className="theme-heading mt-4 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
@@ -141,10 +141,10 @@ export default async function CategoryDetailPage({
         <WebshopCtaPanel
           eyebrow="Online kupovina"
           title="Kupite proizvode online"
-          description="Kompletan asortiman proizvoda iz ove kategorije dostupan je u našem webshopu."
+          description="Kompletan asortiman proizvoda iz ove kategorije dostupan je u našoj internetskoj trgovini."
           href={webshopCategoryUrl}
-          ctaLabel="Pogledajte proizvode u shopu"
-          caption={`Kupovina za kategoriju ${category.name} odvija se u webshopu, uz punu transakcijsku dostupnost i pregled ponude.`}
+          ctaLabel="Pogledajte proizvode u trgovini"
+          caption={`Kupovina za kategoriju ${category.name} odvija se u internetskoj trgovini, uz punu transakcijsku dostupnost i pregled ponude.`}
         />
 
         {hasChildren ? (
@@ -178,7 +178,7 @@ export default async function CategoryDetailPage({
         {hasChildren && parentPreviewProducts.length > 0 ? (
           <ProductGridSection
             title={`Izdvojeni proizvodi iz kategorije ${category.name}`}
-            description="Prikazani su direktno dodeljeni proizvodi iz ove kategorije, uz detaljan korporativni pregled i jasan prelaz prema webshop kupovini."
+            description="Prikazani su izravno dodijeljeni proizvodi iz ove kategorije, uz detaljan korporativni pregled i jasan prijelaz prema kupnji u internetskoj trgovini."
             products={parentPreviewProducts}
             categories={categories}
           />
@@ -187,7 +187,7 @@ export default async function CategoryDetailPage({
         {!hasChildren ? (
           <ProductGridSection
             title={`Proizvodi u kategoriji ${category.name}`}
-            description="Proizvodi su prikazani u read-only grid rasporedu sa slikom, kratkim opisom, kategorijom, potkategorijom i direktnim prelazom na webshop."
+            description="Proizvodi su prikazani u rasporedu samo za pregled, sa slikom, kratkim opisom, kategorijom, podkategorijom i izravnim prijelazom na internetsku trgovinu."
             products={products}
             categories={categories}
           />

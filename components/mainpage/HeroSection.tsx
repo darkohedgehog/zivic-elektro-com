@@ -44,18 +44,22 @@ function HeroContent() {
       transition={{ duration: 0.7, ease: "easeOut" }}
       className="relative z-10"
     >
-      <div className="theme-pill text-sm">
-        Profesionalna podrška • Kvalitetna ponuda • Pouzdana saradnja
+      <div
+        className="theme-pill text-sm notranslate"
+        translate="no"
+        suppressHydrationWarning
+      >
+        Profesionalna podrška • Kvalitetna ponuda • Pouzdana suradnja
       </div>
 
       <h1 className="theme-heading mt-6 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-        Pouzdana rešenja za elektromaterijal i poslovnu podršku
+        Pouzdana rješenja za elektromaterijal i poslovnu podršku
       </h1>
 
       <p className="theme-body mt-6 max-w-2xl text-base leading-8 sm:text-lg">
         Kroz pažljivo odabrane proizvode, jasnu ponudu i profesionalan pristup,
-        pomažemo klijentima da brže i sigurnije dođu do pravog rešenja za svoj
-        projekat.
+        pomažemo klijentima da brže i sigurnije dođu do pravog rješenja za svoj
+        projekt.
       </p>
 
       <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -80,17 +84,17 @@ function HeroContent() {
         <InfoPill
           icon={<ShieldCheck className="h-5 w-5" />}
           title="Pouzdanost"
-          text="Stabilna saradnja i odgovoran pristup svakom klijentu."
+          text="Stabilna suradnja i odgovoran pristup svakom klijentu."
         />
         <InfoPill
           icon={<Boxes className="h-5 w-5" />}
           title="Ponuda"
-          text="Pregled kategorija i proizvoda na jednom mestu."
+          text="Pregled kategorija i proizvoda na jednom mjestu."
         />
         <InfoPill
           icon={<BriefcaseBusiness className="h-5 w-5" />}
           title="Podrška"
-          text="Stručno savetovanje i pomoć pri izboru rešenja."
+          text="Stručno savjetovanje i pomoć pri izboru rješenja."
         />
       </div>
     </motion.div>
@@ -142,7 +146,7 @@ function HeroVisualCard() {
 
           <div className="absolute top-4 left-4 right-4 flex items-start justify-between gap-3">
             <div className="theme-chip-overlay theme-body px-3 py-1 text-xs uppercase tracking-[0.18em]">
-              Corporate visual
+              Vaš siguran partner
             </div>
 
             <div className="theme-chip-overlay-muted theme-body-muted px-3 py-1 text-xs">
@@ -153,7 +157,7 @@ function HeroVisualCard() {
           <div className="absolute right-4 bottom-4 left-4">
             <div className="theme-chip-overlay max-w-md rounded-2xl p-4">
               <p className="theme-heading text-sm font-semibold">
-                Integrisana podrška za suvremeno poslovanje
+                Integrirana podrška za suvremeno poslovanje
               </p>
             </div>
           </div>

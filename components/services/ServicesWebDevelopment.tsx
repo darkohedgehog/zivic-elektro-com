@@ -13,10 +13,10 @@ export function ServicesWebDevelopment() {
           <div className="max-w-3xl">
             <p className="section-eyebrow">Web razvoj</p>
             <h2 className="theme-heading mt-4 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-              Web sajtovi i web aplikacije
+              Web stranice i web aplikacije
             </h2>
             <p className="theme-body mt-5 text-base leading-8 sm:text-lg">
-              Razvijamo savremena digitalna rješenja usmjerena na performanse,
+              Razvijamo suvremena digitalna rješenja usmjerena na performanse,
               preglednost i kvalitetno korisničko iskustvo.
             </p>
           </div>
@@ -55,7 +55,7 @@ export function ServicesWebDevelopment() {
                     Poslovna rješenja
                   </div>
                   <div className="theme-chip-muted px-4 py-2 text-sm">
-                    Savremeni digitalni pristup
+                    Suvremeni digitalni pristup
                   </div>
                 </div>
 
@@ -71,7 +71,7 @@ export function ServicesWebDevelopment() {
                 rel="noreferrer"
                 className="btn-primary w-full px-6 py-3 sm:w-auto"
               >
-                Posetite Hedgehog Web Dev
+                Posjetite Hedgehog Web Dev
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

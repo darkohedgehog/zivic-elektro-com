@@ -79,7 +79,7 @@ export function ProductImageGallery({
         <div className="theme-media-shell relative overflow-hidden rounded-[1.75rem]">
           <div className="absolute left-4 top-4 z-10 flex items-center gap-2">
             <div className="theme-chip-overlay theme-label px-3 py-1 text-[11px] uppercase tracking-[0.18em]">
-              Vizuelni pregled
+              Vizualni pregled
             </div>
 
             <div className="theme-chip-overlay-muted theme-body px-3 py-1 text-[11px] uppercase tracking-[0.18em]">
@@ -100,7 +100,7 @@ export function ProductImageGallery({
 
               <button
                 type="button"
-                aria-label="Prikažite sledeću sliku"
+                aria-label="Prikažite sljedeću sliku"
                 onClick={goToNextImage}
                 className="theme-action-icon absolute right-3 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full sm:right-4"
               >
@@ -145,7 +145,7 @@ export function ProductImageGallery({
             <div className="theme-image-bottom-fade pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-4 sm:p-5">
               <div>
                 <p className="theme-label text-xs uppercase tracking-[0.18em]">
-                  Fullscreen viewer
+                  Puni prikaz
                 </p>
                 <p className="theme-heading mt-2 text-sm font-medium sm:text-base">
                   Kliknite za detaljniji pregled slike
