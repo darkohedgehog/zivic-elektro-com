@@ -15,7 +15,7 @@ export function ServicesElectrical() {
                 <Boxes className="h-6 w-6" />
               </div>
 
-              <p className="section-eyebrow mt-6">Elektro materijal</p>
+              <p className="section-eyebrow mt-6">Elektromaterijal</p>
               <h2 className="theme-heading mt-4 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
                 Distribucija elektromaterijala
               </h2>

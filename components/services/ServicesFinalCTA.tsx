@@ -9,7 +9,7 @@ export function ServicesFinalCTA() {
         <div className="surface-panel rounded-4xl p-6 sm:p-8 lg:p-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div className="max-w-3xl">
-              <p className="section-eyebrow">Završni korak</p>
+              <p className="section-eyebrow">Pouzdan partner</p>
               <h2 className="theme-heading mt-4 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
                 Trebate digitalno rješenje ili pouzdanog partnera?
               </h2>

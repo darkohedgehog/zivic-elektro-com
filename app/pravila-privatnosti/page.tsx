@@ -211,7 +211,7 @@ export default function PrivacyPage() {
             </aside>
 
             <article className="surface-panel rounded-4xl p-6 sm:p-8 lg:p-10 mx-auto">
-              <div className="max-w-4xl">
+              <div className="max-w-4xl mx-auto">
                 <div className="rounded-3xl border border-[#748CAB]/18 bg-[#0D1321]/36 p-5 sm:p-6 mx-auto">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#748CAB]">
                     Dokument
@@ -243,7 +243,7 @@ export default function PrivacyPage() {
 
 function LegalSectionBlock({ section }: { section: LegalSection }) {
   return (
-    <section id={section.id} className="scroll-mt-32">
+    <section id={section.id} className="scroll-mt-32 mx-auto">
       <div className="pb-10">
         <div className="flex items-start justify-between gap-4">
           <h2 className="text-2xl font-semibold tracking-tight text-[#F0EBD8] sm:text-[1.9rem]">
@@ -259,7 +259,7 @@ function LegalSectionBlock({ section }: { section: LegalSection }) {
         </div>
 
         {section.paragraphs ? (
-          <div className="mt-5 space-y-4 text-sm leading-7 text-[#F0EBD8]/78 sm:text-base sm:leading-8">
+          <div className="mt-5 space-y-4 text-sm leading-7 text-[#F0EBD8]/78 sm:text-base sm:leading-8 mx-auto">
             {section.paragraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
