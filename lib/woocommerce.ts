@@ -28,6 +28,12 @@ function getBasicAuthHeader() {
   return `Basic ${token}`;
 }
 
+function createWooRequestError(response: Response): Error {
+  return new Error(
+    `WooCommerce request failed with status ${response.status} ${response.statusText}.`,
+  );
+}
+
 async function wooRequest(endpoint: string): Promise<Response> {
   const base = WC_BASE_URL!.replace(/\/$/, "");
   const url = `${base}/wp-json/wc/v3${endpoint}`;
@@ -47,10 +53,7 @@ async function wooRequest(endpoint: string): Promise<Response> {
         return response;
       }
 
-      const errorText = await response.text();
-      const requestError = new Error(
-        `WooCommerce request failed (${response.status} ${response.statusText}): ${errorText}`,
-      );
+      const requestError = createWooRequestError(response);
 
       if (response.status < 500 && response.status !== 429) {
         throw requestError;

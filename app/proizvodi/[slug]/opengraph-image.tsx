@@ -10,6 +10,15 @@ export const contentType = "image/png";
 export const revalidate = 300;
 export const runtime = "nodejs";
 
+const ALLOWED_PRODUCT_IMAGE_HOSTS = new Set([
+  "localhost",
+  "wp.zivic-elektro.shop",
+  "res.cloudinary.com",
+  "images.unsplash.com",
+  "assets.aceternity.com",
+  "api.microlink.io",
+]);
+
 type ProductImageProps = {
   params: Promise<{
     slug: string;
@@ -290,7 +299,16 @@ async function createDataUrlFromImage(
   }
 
   try {
-    const response = await fetch(imageUrl, {
+    const parsedImageUrl = new URL(imageUrl);
+
+    if (
+      !["http:", "https:"].includes(parsedImageUrl.protocol) ||
+      !ALLOWED_PRODUCT_IMAGE_HOSTS.has(parsedImageUrl.hostname)
+    ) {
+      return null;
+    }
+
+    const response = await fetch(parsedImageUrl, {
       headers: {
         Accept: "image/*",
       },

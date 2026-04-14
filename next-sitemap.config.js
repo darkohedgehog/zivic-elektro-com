@@ -68,6 +68,12 @@ function createUrlEntry(config, routePath, overrides = {}) {
   };
 }
 
+function createWooRequestError(response) {
+  return new Error(
+    `WooCommerce sitemap request failed with status ${response.status} ${response.statusText}.`,
+  );
+}
+
 async function fetchWooAllPages(endpoint) {
   const baseUrl = readEnv("WC_BASE_URL");
   const consumerKey = readEnv("WC_CONSUMER_KEY") || readEnv("WC_KEY");
@@ -101,11 +107,7 @@ async function fetchWooAllPages(endpoint) {
     );
 
     if (!response.ok) {
-      const errorText = await response.text();
-
-      throw new Error(
-        `WooCommerce sitemap request failed (${response.status} ${response.statusText}): ${errorText}`,
-      );
+      throw createWooRequestError(response);
     }
 
     const pageItems = await response.json();
