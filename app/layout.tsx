@@ -46,6 +46,9 @@ export const metadata: Metadata = {
   description: DEFAULT_SITE_DESCRIPTION,
   alternates: homeMetadata.alternates,
   robots: homeMetadata.robots,
+  verification: {
+    google: "nXmetBG94TvgHjVSvdMQFTAxYN638GFlcsT1_k5-hUA",
+  },
   openGraph: homeMetadata.openGraph,
   twitter: homeMetadata.twitter,
   other: {
