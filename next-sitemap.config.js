@@ -9,6 +9,7 @@ const STATIC_ROUTE_SETTINGS = {
   "/o-nama": { changefreq: "monthly", priority: 0.8 },
   "/usluge": { changefreq: "monthly", priority: 0.8 },
   "/kontakt": { changefreq: "monthly", priority: 0.8 },
+  "/cjenici": { changefreq: "daily", priority: 0.8 },
   "/kategorije": { changefreq: "daily", priority: 0.9 },
   "/proizvodi": { changefreq: "daily", priority: 0.9 },
   "/pravila-privatnosti": { changefreq: "yearly", priority: 0.5 },

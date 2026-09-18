@@ -97,19 +97,20 @@ export function Navbar() {
               </div>
             </Link>
 
-            <nav className="hidden items-center gap-1 md:flex">
+            <nav className="hidden items-center gap-1 xl:flex">
               <DesktopMegaMenu
                 menuRef={desktopMenuRef}
                 open={desktopMenuOpen}
                 onOpenChange={setDesktopMenuOpen}
               />
               <NavLink href="/usluge">Usluge</NavLink>
+              <NavLink href="/cjenici">Cjenici</NavLink>
               <NavLink href="/o-nama">O nama</NavLink>
               <NavLink href="/kontakt">Kontakt</NavLink>
             </nav>
 
             <div className="flex items-center gap-3">
-              <div className="hidden md:flex">
+              <div className="hidden xl:flex">
                <Link href="/kontakt" className="btn-secondary">
                Zatražite ponudu
               </Link>
@@ -118,7 +119,7 @@ export function Navbar() {
                 type="button"
                 aria-label="Toggle menu"
                 aria-expanded={mobileMenuOpen}
-                className="theme-action-icon inline-flex size-11 items-center justify-center rounded-xl active:scale-95 md:hidden"
+                className="theme-action-icon inline-flex size-11 items-center justify-center rounded-xl active:scale-95 xl:hidden"
                 onClick={() =>
                   setMobileMenuOpen((open) => {
                     const nextOpen = !open;
@@ -209,7 +210,7 @@ function MobileMenu({
   return (
     <div
       className={cn(
-        "overflow-hidden transition-all duration-200 md:hidden",
+        "overflow-hidden transition-all duration-200 xl:hidden",
         mobileMenuOpen
           ? "max-h-192 border-t border-(--border-soft) opacity-100"
           : "max-h-0 border-t border-transparent opacity-0",
@@ -247,6 +248,7 @@ function MobileMenu({
         </div>
 
         <MobileLink href="/usluge">Usluge</MobileLink>
+        <MobileLink href="/cjenici">Cjenici</MobileLink>
         <MobileLink href="/o-nama">O nama</MobileLink>
         <MobileLink href="/kontakt">Kontakt</MobileLink>
 

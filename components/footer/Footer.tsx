@@ -17,6 +17,7 @@ const navigation = {
     { label: "Usluge", href: "/usluge" },
     { label: "Kategorije", href: "/kategorije" },
     { label: "Proizvodi", href: "/proizvodi" },
+    { label: "Cjenici", href: "/cjenici" },
     { label: "Kontakt", href: "/kontakt" },
   ],
   legal: [
